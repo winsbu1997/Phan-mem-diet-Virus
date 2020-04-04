@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FE93B34E-0ED6-4027-9098-E4A5E480F1BC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Ladin.mtaAV</RootNamespace>
+    <AssemblyName>mtaAV</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>Dll\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI, Version=1.9.0.0, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.NATUPNPLib">
+      <HintPath>Dll\Interop.NATUPNPLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.NETCONLib">
+      <HintPath>Dll\Interop.NETCONLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.NetFwTypeLib">
+      <HintPath>Dll\Interop.NetFwTypeLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Firewall.cs" />
+    <Compile Include="Manager\FolderLocker.cs" />
+    <Compile Include="Manager\History.cs" />
+    <Compile Include="Manager\QuarantineManager.cs" />
+    <Compile Include="Model\Database.cs" />
+    <Compile Include="Model\EXCLUSION.cs" />
+    <Compile Include="Model\FOLDER_LOCKER.cs" />
+    <Compile Include="Model\FOLDER_MONITOR.cs" />
+    <Compile Include="Model\HISTORY.cs" />
+    <Compile Include="Model\InfectionObject.cs" />
+    <Compile Include="Model\QUARANTINES.cs" />
+    <Compile Include="Model\SQLiteConfiguration.cs" />
+    <Compile Include="Model\TIMER.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Provider.cs" />
+    <Compile Include="UsbManager\UsbDisk.cs" />
+    <Compile Include="UsbManager\UsbDiskCollection.cs" />
+    <Compile Include="UsbManager\UsbManager.cs" />
+    <Compile Include="UsbManager\UsbStateChange.cs" />
+    <Compile Include="UsbManager\UsbStateChangedEventArgs.cs" />
+    <Compile Include="UsbManager\WmiExtensions.cs" />
+    <Compile Include="Utilities\ConsoleSetups.cs" />
+    <Compile Include="Utilities\Ini.cs" />
+    <Compile Include="Views\frmAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAlert.Designer.cs">
+      <DependentUpon>frmAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Monitoring.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Monitoring.Designer.cs">
+      <DependentUpon>UC_Monitoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Quarantine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Quarantine.Designer.cs">
+      <DependentUpon>UC_Quarantine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Scan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Scan.Designer.cs">
+      <DependentUpon>UC_Scan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Setting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Setting.Designer.cs">
+      <DependentUpon>UC_Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_Main.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_Main.Designer.cs">
+      <DependentUpon>UC_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VaultPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VaultPassword.Designer.cs">
+      <DependentUpon>VaultPassword.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAlert.resx">
+      <DependentUpon>frmAlert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Monitoring.resx">
+      <DependentUpon>UC_Monitoring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Quarantine.resx">
+      <DependentUpon>UC_Quarantine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Scan.resx">
+      <DependentUpon>UC_Scan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Setting.resx">
+      <DependentUpon>UC_Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_Main.resx">
+      <DependentUpon>UC_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VaultPassword.resx">
+      <DependentUpon>VaultPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Ladin.mtaAV.Model.QUARANTINES.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="NetworkManager\" />
+    <Folder Include="ProcessManager\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dll\Guna.UI.dll" />
+    <Content Include="Dll\process-killer.dll" />
+    <Content Include="Model\mtaAV.db" />
+    <Content Include="Resources\38127972-computer-virus-icon.jpg" />
+    <None Include="Resources\Warning_28px.png" />
+    <None Include="Resources\Cancel_48px.png" />
+    <None Include="Resources\Checked_48px.png" />
+    <None Include="Resources\Error_48px.png" />
+    <None Include="Resources\Cancel_32px.png" />
+    <None Include="Resources\Automation_48px.png" />
+    <None Include="Resources\Encrypt_48px.png" />
+    <None Include="Resources\Checked_50px.png" />
+    <None Include="Resources\logoMta.jpg" />
+    <None Include="Resources\index.jpg" />
+    <None Include="Resources\green-checkbox-png-1.png" />
+    <None Include="Resources\Flat_tick_icon.svg.png" />
+    <None Include="Resources\Checkmark_28px.bmp" />
+    <None Include="Resources\Checkmark_28px.png" />
+    <None Include="Resources\Error_28px.png" />
+    <None Include="Resources\Info_28px.png" />
+    <Content Include="Resources\mta_logo.png" />
+    <None Include="Resources\Play_48px.png" />
+    <None Include="Resources\Play_32px.png" />
+    <None Include="Resources\Pause Button_32px.png" />
+    <None Include="Resources\Multiply_18px.png" />
+    <Content Include="Resources\protected.png" />
+    <None Include="Resources\Stop Squared_48px.png" />
+    <None Include="Resources\Spam_48px.png" />
+    <None Include="Resources\Protect_48px.png" />
+    <None Include="Resources\Search_48px.png" />
+    <None Include="Resources\Pulse_48px.png" />
+    <Content Include="Resources\System Information_96px.png" />
+    <Content Include="Resources\System Report_96px.png" />
+    <Content Include="Resources\unprotected.png" />
+    <None Include="Resources\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite">
+      <Version>1.0.112</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BinarySearch\BinarySearch.csproj">
+      <Project>{26876ed8-b63d-4f2a-b8ba-6d56d2cb5f18}</Project>
+      <Name>BinarySearch</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
