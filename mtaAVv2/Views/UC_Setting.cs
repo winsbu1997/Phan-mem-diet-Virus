@@ -205,22 +205,16 @@ namespace Ladin.mtaAV.Views
         // Su kien Switch #
         private void sw_MonitorNetwork_OnValueChange(object sender, EventArgs e)
         {
-
+            Provider.monitoring_NetworkOn = sw_MonitorNetwork.Value;
         }
-
         private void sw_MonitorProcess_OnValueChange(object sender, EventArgs e)
         {
-            if (sw_MonitorProcess.Value)
-            {
-                Provider.monitoring_ProcessOn = true;
-            }
-            else
-            {
-                Provider.monitoring_ProcessOn = true;
-            }
+            Provider.monitoring_ProcessOn = sw_MonitorProcess.Value;
+        }
+        private void sw_ScanUSB_OnValueChange(object sender, EventArgs e)
+        {
+            Provider.realtimeOn = sw_ScanUSB.Value;
         }
         #endregion
-
-
     }
 }

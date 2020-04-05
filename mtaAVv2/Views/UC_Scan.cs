@@ -15,6 +15,7 @@ using System.IO;
 using System.Threading;
 using System.Collections;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace Ladin.mtaAV.Views
 {
@@ -36,56 +37,6 @@ namespace Ladin.mtaAV.Views
         }
 
         #region Method
-        public string[] GetFiles(string SourceFolder, string Filter, System.IO.SearchOption searchOption)
-        {
-            ArrayList alFiles = new ArrayList();
-            string[] MultipleFilters = Filter.Split('|');
-
-            if (IsLogicalDrive(SourceFolder))
-            {
-                foreach (string d in Directory.GetDirectories(SourceFolder))
-                {
-                    foreach (string FileFilter in MultipleFilters)
-                    {
-                        try
-                        {
-                            alFiles.AddRange(Directory.GetFiles(d, FileFilter, searchOption));
-                        }
-                        catch
-                        {
-                            continue;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                foreach (string FileFilter in MultipleFilters)
-                {
-                    try
-                    {
-                        alFiles.AddRange(Directory.GetFiles(SourceFolder, FileFilter, searchOption));
-                    }
-                    catch
-                    {
-                        continue;
-                    }
-                }
-            }
-
-            return (string[])alFiles.ToArray(typeof(string));
-        }
-
-        public static bool IsLogicalDrive(string path)
-        {
-            bool IsRoot = false;
-            DirectoryInfo d = new DirectoryInfo(path);
-            if (d.Parent == null)
-            {
-                IsRoot = true;
-            }
-            return IsRoot;
-        }
         // Khoi tao khi chua Scanning
         private void Init()
         {
@@ -162,7 +113,6 @@ namespace Ladin.mtaAV.Views
                         MessageBox.Show(this, "File không nhiễm virus!", "File sạch",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ret = 0;
-
                 }
                 else
                 {
@@ -183,7 +133,6 @@ namespace Ladin.mtaAV.Views
                     }
                     ret = 1;
                 }
-                return ret;
             }
             else
             {
@@ -191,9 +140,9 @@ namespace Ladin.mtaAV.Views
                     MessageBox.Show(this, "Không quét được file này", "Lỗi", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 ret = 3;
-                checkFile.Checked = false;
-                return ret;
             }
+            checkFile.Checked = false;
+            return ret;
         }
         private void ScanFolder()
         {
@@ -205,8 +154,8 @@ namespace Ladin.mtaAV.Views
                 Init_Scanning();
             }));
 
-            if (sw_SmartScan.Value) files = GetFiles(loc_to_search, smart_ext, SearchOption.AllDirectories);
-            else files = GetFiles(loc_to_search, wildcard, SearchOption.AllDirectories);
+            if (sw_SmartScan.Value) files = Provider.GetFiles(loc_to_search, smart_ext, SearchOption.AllDirectories);
+            else files = Provider.GetFiles(loc_to_search, wildcard, SearchOption.AllDirectories);
             int total = files.Length;
 
             Invoke(new Action(() =>
@@ -244,7 +193,6 @@ namespace Ladin.mtaAV.Views
                     progressBar_Scan.Value = progressBar_Scan.Value + 1;
                 }));
             }
-            files = null;
             Invoke(new Action(() =>
             {
                 // file am thanh thong bao
@@ -312,6 +260,7 @@ namespace Ladin.mtaAV.Views
         }
         private void btn_Scan_Click(object sender, EventArgs e)
         {
+            Provider.currentScan = DateTime.Now.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
             if (checkProcess.Checked)
             {
                 Provider.search = new Thread(new ThreadStart(ScanProcess));

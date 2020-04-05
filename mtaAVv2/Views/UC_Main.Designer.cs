@@ -29,8 +29,13 @@
         private void InitializeComponent()
         {
             this.pn_status = new Guna.UI.WinForms.GunaPanel();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
+            this.lb_CurrentDate = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLinkLabel8 = new Guna.UI.WinForms.GunaLinkLabel();
+            this.gunaLinkLabel7 = new Guna.UI.WinForms.GunaLinkLabel();
+            this.ico_MonitorNetwork = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaLinkLabel6 = new Guna.UI.WinForms.GunaLinkLabel();
+            this.ico_MontitorProcess = new Guna.UI.WinForms.GunaPictureBox();
+            this.txt_ScanUSB = new Guna.UI.WinForms.GunaLabel();
             this.gunaCirclePictureBox2 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.GunaButton5 = new Guna.UI.WinForms.GunaButton();
             this.gunaLinkLabel1 = new Guna.UI.WinForms.GunaLinkLabel();
@@ -46,12 +51,9 @@
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.ptb_Security = new Guna.UI.WinForms.GunaPictureBox();
             this.lb_Status = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLinkLabel6 = new Guna.UI.WinForms.GunaLinkLabel();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaLinkLabel7 = new Guna.UI.WinForms.GunaLinkLabel();
-            this.gunaLinkLabel8 = new Guna.UI.WinForms.GunaLinkLabel();
             this.pn_status.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ico_MonitorNetwork)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ico_MontitorProcess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ico_Autorun)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ico_Realtime)).BeginInit();
@@ -59,20 +61,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.ico_Firewall)).BeginInit();
             this.gunaPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_Security)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_status
             // 
             this.pn_status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(248)))), ((int)(((byte)(254)))));
+            this.pn_status.Controls.Add(this.lb_CurrentDate);
             this.pn_status.Controls.Add(this.gunaLinkLabel8);
             this.pn_status.Controls.Add(this.gunaLinkLabel7);
-            this.pn_status.Controls.Add(this.gunaPictureBox2);
+            this.pn_status.Controls.Add(this.ico_MonitorNetwork);
             this.pn_status.Controls.Add(this.gunaLinkLabel6);
-            this.pn_status.Controls.Add(this.gunaPictureBox1);
-            this.pn_status.Controls.Add(this.gunaLabel2);
-            this.pn_status.Controls.Add(this.gunaLabel6);
+            this.pn_status.Controls.Add(this.ico_MontitorProcess);
+            this.pn_status.Controls.Add(this.txt_ScanUSB);
             this.pn_status.Controls.Add(this.gunaCirclePictureBox2);
             this.pn_status.Controls.Add(this.GunaButton5);
             this.pn_status.Controls.Add(this.gunaLinkLabel1);
@@ -93,29 +93,83 @@
             this.pn_status.Size = new System.Drawing.Size(935, 637);
             this.pn_status.TabIndex = 2;
             // 
-            // gunaLabel2
+            // lb_CurrentDate
             // 
-            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.gunaLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.gunaLabel2.Location = new System.Drawing.Point(522, 423);
-            this.gunaLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(399, 38);
-            this.gunaLabel2.TabIndex = 32;
-            this.gunaLabel2.Text = "Real Time: .....";
-            this.gunaLabel2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lb_CurrentDate.AutoSize = true;
+            this.lb_CurrentDate.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.lb_CurrentDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.lb_CurrentDate.Location = new System.Drawing.Point(540, 547);
+            this.lb_CurrentDate.Name = "lb_CurrentDate";
+            this.lb_CurrentDate.Size = new System.Drawing.Size(24, 28);
+            this.lb_CurrentDate.TabIndex = 38;
+            this.lb_CurrentDate.Text = "...";
             // 
-            // gunaLabel6
+            // gunaLinkLabel8
             // 
-            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.gunaLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.gunaLabel6.Location = new System.Drawing.Point(502, 547);
-            this.gunaLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(399, 38);
-            this.gunaLabel6.TabIndex = 31;
-            this.gunaLabel6.Text = "Lần quét gần nhất  vào lúc 08:58";
-            this.gunaLabel6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.gunaLinkLabel8.AutoSize = true;
+            this.gunaLinkLabel8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLinkLabel8.LinkColor = System.Drawing.Color.Black;
+            this.gunaLinkLabel8.Location = new System.Drawing.Point(98, 529);
+            this.gunaLinkLabel8.Name = "gunaLinkLabel8";
+            this.gunaLinkLabel8.Size = new System.Drawing.Size(178, 32);
+            this.gunaLinkLabel8.TabIndex = 37;
+            this.gunaLinkLabel8.TabStop = true;
+            this.gunaLinkLabel8.Text = "Theo dõi mạng";
+            // 
+            // gunaLinkLabel7
+            // 
+            this.gunaLinkLabel7.AutoSize = true;
+            this.gunaLinkLabel7.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLinkLabel7.LinkColor = System.Drawing.Color.Black;
+            this.gunaLinkLabel7.Location = new System.Drawing.Point(98, 529);
+            this.gunaLinkLabel7.Name = "gunaLinkLabel7";
+            this.gunaLinkLabel7.Size = new System.Drawing.Size(0, 32);
+            this.gunaLinkLabel7.TabIndex = 36;
+            // 
+            // ico_MonitorNetwork
+            // 
+            this.ico_MonitorNetwork.BaseColor = System.Drawing.Color.White;
+            this.ico_MonitorNetwork.Image = global::Ladin.mtaAV.Properties.Resources.Checked_48px;
+            this.ico_MonitorNetwork.Location = new System.Drawing.Point(35, 529);
+            this.ico_MonitorNetwork.Name = "ico_MonitorNetwork";
+            this.ico_MonitorNetwork.Size = new System.Drawing.Size(40, 40);
+            this.ico_MonitorNetwork.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ico_MonitorNetwork.TabIndex = 35;
+            this.ico_MonitorNetwork.TabStop = false;
+            // 
+            // gunaLinkLabel6
+            // 
+            this.gunaLinkLabel6.AutoSize = true;
+            this.gunaLinkLabel6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLinkLabel6.LinkColor = System.Drawing.Color.Black;
+            this.gunaLinkLabel6.Location = new System.Drawing.Point(98, 467);
+            this.gunaLinkLabel6.Name = "gunaLinkLabel6";
+            this.gunaLinkLabel6.Size = new System.Drawing.Size(263, 32);
+            this.gunaLinkLabel6.TabIndex = 34;
+            this.gunaLinkLabel6.TabStop = true;
+            this.gunaLinkLabel6.Text = "Theo dõi tiến trình mới";
+            // 
+            // ico_MontitorProcess
+            // 
+            this.ico_MontitorProcess.BaseColor = System.Drawing.Color.White;
+            this.ico_MontitorProcess.Image = global::Ladin.mtaAV.Properties.Resources.Checked_48px;
+            this.ico_MontitorProcess.Location = new System.Drawing.Point(35, 467);
+            this.ico_MontitorProcess.Name = "ico_MontitorProcess";
+            this.ico_MontitorProcess.Size = new System.Drawing.Size(40, 40);
+            this.ico_MontitorProcess.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ico_MontitorProcess.TabIndex = 33;
+            this.ico_MontitorProcess.TabStop = false;
+            // 
+            // txt_ScanUSB
+            // 
+            this.txt_ScanUSB.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txt_ScanUSB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.txt_ScanUSB.Location = new System.Drawing.Point(508, 421);
+            this.txt_ScanUSB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txt_ScanUSB.Name = "txt_ScanUSB";
+            this.txt_ScanUSB.Size = new System.Drawing.Size(399, 38);
+            this.txt_ScanUSB.TabIndex = 32;
+            this.txt_ScanUSB.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // gunaCirclePictureBox2
             // 
@@ -308,62 +362,6 @@
             this.lb_Status.TabIndex = 5;
             this.lb_Status.Text = "Máy tính được bảo vệ";
             // 
-            // gunaLinkLabel6
-            // 
-            this.gunaLinkLabel6.AutoSize = true;
-            this.gunaLinkLabel6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLinkLabel6.LinkColor = System.Drawing.Color.Black;
-            this.gunaLinkLabel6.Location = new System.Drawing.Point(98, 467);
-            this.gunaLinkLabel6.Name = "gunaLinkLabel6";
-            this.gunaLinkLabel6.Size = new System.Drawing.Size(263, 32);
-            this.gunaLinkLabel6.TabIndex = 34;
-            this.gunaLinkLabel6.TabStop = true;
-            this.gunaLinkLabel6.Text = "Theo dõi tiến trình mới";
-            // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Image = global::Ladin.mtaAV.Properties.Resources.Checked_48px;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(35, 467);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBox1.TabIndex = 33;
-            this.gunaPictureBox1.TabStop = false;
-            // 
-            // gunaPictureBox2
-            // 
-            this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox2.Image = global::Ladin.mtaAV.Properties.Resources.Checked_48px;
-            this.gunaPictureBox2.Location = new System.Drawing.Point(35, 529);
-            this.gunaPictureBox2.Name = "gunaPictureBox2";
-            this.gunaPictureBox2.Size = new System.Drawing.Size(40, 40);
-            this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBox2.TabIndex = 35;
-            this.gunaPictureBox2.TabStop = false;
-            // 
-            // gunaLinkLabel7
-            // 
-            this.gunaLinkLabel7.AutoSize = true;
-            this.gunaLinkLabel7.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLinkLabel7.LinkColor = System.Drawing.Color.Black;
-            this.gunaLinkLabel7.Location = new System.Drawing.Point(98, 529);
-            this.gunaLinkLabel7.Name = "gunaLinkLabel7";
-            this.gunaLinkLabel7.Size = new System.Drawing.Size(0, 32);
-            this.gunaLinkLabel7.TabIndex = 36;
-            // 
-            // gunaLinkLabel8
-            // 
-            this.gunaLinkLabel8.AutoSize = true;
-            this.gunaLinkLabel8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLinkLabel8.LinkColor = System.Drawing.Color.Black;
-            this.gunaLinkLabel8.Location = new System.Drawing.Point(98, 529);
-            this.gunaLinkLabel8.Name = "gunaLinkLabel8";
-            this.gunaLinkLabel8.Size = new System.Drawing.Size(178, 32);
-            this.gunaLinkLabel8.TabIndex = 37;
-            this.gunaLinkLabel8.TabStop = true;
-            this.gunaLinkLabel8.Text = "Theo dõi mạng";
-            // 
             // UC_Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -373,6 +371,8 @@
             this.Load += new System.EventHandler(this.UC_Main_Load);
             this.pn_status.ResumeLayout(false);
             this.pn_status.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ico_MonitorNetwork)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ico_MontitorProcess)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ico_Autorun)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ico_Realtime)).EndInit();
@@ -381,8 +381,6 @@
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_Security)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -395,8 +393,7 @@
         private Guna.UI.WinForms.GunaLinkLabel gunaLinkLabel2;
         internal Guna.UI.WinForms.GunaPanel gunaPanel1;
         internal Guna.UI.WinForms.GunaLabel lb_Status;
-        internal Guna.UI.WinForms.GunaLabel gunaLabel2;
-        internal Guna.UI.WinForms.GunaLabel gunaLabel6;
+        internal Guna.UI.WinForms.GunaLabel txt_ScanUSB;
         private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox2;
         internal Guna.UI.WinForms.GunaButton GunaButton5;
         private Guna.UI.WinForms.GunaLinkLabel gunaLinkLabel1;
@@ -407,9 +404,10 @@
         internal Guna.UI.WinForms.GunaPanel pn_status;
         internal Guna.UI.WinForms.GunaPictureBox ptb_Security;
         private Guna.UI.WinForms.GunaLinkLabel gunaLinkLabel6;
-        internal Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
+        internal Guna.UI.WinForms.GunaPictureBox ico_MontitorProcess;
         private Guna.UI.WinForms.GunaLinkLabel gunaLinkLabel7;
-        internal Guna.UI.WinForms.GunaPictureBox gunaPictureBox2;
+        internal Guna.UI.WinForms.GunaPictureBox ico_MonitorNetwork;
         private Guna.UI.WinForms.GunaLinkLabel gunaLinkLabel8;
+        private Guna.UI.WinForms.GunaLabel lb_CurrentDate;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
@@ -20,10 +21,15 @@ namespace Ladin.mtaAV
         public static OpenFileDialog openFile = new OpenFileDialog();
         public static FolderBrowserDialog openFolder = new FolderBrowserDialog();
         public static Thread search = null;
+        public static Task scanUSB = null;
+        public static Task scanNewProcess = null;
         public static bool scanning = false;
+        //public static bool scanningUSB = false;
+        
         public static bool suspended = false;
         //public static string runningPath = AppDomain.CurrentDomain.BaseDirectory;
         //public static string DllPath = string.Format("{0}Dll\\", Path.GetFullPath(Path.Combine(runningPath, @"..\..\")));
+        #region Method
         public static void Reload()
         {
             try
@@ -68,14 +74,67 @@ namespace Ladin.mtaAV
             frmAlert f = new frmAlert();
             f.setAlert(msg, type);
         }
+
+        public static string[] GetFiles(string SourceFolder, string Filter, System.IO.SearchOption searchOption)
+        {
+            ArrayList alFiles = new ArrayList();
+            string[] MultipleFilters = Filter.Split('|');
+
+            if (IsLogicalDrive(SourceFolder))
+            {
+                foreach (string d in Directory.GetDirectories(SourceFolder))
+                {
+                    foreach (string FileFilter in MultipleFilters)
+                    {
+                        try
+                        {
+                            alFiles.AddRange(Directory.GetFiles(d, FileFilter, searchOption));
+                        }
+                        catch
+                        {
+                            continue;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (string FileFilter in MultipleFilters)
+                {
+                    try
+                    {
+                        alFiles.AddRange(Directory.GetFiles(SourceFolder, FileFilter, searchOption));
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                }
+            }
+
+            return (string[])alFiles.ToArray(typeof(string));
+        }
+
+        public static bool IsLogicalDrive(string path)
+        {
+            bool IsRoot = false;
+            DirectoryInfo d = new DirectoryInfo(path);
+            if (d.Parent == null)
+            {
+                IsRoot = true;
+            }
+            return IsRoot;
+        }
+        #endregion
         #region Load_Uc
         public static bool firewallOn = false;
         public static bool realtimeOn = false;
         public static bool autorunOn = true;
-        public static bool autousbOn = true;
+        public static bool autoUsbOn = true;
         public static bool autoupdateOn = false;
         public static bool monitoring_ProcessOn = false;
         public static bool monitoring_NetworkOn = false;
+        public static string currentScan = null;
         public static string[] txt_Alert = { "Máy tính được bảo vệ", "Máy tính của bạn chưa được bảo vệ"};
         #endregion
 
