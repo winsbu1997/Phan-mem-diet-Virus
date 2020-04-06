@@ -34,7 +34,6 @@ namespace Ladin.mtaAV.Views
         public UC_Setting()
         {
             InitializeComponent();
-            Provider.Reload();
         }
         public void Load_Firewall()
         {
@@ -62,8 +61,7 @@ namespace Ladin.mtaAV.Views
         }
         private void UC_Setting_Load(object sender, EventArgs e)
         {
-            Load_Firewall();
-            Reload();         
+            Load_Firewall();    
         }
         #endregion
 
@@ -136,17 +134,16 @@ namespace Ladin.mtaAV.Views
         // Tab Quarantine
         private void btn_AllowFile_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dgv_Quarantine.Rows.Count - 1; i++)
+            for (int i = 0; i < dgv_Quarantine.Rows.Count; i++)
             {
-                DataGridViewCheckBoxCell checkedCell = (DataGridViewCheckBoxCell)dgv_Quarantine.Rows[i].Cells["checkRow"];
-                if (checkedCell.Selected)
+                bool checkCell = Convert.ToBoolean(dgv_Quarantine.Rows[i].Cells["checkRow"].Value);
+                if (checkCell)
                 {
                     int id = (int)dgv_Quarantine.Rows[i].Cells["ID_Quarantine"].Value;
                     string filePath = dgv_Quarantine.Rows[i].Cells["FileName_Quarantine"].Value.ToString();
                     quarantine = db.QUARANTINE.Where(x => x.ID == id).FirstOrDefault();
                     db.QUARANTINE.Remove(quarantine);
-                    Task task = new Task(() => { qr.RestoreQuarantine(filePath); });
-                    task.Start();
+                    qr.RestoreQuarantine(filePath); 
                 }
             }
             db.SaveChanges();
@@ -160,16 +157,17 @@ namespace Ladin.mtaAV.Views
                                           MessageBoxButtons.OKCancel,
                                           MessageBoxIcon.Warning);
             if (rs.Equals(DialogResult.Cancel)) return;
-            for (int i = 0; i < dgv_Quarantine.Rows.Count - 1; i++)
+            for (int i = 0; i < dgv_Quarantine.Rows.Count; i++)
             {
-                DataGridViewCheckBoxCell checkedCell = (DataGridViewCheckBoxCell)dgv_Quarantine.Rows[i].Cells["checkRow"];
-                if (checkedCell.Selected)
+                bool checkCell = Convert.ToBoolean(dgv_Quarantine.Rows[i].Cells["checkRow"].Value);
+                if (checkCell)
                 {
                     int id = (int)dgv_Quarantine.Rows[i].Cells["ID_Quarantine"].Value;
                     string filePath = dgv_Quarantine.Rows[i].Cells["FileName_Quarantine"].Value.ToString();
                     quarantine = db.QUARANTINE.Where(x => x.ID == id).FirstOrDefault();
                     db.QUARANTINE.Remove(quarantine);
-                    qr.DeleteQuarantine(filePath); 
+                    qr.DeleteQuarantine(filePath);
+                    //dgv_Quarantine.Rows.RemoveAt(i);
                 }
             }
             db.SaveChanges();
@@ -213,7 +211,7 @@ namespace Ladin.mtaAV.Views
         }
         private void sw_ScanUSB_OnValueChange(object sender, EventArgs e)
         {
-            Provider.realtimeOn = sw_ScanUSB.Value;
+            Provider.autoUsbOn = sw_ScanUSB.Value;
         }
         #endregion
     }

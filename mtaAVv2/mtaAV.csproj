@@ -60,6 +60,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\System.Management.Automation.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,15 +84,15 @@
     <Compile Include="Manager\Firewall.cs" />
     <Compile Include="Manager\FolderLocker.cs" />
     <Compile Include="Manager\History.cs" />
+    <Compile Include="Manager\ProcessManager.cs" />
     <Compile Include="Manager\QuarantineManager.cs" />
+    <Compile Include="Manager\Detail_Macro.cs" />
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\EXCLUSION.cs" />
     <Compile Include="Model\FOLDER_LOCKER.cs" />
     <Compile Include="Model\FOLDER_MONITOR.cs" />
     <Compile Include="Model\HISTORY.cs" />
-    <Compile Include="Model\InfectionObject.cs" />
     <Compile Include="Model\QUARANTINES.cs" />
-    <Compile Include="Model\SQLiteConfiguration.cs" />
     <Compile Include="Model\TIMER.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,11 +140,11 @@
     <Compile Include="Views\UC_Setting.Designer.cs">
       <DependentUpon>UC_Setting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControl1.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Views\Unpack_Macro.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="Views\Unpack_Macro.Designer.cs">
+      <DependentUpon>Unpack_Macro.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UC_Main.cs">
       <SubType>UserControl</SubType>
@@ -177,8 +181,8 @@
     <EmbeddedResource Include="Views\UC_Setting.resx">
       <DependentUpon>UC_Setting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Unpack_Macro.resx">
+      <DependentUpon>Unpack_Macro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UC_Main.resx">
       <DependentUpon>UC_Main.cs</DependentUpon>
@@ -189,6 +193,7 @@
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Ladin.mtaAV.Manager.Suspecious.datasource" />
     <None Include="Properties\DataSources\Ladin.mtaAV.Model.QUARANTINES.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -206,7 +211,6 @@
   <ItemGroup>
     <Folder Include="Common\" />
     <Folder Include="NetworkManager\" />
-    <Folder Include="ProcessManager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dll\Guna.UI.dll" />
@@ -246,6 +250,9 @@
     <None Include="Resources\1.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="SQLite.CodeFirst">
+      <Version>1.5.3.29</Version>
+    </PackageReference>
     <PackageReference Include="System.Data.SQLite">
       <Version>1.0.112</Version>
     </PackageReference>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite.CodeFirst;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -12,17 +13,15 @@ namespace Ladin.mtaAV.Model
 {
     public partial class Database : DbContext
     {
-        public static string runningPath = AppDomain.CurrentDomain.BaseDirectory;
-        public static string databasePath = string.Format("{0}Model\\mtaAV.db", Path.GetFullPath(Path.Combine(runningPath, @"..\..\")));
-        public Database() : base(new SQLiteConnection()
-            {
-                ConnectionString = new SQLiteConnectionStringBuilder() { DataSource = databasePath, ForeignKeys = false }.ConnectionString
-            }, true)
+        public Database()
+        : base("db")
         { }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            base.OnModelCreating(modelBuilder);
+            if (File.Exists("MtaAv.db")) return;
+            var sqliteConnectionInitializer = new SqliteCreateDatabaseIfNotExists<Database>(modelBuilder);
+            System.Data.Entity.Database.SetInitializer(sqliteConnectionInitializer);
         }
 
         public DbSet<FOLDER_LOCKER> FOLDER_LOCKER { get; set; }

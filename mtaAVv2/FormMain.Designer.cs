@@ -44,8 +44,8 @@
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.uC_Main1 = new Ladin.mtaAV.Views.UC_Main();
             this.uC_Setting1 = new Ladin.mtaAV.Views.UC_Setting();
-            this.uC_Scan1 = new Ladin.mtaAV.Views.UC_Scan();
             this.uC_Quarantine1 = new Ladin.mtaAV.Views.UC_Quarantine();
+            this.uC_Scan1 = new Ladin.mtaAV.Views.UC_Scan();
             this.uC_Monitoring1 = new Ladin.mtaAV.Views.UC_Monitoring();
             this.pnlHeader = new Guna.UI.WinForms.GunaLinePanel();
             this.nav_activity = new Guna.UI.WinForms.GunaAdvenceTileButton();
@@ -257,8 +257,8 @@
             // 
             this.gunaPanel1.Controls.Add(this.uC_Main1);
             this.gunaPanel1.Controls.Add(this.uC_Setting1);
-            this.gunaPanel1.Controls.Add(this.uC_Scan1);
             this.gunaPanel1.Controls.Add(this.uC_Quarantine1);
+            this.gunaPanel1.Controls.Add(this.uC_Scan1);
             this.gunaPanel1.Controls.Add(this.uC_Monitoring1);
             this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gunaPanel1.Location = new System.Drawing.Point(161, 80);
@@ -272,7 +272,7 @@
             this.uC_Main1.Location = new System.Drawing.Point(0, 0);
             this.uC_Main1.Name = "uC_Main1";
             this.uC_Main1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Main1.TabIndex = 4;
+            this.uC_Main1.TabIndex = 8;
             // 
             // uC_Setting1
             // 
@@ -283,7 +283,17 @@
             this.uC_Setting1.Location = new System.Drawing.Point(0, 0);
             this.uC_Setting1.Name = "uC_Setting1";
             this.uC_Setting1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Setting1.TabIndex = 3;
+            this.uC_Setting1.TabIndex = 4;
+            // 
+            // uC_Quarantine1
+            // 
+            this.uC_Quarantine1.BackColor = System.Drawing.Color.White;
+            this.uC_Quarantine1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Quarantine1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.uC_Quarantine1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Quarantine1.Name = "uC_Quarantine1";
+            this.uC_Quarantine1.Size = new System.Drawing.Size(935, 637);
+            this.uC_Quarantine1.TabIndex = 3;
             // 
             // uC_Scan1
             // 
@@ -295,16 +305,6 @@
             this.uC_Scan1.Name = "uC_Scan1";
             this.uC_Scan1.Size = new System.Drawing.Size(935, 637);
             this.uC_Scan1.TabIndex = 2;
-            // 
-            // uC_Quarantine1
-            // 
-            this.uC_Quarantine1.BackColor = System.Drawing.Color.White;
-            this.uC_Quarantine1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Quarantine1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.uC_Quarantine1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Quarantine1.Name = "uC_Quarantine1";
-            this.uC_Quarantine1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Quarantine1.TabIndex = 1;
             // 
             // uC_Monitoring1
             // 
@@ -571,10 +571,11 @@
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
         internal Guna.UI.WinForms.GunaLinePanel GunaLinePanel2;
         private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
-        public Views.UC_Main uC_Main1;
-        internal Views.UC_Setting uC_Setting1;
-        internal Views.UC_Scan uC_Scan1;
-        internal Views.UC_Quarantine uC_Quarantine1;
-        internal Views.UC_Monitoring uC_Monitoring1;
+        //internal Views.UC_Setting uC_Setting1;
+        private Views.UC_Scan uC_Scan1;
+        private Views.UC_Monitoring uC_Monitoring1;
+        private Views.UC_Quarantine uC_Quarantine1;
+        private Views.UC_Main uC_Main1;
+        private Views.UC_Setting uC_Setting1;
     }
 }

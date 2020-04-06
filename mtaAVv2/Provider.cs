@@ -25,9 +25,9 @@ namespace Ladin.mtaAV
         public static Task scanNewProcess = null;
         public static bool scanning = false;
         //public static bool scanningUSB = false;
-        
         public static bool suspended = false;
-        //public static string runningPath = AppDomain.CurrentDomain.BaseDirectory;
+        public static int countDoc = 0;
+        //public static string runningPath = AppDomain.CurrentDomain.BaseDirectory; database bath, md5 path
         //public static string DllPath = string.Format("{0}Dll\\", Path.GetFullPath(Path.Combine(runningPath, @"..\..\")));
         #region Method
         public static void Reload()

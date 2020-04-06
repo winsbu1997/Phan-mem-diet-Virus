@@ -12,6 +12,7 @@ using Ladin.UsbManager;
 using System.IO;
 using Ladin.mtaAV.Model;
 using BinarySearch;
+using System.Globalization;
 
 namespace Ladin.mtaAV.Views
 {
@@ -58,7 +59,6 @@ namespace Ladin.mtaAV.Views
                 ptb_Security.Image = Resources.System_Report_96px;
                 lb_Status.Text = Provider.txt_Alert[1];
             }
-            usb.StateChanged += new UsbStateChangedEventHandler(DoStateChanged);
         }
         public void ScanUSB()
         {
@@ -85,7 +85,7 @@ namespace Ladin.mtaAV.Views
                         if (!res.IsEmpty)
                         {
                             infected++;
-                            QUARANTINES quarantine = new QUARANTINES(file, res.VirusName, "Tĩnh", DateTime.Now);
+                            QUARANTINES quarantine = new QUARANTINES(file, res.VirusName, "Tĩnh", DateTime.Now.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture));
                             Provider.list_NewQuarantines.Add(quarantine);
                         }
                     }
@@ -95,8 +95,12 @@ namespace Ladin.mtaAV.Views
                     }
                 }
             }
-            if(infected > 0) Provider.Alert("USB có virus", frmAlert.alertTypeEnum.Warning);
-            else Provider.Alert("USB an toàn", frmAlert.alertTypeEnum.Success);
+            Invoke(new Action(() =>
+            {
+                txt_ScanUSB.Text = "";
+                if (infected > 0) Provider.Alert("USB có virus", frmAlert.alertTypeEnum.Warning);
+                else Provider.Alert("USB an toàn", frmAlert.alertTypeEnum.Success);
+            }));
         }
         private void DoStateChanged(UsbStateChangedEventArgs e)
         {
@@ -116,6 +120,7 @@ namespace Ladin.mtaAV.Views
         private void UC_Main_Load(object sender, EventArgs e)
         {
             Reload();
+            usb.StateChanged += new UsbStateChangedEventHandler(DoStateChanged);
         }
         #endregion
     }

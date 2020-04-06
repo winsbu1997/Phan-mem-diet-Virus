@@ -18,14 +18,14 @@ namespace Ladin.mtaAV.Model
         [Column(Name = "COUNT", DbType = "INT")]
         public int COUNT { get; set; }
 
-        [Column(Name = "CREATE_DATE", DbType = "DATETIME")]
-        public DateTime? CREATE_DATE { get; set; }
+        [Column(Name = "CREATE_DATE", DbType = "STRING")]
+        public string CREATE_DATE { get; set; }
 
         [Column(Name = "TYPE_SCAN", DbType = "STRING")]
         public string TYPE_SCAN { get; set; }
 
         public HISTORY() { }
-        public HISTORY(int COUNT, DateTime? CREATE_DATE, string TYPE_SCAN)
+        public HISTORY(int COUNT, string CREATE_DATE, string TYPE_SCAN)
         {
             this.COUNT = COUNT;
             this.CREATE_DATE = CREATE_DATE;

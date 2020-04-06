@@ -13,6 +13,7 @@ namespace Ladin.mtaAV.Manager
         private Encryption enc = new Encryption();
         private string password = "mtaAVAV_infoSec_2020@2202$%";
 
+
         public QuarantineManager()
         {
             loc = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -26,10 +27,12 @@ namespace Ladin.mtaAV.Manager
         public void AddQuarantine(string file)
         {
             string des = loc + "\\" + Path.GetFileName(file);
+            if(File.Exists(des)) File.Delete(des);
             if (!File.Exists(des))
             {
                 enc.EncryptFile(file, des, password);
             }
+            Thread.Sleep(500);
             try { File.Delete(file); }
             catch { }
         }
@@ -37,7 +40,11 @@ namespace Ladin.mtaAV.Manager
         public void RestoreQuarantine(string file)
         {
             string des = loc + "\\" + Path.GetFileName(file);
-            enc.DecryptFile(des, file, password);
+            if (File.Exists(file)) File.Delete(file);
+            if (!File.Exists(file))
+            {
+                enc.DecryptFile(des, file, password);
+            }
             Thread.Sleep(500);
             try { File.Delete(des); }
             catch { }
@@ -75,7 +82,6 @@ namespace Ladin.mtaAV.Manager
             aes.IV = key.GetBytes(aes.BlockSize / 8);
             aes.Mode = CipherMode.CBC;
             ICryptoTransform transform = aes.CreateDecryptor(aes.Key, aes.IV);
-
             using (FileStream destination = new FileStream(destinationFilename, FileMode.CreateNew, FileAccess.Write, FileShare.None))
             {
                 using (CryptoStream cryptoStream = new CryptoStream(destination, transform, CryptoStreamMode.Write))

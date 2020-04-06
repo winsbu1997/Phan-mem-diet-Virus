@@ -39,11 +39,11 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkRow = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.FILENAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VIRUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TYPE_SCAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CREATE_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quarantineBinding = new System.Windows.Forms.BindingSource(this.components);
             this.ckb_All = new System.Windows.Forms.CheckBox();
+            this.VIRUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quarantineBinding = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Quarantine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quarantineBinding)).BeginInit();
             this.SuspendLayout();
@@ -114,6 +114,8 @@
             // 
             // dgv_Quarantine
             // 
+            this.dgv_Quarantine.AllowUserToAddRows = false;
+            this.dgv_Quarantine.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(201)))), ((int)(((byte)(197)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Quarantine.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -206,15 +208,6 @@
             this.FILENAME.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.FILENAME.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // VIRUS
-            // 
-            this.VIRUS.DataPropertyName = "VIRUS";
-            this.VIRUS.FillWeight = 92.7242F;
-            this.VIRUS.HeaderText = "Loại mã độc";
-            this.VIRUS.Name = "VIRUS";
-            this.VIRUS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.VIRUS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // TYPE_SCAN
             // 
             this.TYPE_SCAN.DataPropertyName = "TYPE_SCAN";
@@ -229,10 +222,6 @@
             this.CREATE_DATE.Name = "CREATE_DATE";
             this.CREATE_DATE.Visible = false;
             // 
-            // quarantineBinding
-            // 
-            this.quarantineBinding.DataSource = typeof(Ladin.mtaAV.Model.QUARANTINES);
-            // 
             // ckb_All
             // 
             this.ckb_All.AutoSize = true;
@@ -242,6 +231,19 @@
             this.ckb_All.TabIndex = 19;
             this.ckb_All.UseVisualStyleBackColor = true;
             this.ckb_All.CheckedChanged += new System.EventHandler(this.ckb_All_CheckedChanged);
+            // 
+            // VIRUS
+            // 
+            this.VIRUS.DataPropertyName = "VIRUS";
+            this.VIRUS.FillWeight = 92.7242F;
+            this.VIRUS.HeaderText = "Loại mã độc";
+            this.VIRUS.Name = "VIRUS";
+            this.VIRUS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.VIRUS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // quarantineBinding
+            // 
+            this.quarantineBinding.DataSource = typeof(Ladin.mtaAV.Model.QUARANTINES);
             // 
             // UC_Quarantine
             // 

@@ -41,10 +41,9 @@ namespace Ladin.mtaAV
         }
 
         private string my_location = string.Empty;
-        private Database db = Provider.db;
         private void Init()
         {
-            
+
         }
         public FormMain()
         {
@@ -88,13 +87,13 @@ namespace Ladin.mtaAV
 
         private void Minimized_Click(object sender, EventArgs e)
         {
-            if (this.Visible)
-                this.Hide();
+            if (Visible)
+                Hide();
         }
 
         private void HideWindow_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

@@ -10,26 +10,27 @@ using System.Windows.Forms;
 using System.Management;
 using Ladin.mtaAV.Model;
 using BinarySearch;
-using System.Runtime.InteropServices;
 using System.IO;
 using System.Threading;
 using System.Collections;
 using System.Diagnostics;
 using System.Globalization;
+using Ladin.mtaAV.Manager;
 
 namespace Ladin.mtaAV.Views
 {
     public partial class UC_Scan : System.Windows.Forms.UserControl
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         #region variable
-#pragma warning disable 0618 // removes the obsolete warning
-        [DllImport("process-killer.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern int KillProcess(IntPtr handle, string proc_name);
         private string wildcard = "*.*";
         private string smart_ext = "*.exe|*.cpl|*.reg|*.ini|*.bat|*.com|*.dll|*.pif|*.lnk|*.scr|*.vbs|*.ocx|*.drv|*.sys";
+        private string[] doc_ext = { ".docm", ".doc", ".xls", ".xlsm", ".ppt", ".pptm" };
         private string[] files = null;
         private string loc_to_search = string.Empty;
-        DateTime date = DateTime.Now;
+        string date = DateTime.Now.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+        private List<Detail_Macro> dt_mc = new List<Detail_Macro>();
+        private BindingList<File_Macro> lst_FileMacro = new BindingList<File_Macro>();
         #endregion
         public UC_Scan()
         {
@@ -67,6 +68,9 @@ namespace Ladin.mtaAV.Views
             btn_Scan.Enabled = false;
             btn_PauseScan.Enabled = true;
             btn_CancelScan.Enabled = true;
+            Provider.countDoc = 0;
+            dt_mc = new List<Detail_Macro>();
+            lst_FileMacro = new BindingList<File_Macro>();
             lb_CountMacro.Text = "0";
             lb_CountVirus.Text = "0";
             checkFile.Enabled = false;
@@ -100,6 +104,26 @@ namespace Ladin.mtaAV.Views
                 }
             }
             return list;
+        }
+        private void ScanDoc(string path)
+        {
+            Detail_Macro tmp = new Detail_Macro();
+            File_Macro item = new File_Macro();
+            Suspecious sp = new Suspecious();
+            List<string> List_Macro = tmp.Check_Macro(path);
+            if(List_Macro.Count > 0)
+            {
+                string codeMacro = tmp.Split_Macro(List_Macro);
+                sp = tmp.Check_Suspecious(List_Macro);
+                item = new File_Macro(Provider.countDoc, path);
+                tmp = new Detail_Macro(Provider.countDoc, codeMacro, sp);
+                Provider.countDoc ++;
+                Invoke(new Action(() => {
+                    lb_CountMacro.Text = Provider.countDoc.ToString();
+                }));
+                lst_FileMacro.Add(item);
+                dt_mc.Add(tmp);
+            }
         }
         private int ScanFile(string loc, bool silent)
         {
@@ -167,8 +191,15 @@ namespace Ladin.mtaAV.Views
             {
                 if (File.Exists(file))
                 {
+                    FileInfo fi = new FileInfo(file);
+                    if(fi.Length > 52428800) goto NEXT;
                     try
                     {
+                        string find = Path.GetExtension(file);
+                        if (sw_macro.Value && Array.Exists(doc_ext, x => x == find))
+                        {
+                            ScanDoc(file);
+                        };
                         lb_LocationFileScan.Text = Path.GetFileName(file);
                         var res = Manage.MD5Scan(file);
 
@@ -188,7 +219,7 @@ namespace Ladin.mtaAV.Views
                         Console.WriteLine(e.Message);
                     }
                 }
-                Invoke(new Action(() =>
+                NEXT:  Invoke(new Action(() =>
                 {
                     progressBar_Scan.Value = progressBar_Scan.Value + 1;
                 }));
@@ -329,8 +360,18 @@ namespace Ladin.mtaAV.Views
             if (Provider.scanning)
             {
                 Init();
+                checkFolder.Checked = false;
+                checkProcess.Checked = false;
             }
         }
         #endregion
+
+        private void lb_ShowMacro_Click(object sender, EventArgs e)
+        {
+            Unpack_Macro frm = new Unpack_Macro();
+            frm.sender(dt_mc, lst_FileMacro);
+            frm.ShowDialog();
+            lb_CountMacro.Text = Provider.countDoc.ToString();
+        }
     }
 }

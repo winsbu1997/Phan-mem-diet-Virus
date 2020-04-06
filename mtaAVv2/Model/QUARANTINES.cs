@@ -29,11 +29,11 @@ namespace Ladin.mtaAV.Model
         [Column(Name = "TYPE_SCAN", DbType = "STRING")]
         public string TYPE_SCAN { get; set; }
 
-        [Column(Name = "CREATE_DATE", DbType = "DATETIME")]
-        public DateTime? CREATE_DATE { get; set; }
+        [Column(Name = "CREATE_DATE", DbType = "STRING")]
+        public string CREATE_DATE { get; set; }
 
         public QUARANTINES() { }
-        public QUARANTINES(string FILENAME, string VIRUS, string TYPE_SCAN, DateTime? CREATE_DATE)
+        public QUARANTINES(string FILENAME, string VIRUS, string TYPE_SCAN, string CREATE_DATE)
         {
             this.FILENAME = FILENAME;
             this.VIRUS = VIRUS;
