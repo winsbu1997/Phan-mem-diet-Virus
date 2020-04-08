@@ -39,11 +39,11 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkRow = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.FILENAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VIRUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TYPE_SCAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CREATE_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ckb_All = new System.Windows.Forms.CheckBox();
-            this.VIRUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quarantineBinding = new System.Windows.Forms.BindingSource(this.components);
+            this.ckb_All = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Quarantine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quarantineBinding)).BeginInit();
             this.SuspendLayout();
@@ -117,7 +117,7 @@
             this.dgv_Quarantine.AllowUserToAddRows = false;
             this.dgv_Quarantine.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(201)))), ((int)(((byte)(197)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Quarantine.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Quarantine.AutoGenerateColumns = false;
             this.dgv_Quarantine.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -127,7 +127,7 @@
             this.dgv_Quarantine.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -144,7 +144,7 @@
             this.dgv_Quarantine.DataSource = this.quarantineBinding;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(135)))), ((int)(((byte)(125)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
@@ -161,7 +161,7 @@
             this.dgv_Quarantine.TabIndex = 18;
             this.dgv_Quarantine.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Alizarin;
             this.dgv_Quarantine.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(201)))), ((int)(((byte)(197)))));
-            this.dgv_Quarantine.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_Quarantine.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Quarantine.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgv_Quarantine.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgv_Quarantine.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
@@ -169,14 +169,14 @@
             this.dgv_Quarantine.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(192)))), ((int)(((byte)(188)))));
             this.dgv_Quarantine.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             this.dgv_Quarantine.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgv_Quarantine.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.dgv_Quarantine.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Quarantine.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgv_Quarantine.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgv_Quarantine.ThemeStyle.HeaderStyle.Height = 40;
             this.dgv_Quarantine.ThemeStyle.ReadOnly = false;
             this.dgv_Quarantine.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
             this.dgv_Quarantine.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgv_Quarantine.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.dgv_Quarantine.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Quarantine.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dgv_Quarantine.ThemeStyle.RowsStyle.Height = 40;
             this.dgv_Quarantine.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(135)))), ((int)(((byte)(125)))));
@@ -208,6 +208,15 @@
             this.FILENAME.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.FILENAME.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // VIRUS
+            // 
+            this.VIRUS.DataPropertyName = "VIRUS";
+            this.VIRUS.FillWeight = 92.7242F;
+            this.VIRUS.HeaderText = "Loại mã độc";
+            this.VIRUS.Name = "VIRUS";
+            this.VIRUS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.VIRUS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // TYPE_SCAN
             // 
             this.TYPE_SCAN.DataPropertyName = "TYPE_SCAN";
@@ -222,6 +231,10 @@
             this.CREATE_DATE.Name = "CREATE_DATE";
             this.CREATE_DATE.Visible = false;
             // 
+            // quarantineBinding
+            // 
+            this.quarantineBinding.DataSource = typeof(Ladin.mtaAV.Model.QUARANTINES);
+            // 
             // ckb_All
             // 
             this.ckb_All.AutoSize = true;
@@ -231,19 +244,6 @@
             this.ckb_All.TabIndex = 19;
             this.ckb_All.UseVisualStyleBackColor = true;
             this.ckb_All.CheckedChanged += new System.EventHandler(this.ckb_All_CheckedChanged);
-            // 
-            // VIRUS
-            // 
-            this.VIRUS.DataPropertyName = "VIRUS";
-            this.VIRUS.FillWeight = 92.7242F;
-            this.VIRUS.HeaderText = "Loại mã độc";
-            this.VIRUS.Name = "VIRUS";
-            this.VIRUS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.VIRUS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // quarantineBinding
-            // 
-            this.quarantineBinding.DataSource = typeof(Ladin.mtaAV.Model.QUARANTINES);
             // 
             // UC_Quarantine
             // 

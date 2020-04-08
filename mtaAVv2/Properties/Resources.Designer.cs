@@ -133,6 +133,16 @@ namespace Ladin.mtaAV.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Delete_Bin_48px {
+            get {
+                object obj = ResourceManager.GetObject("Delete Bin_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Encrypt_48px {
             get {
                 object obj = ResourceManager.GetObject("Encrypt_48px", resourceCulture);
@@ -216,6 +226,16 @@ namespace Ladin.mtaAV.Properties {
         internal static System.Drawing.Bitmap Multiply_18px {
             get {
                 object obj = ResourceManager.GetObject("Multiply_18px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Opened_Folder_48px {
+            get {
+                object obj = ResourceManager.GetObject("Opened Folder_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

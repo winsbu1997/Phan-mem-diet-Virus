@@ -55,6 +55,18 @@
       <HintPath>Dll\Interop.NetFwTypeLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="PcapDotNet.Analysis">
+      <HintPath>Dll\PcapDotNet.Analysis.dll</HintPath>
+    </Reference>
+    <Reference Include="PcapDotNet.Base">
+      <HintPath>Dll\PcapDotNet.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="PcapDotNet.Core">
+      <HintPath>Dll\PcapDotNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PcapDotNet.Packets">
+      <HintPath>Dll\PcapDotNet.Packets.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -84,6 +96,7 @@
     <Compile Include="Manager\Firewall.cs" />
     <Compile Include="Manager\FolderLocker.cs" />
     <Compile Include="Manager\History.cs" />
+    <Compile Include="Manager\PacketCapture.cs" />
     <Compile Include="Manager\ProcessManager.cs" />
     <Compile Include="Manager\QuarantineManager.cs" />
     <Compile Include="Manager\Detail_Macro.cs" />
@@ -94,6 +107,24 @@
     <Compile Include="Model\HISTORY.cs" />
     <Compile Include="Model\QUARANTINES.cs" />
     <Compile Include="Model\TIMER.cs" />
+    <Compile Include="Monitor_SubViews\UC_MonitorFolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Monitor_SubViews\UC_MonitorFolder.Designer.cs">
+      <DependentUpon>UC_MonitorFolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Monitor_SubViews\UC_Network.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Monitor_SubViews\UC_Network.Designer.cs">
+      <DependentUpon>UC_Network.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Monitor_SubViews\UC_Process.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Monitor_SubViews\UC_Process.Designer.cs">
+      <DependentUpon>UC_Process.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -161,6 +192,15 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Monitor_SubViews\UC_MonitorFolder.resx">
+      <DependentUpon>UC_MonitorFolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monitor_SubViews\UC_Network.resx">
+      <DependentUpon>UC_Network.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monitor_SubViews\UC_Process.resx">
+      <DependentUpon>UC_Process.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -210,7 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="NetworkManager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dll\Guna.UI.dll" />
@@ -229,15 +268,16 @@
     <None Include="Resources\index.jpg" />
     <None Include="Resources\green-checkbox-png-1.png" />
     <None Include="Resources\Flat_tick_icon.svg.png" />
-    <None Include="Resources\Checkmark_28px.bmp" />
     <None Include="Resources\Checkmark_28px.png" />
     <None Include="Resources\Error_28px.png" />
     <None Include="Resources\Info_28px.png" />
+    <None Include="Resources\Delete Bin_48px.png" />
     <Content Include="Resources\mta_logo.png" />
     <None Include="Resources\Play_48px.png" />
     <None Include="Resources\Play_32px.png" />
     <None Include="Resources\Pause Button_32px.png" />
     <None Include="Resources\Multiply_18px.png" />
+    <None Include="Resources\Opened Folder_48px.png" />
     <Content Include="Resources\protected.png" />
     <None Include="Resources\Stop Squared_48px.png" />
     <None Include="Resources\Spam_48px.png" />
@@ -262,6 +302,21 @@
       <Project>{26876ed8-b63d-4f2a-b8ba-6d56d2cb5f18}</Project>
       <Name>BinarySearch</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FileWatcherEx\FileWatcherEx.csproj">
+      <Project>{97e6c206-cb3a-41f3-a088-57f19d4481c9}</Project>
+      <Name>FileWatcherEx</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

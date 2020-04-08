@@ -118,62 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="green-checkbox-png-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\green-checkbox-png-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Stop Squared_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Stop Squared_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cancel_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cancel_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="System Report_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\System Report_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Automation_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Automation_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pause Button_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pause Button_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Search_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Search_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logoMta" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoMta.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Pulse_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pulse_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cancel_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cancel_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Checked_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Checked_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="System Information_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\System Information_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="index" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\index.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Protect_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Protect_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Checked_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Checked_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Play_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Play_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Play_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Play_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Spam_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Spam_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Checkmark_28px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Checkmark_28px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Encrypt_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Encrypt_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,22 +130,79 @@
   <data name="Flat_tick_icon.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Flat_tick_icon.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Error_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Error_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="index" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\index.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Checkmark_28px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Checkmark_28px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Cancel_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cancel_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Error_28px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Error_28px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Spam_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spam_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Protect_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Protect_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Warning_28px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Warning_28px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Info_28px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Info_28px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="System Information_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\System Information_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Play_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Search_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Search_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Checked_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Checked_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Automation_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Automation_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logoMta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoMta.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Stop Squared_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stop Squared_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="System Report_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\System Report_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Error_28px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Error_28px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green-checkbox-png-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\green-checkbox-png-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pause Button_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pause Button_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Multiply_18px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Multiply_18px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Warning_28px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Warning_28px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Play_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Error_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Error_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Checked_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Checked_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancel_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cancel_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Delete Bin_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete Bin_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Opened Folder_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Opened Folder_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaGroupBox1 = new Guna.UI.WinForms.GunaGroupBox();
             this.gunaLabel12 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel11 = new Guna.UI.WinForms.GunaLabel();
@@ -47,20 +44,17 @@
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
-            this.pnlBody = new Guna.UI.WinForms.GunaPanel();
-            this.gunaDataGridView1 = new Guna.UI.WinForms.GunaDataGridView();
-            this.checkRow = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.File = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Virus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlMain = new Guna.UI.WinForms.GunaPanel();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
             this.btnProcess = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnNetwork = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnApplication = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnRansomware = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.uC_MonitorFolder1 = new Ladin.mtaAV.Monitor_SubViews.UC_MonitorFolder();
+            this.uC_Network1 = new Ladin.mtaAV.Monitor_SubViews.UC_Network();
             this.gunaGroupBox1.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
-            this.pnlBody.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView1)).BeginInit();
+            this.pnlMain.SuspendLayout();
             this.gunaPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -246,7 +240,7 @@
             // gunaPanel1
             // 
             this.gunaPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(248)))), ((int)(((byte)(254)))));
-            this.gunaPanel1.Controls.Add(this.pnlBody);
+            this.gunaPanel1.Controls.Add(this.pnlMain);
             this.gunaPanel1.Controls.Add(this.gunaPanel2);
             this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gunaPanel1.Location = new System.Drawing.Point(0, 0);
@@ -255,102 +249,20 @@
             this.gunaPanel1.Size = new System.Drawing.Size(935, 440);
             this.gunaPanel1.TabIndex = 4;
             // 
-            // pnlBody
+            // pnlMain
             // 
-            this.pnlBody.Controls.Add(this.gunaDataGridView1);
-            this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlBody.Location = new System.Drawing.Point(0, 44);
-            this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(935, 396);
-            this.pnlBody.TabIndex = 23;
-            // 
-            // gunaDataGridView1
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(201)))), ((int)(((byte)(197)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gunaDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gunaDataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.gunaDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gunaDataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gunaDataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gunaDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gunaDataGridView1.ColumnHeadersHeight = 40;
-            this.gunaDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.checkRow,
-            this.File,
-            this.Virus});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(135)))), ((int)(((byte)(125)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gunaDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.gunaDataGridView1.EnableHeadersVisualStyles = false;
-            this.gunaDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(192)))), ((int)(((byte)(188)))));
-            this.gunaDataGridView1.Location = new System.Drawing.Point(8, 23);
-            this.gunaDataGridView1.Name = "gunaDataGridView1";
-            this.gunaDataGridView1.RowHeadersVisible = false;
-            this.gunaDataGridView1.RowTemplate.Height = 40;
-            this.gunaDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gunaDataGridView1.Size = new System.Drawing.Size(449, 328);
-            this.gunaDataGridView1.TabIndex = 16;
-            this.gunaDataGridView1.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Alizarin;
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(201)))), ((int)(((byte)(197)))));
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView1.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(192)))), ((int)(((byte)(188)))));
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.Height = 40;
-            this.gunaDataGridView1.ThemeStyle.ReadOnly = false;
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.Height = 40;
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(135)))), ((int)(((byte)(125)))));
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // checkRow
-            // 
-            this.checkRow.HeaderText = "";
-            this.checkRow.Name = "checkRow";
-            // 
-            // File
-            // 
-            this.File.HeaderText = "Tên file";
-            this.File.Name = "File";
-            this.File.ReadOnly = true;
-            this.File.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.File.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Virus
-            // 
-            this.Virus.HeaderText = "Loại mã độc";
-            this.Virus.Name = "Virus";
-            this.Virus.ReadOnly = true;
-            this.Virus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Virus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.pnlMain.Controls.Add(this.uC_MonitorFolder1);
+            this.pnlMain.Controls.Add(this.uC_Network1);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 52);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(935, 388);
+            this.pnlMain.TabIndex = 23;
             // 
             // gunaPanel2
             // 
             this.gunaPanel2.BackColor = System.Drawing.Color.White;
+            this.gunaPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gunaPanel2.Controls.Add(this.btnProcess);
             this.gunaPanel2.Controls.Add(this.btnNetwork);
             this.gunaPanel2.Controls.Add(this.btnApplication);
@@ -358,7 +270,7 @@
             this.gunaPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.gunaPanel2.Location = new System.Drawing.Point(0, 0);
             this.gunaPanel2.Name = "gunaPanel2";
-            this.gunaPanel2.Size = new System.Drawing.Size(935, 44);
+            this.gunaPanel2.Size = new System.Drawing.Size(935, 52);
             this.gunaPanel2.TabIndex = 22;
             // 
             // btnProcess
@@ -398,6 +310,7 @@
             this.btnProcess.TabIndex = 26;
             this.btnProcess.Text = "Process";
             this.btnProcess.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
             // 
             // btnNetwork
             // 
@@ -436,6 +349,7 @@
             this.btnNetwork.TabIndex = 25;
             this.btnNetwork.Text = "Network";
             this.btnNetwork.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnNetwork.Click += new System.EventHandler(this.btnNetwork_Click);
             // 
             // btnApplication
             // 
@@ -474,6 +388,7 @@
             this.btnApplication.TabIndex = 24;
             this.btnApplication.Text = "Application ";
             this.btnApplication.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnApplication.Click += new System.EventHandler(this.btnApplication_Click);
             // 
             // btnRansomware
             // 
@@ -512,6 +427,25 @@
             this.btnRansomware.TabIndex = 23;
             this.btnRansomware.Text = "Ransomware ";
             this.btnRansomware.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnRansomware.Click += new System.EventHandler(this.btnRansomware_Click);
+            // 
+            // uC_MonitorFolder1
+            // 
+            this.uC_MonitorFolder1.BackColor = System.Drawing.Color.White;
+            this.uC_MonitorFolder1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_MonitorFolder1.Location = new System.Drawing.Point(0, 0);
+            this.uC_MonitorFolder1.Name = "uC_MonitorFolder1";
+            this.uC_MonitorFolder1.Size = new System.Drawing.Size(935, 388);
+            this.uC_MonitorFolder1.TabIndex = 1;
+            // 
+            // uC_Network1
+            // 
+            this.uC_Network1.BackColor = System.Drawing.Color.White;
+            this.uC_Network1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Network1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Network1.Name = "uC_Network1";
+            this.uC_Network1.Size = new System.Drawing.Size(935, 388);
+            this.uC_Network1.TabIndex = 0;
             // 
             // UC_Monitoring
             // 
@@ -524,8 +458,7 @@
             this.gunaGroupBox1.ResumeLayout(false);
             this.gunaGroupBox1.PerformLayout();
             this.gunaPanel1.ResumeLayout(false);
-            this.pnlBody.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView1)).EndInit();
+            this.pnlMain.ResumeLayout(false);
             this.gunaPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -548,15 +481,13 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
-        private Guna.UI.WinForms.GunaDataGridView gunaDataGridView1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn checkRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn File;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Virus;
         private Guna.UI.WinForms.GunaPanel gunaPanel2;
         private Guna.UI.WinForms.GunaAdvenceButton btnRansomware;
-        private Guna.UI.WinForms.GunaPanel pnlBody;
         private Guna.UI.WinForms.GunaAdvenceButton btnProcess;
         private Guna.UI.WinForms.GunaAdvenceButton btnNetwork;
         private Guna.UI.WinForms.GunaAdvenceButton btnApplication;
+        private Guna.UI.WinForms.GunaPanel pnlMain;
+        private Monitor_SubViews.UC_Network uC_Network1;
+        private Monitor_SubViews.UC_MonitorFolder uC_MonitorFolder1;
     }
 }
