@@ -57,7 +57,7 @@ namespace Ladin.mtaAV.Views
         {
             dgv_Exclusion.DataSource = db.EXCLUSION.ToList();
             dgv_Quarantine.DataSource = db.QUARANTINE.ToList();
-            Provider.Reload();
+            //Provider.Reload();
         }
         private void UC_Setting_Load(object sender, EventArgs e)
         {

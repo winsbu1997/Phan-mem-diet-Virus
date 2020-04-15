@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Scan));
-            this.progressBar_Scan = new Guna.UI.WinForms.GunaCircleProgressBar();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.lb_AllFile = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
-            this.checkFile = new Guna.UI.WinForms.GunaCheckBox();
-            this.checkProcess = new Guna.UI.WinForms.GunaCheckBox();
-            this.checkFolder = new Guna.UI.WinForms.GunaCheckBox();
-            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
             this.lb_CountMacro = new Guna.UI.WinForms.GunaLabel();
@@ -45,138 +37,36 @@
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
             this.lb_CountVirus = new Guna.UI.WinForms.GunaLabel();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.txt = new Guna.UI.WinForms.GunaLabel();
+            this.txtListVirus = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
             this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
+            this.sw_macro = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.lbwe = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel11 = new Guna.UI.WinForms.GunaLabel();
             this.sw_DynamicScan = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.sw_SmartScan = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
+            this.checkFolder = new Guna.UI.WinForms.GunaCheckBox();
+            this.checkFile = new Guna.UI.WinForms.GunaCheckBox();
+            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
+            this.checkProcess = new Guna.UI.WinForms.GunaCheckBox();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.lb_AllFile = new Guna.UI.WinForms.GunaLabel();
+            this.progressBar_Scan = new Guna.UI.WinForms.GunaCircleProgressBar();
+            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.lb_LocationFileScan = new Guna.UI.WinForms.GunaLabel();
+            this.gunaPanel3 = new Guna.UI.WinForms.GunaPanel();
             this.btn_CancelScan = new Guna.UI.WinForms.GunaButton();
             this.btn_PauseScan = new Guna.UI.WinForms.GunaButton();
             this.btn_Scan = new Guna.UI.WinForms.GunaButton();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.sw_macro = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.gunaPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
-            this.gunaPanel2.SuspendLayout();
             this.gunaLinePanel1.SuspendLayout();
+            this.gunaPanel2.SuspendLayout();
+            this.gunaPanel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // progressBar_Scan
-            // 
-            this.progressBar_Scan.AnimationSpeed = 0.6F;
-            this.progressBar_Scan.BaseColor = System.Drawing.Color.White;
-            this.progressBar_Scan.Font = new System.Drawing.Font("Segoe UI Semilight", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.progressBar_Scan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(206)))), ((int)(((byte)(155)))));
-            this.progressBar_Scan.IdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.progressBar_Scan.IdleOffset = 21;
-            this.progressBar_Scan.Image = null;
-            this.progressBar_Scan.ImageSize = new System.Drawing.Size(52, 52);
-            this.progressBar_Scan.Location = new System.Drawing.Point(454, 90);
-            this.progressBar_Scan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.progressBar_Scan.Name = "progressBar_Scan";
-            this.progressBar_Scan.ProgressMaxColor = System.Drawing.Color.DeepPink;
-            this.progressBar_Scan.ProgressMinColor = System.Drawing.Color.DeepPink;
-            this.progressBar_Scan.ProgressOffset = 20;
-            this.progressBar_Scan.ProgressThickness = 13;
-            this.progressBar_Scan.Size = new System.Drawing.Size(408, 376);
-            this.progressBar_Scan.TabIndex = 3;
-            this.progressBar_Scan.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.ClearTypeGridFit;
-            this.progressBar_Scan.UseProgressPercentText = true;
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.ForeColor = System.Drawing.Color.Black;
-            this.gunaLabel1.Location = new System.Drawing.Point(411, 522);
-            this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(198, 28);
-            this.gunaLabel1.TabIndex = 4;
-            this.gunaLabel1.Text = "Tổng số tập tin quét: ";
-            // 
-            // lb_AllFile
-            // 
-            this.lb_AllFile.AutoSize = true;
-            this.lb_AllFile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_AllFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_AllFile.Location = new System.Drawing.Point(613, 522);
-            this.lb_AllFile.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lb_AllFile.Name = "lb_AllFile";
-            this.lb_AllFile.Size = new System.Drawing.Size(24, 28);
-            this.lb_AllFile.TabIndex = 5;
-            this.lb_AllFile.Text = "...";
-            // 
-            // gunaLabel3
-            // 
-            this.gunaLabel3.AutoSize = true;
-            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel3.ForeColor = System.Drawing.Color.Black;
-            this.gunaLabel3.Location = new System.Drawing.Point(411, 561);
-            this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(90, 28);
-            this.gunaLabel3.TabIndex = 6;
-            this.gunaLabel3.Text = "Quét file:";
-            // 
-            // checkFile
-            // 
-            this.checkFile.BaseColor = System.Drawing.Color.White;
-            this.checkFile.CheckedOffColor = System.Drawing.Color.Gray;
-            this.checkFile.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.checkFile.FillColor = System.Drawing.Color.White;
-            this.checkFile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkFile.Location = new System.Drawing.Point(28, 73);
-            this.checkFile.Margin = new System.Windows.Forms.Padding(2);
-            this.checkFile.Name = "checkFile";
-            this.checkFile.Size = new System.Drawing.Size(114, 31);
-            this.checkFile.TabIndex = 0;
-            this.checkFile.Text = "Quét File";
-            // 
-            // checkProcess
-            // 
-            this.checkProcess.BaseColor = System.Drawing.Color.White;
-            this.checkProcess.CheckedOffColor = System.Drawing.Color.Gray;
-            this.checkProcess.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.checkProcess.FillColor = System.Drawing.Color.White;
-            this.checkProcess.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkProcess.Location = new System.Drawing.Point(28, 181);
-            this.checkProcess.Margin = new System.Windows.Forms.Padding(2);
-            this.checkProcess.Name = "checkProcess";
-            this.checkProcess.Size = new System.Drawing.Size(166, 31);
-            this.checkProcess.TabIndex = 3;
-            this.checkProcess.Text = "Quét tiến trình";
-            // 
-            // checkFolder
-            // 
-            this.checkFolder.BaseColor = System.Drawing.Color.White;
-            this.checkFolder.CheckedOffColor = System.Drawing.Color.Gray;
-            this.checkFolder.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.checkFolder.FillColor = System.Drawing.Color.White;
-            this.checkFolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkFolder.Location = new System.Drawing.Point(28, 125);
-            this.checkFolder.Margin = new System.Windows.Forms.Padding(2);
-            this.checkFolder.Name = "checkFolder";
-            this.checkFolder.Size = new System.Drawing.Size(159, 31);
-            this.checkFolder.TabIndex = 4;
-            this.checkFolder.Text = "Quét thư mục";
-            // 
-            // gunaLabel4
-            // 
-            this.gunaLabel4.AutoSize = true;
-            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel4.Location = new System.Drawing.Point(16, 25);
-            this.gunaLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(139, 30);
-            this.gunaLabel4.TabIndex = 5;
-            this.gunaLabel4.Text = "Chế độ quét";
             // 
             // gunaPanel1
             // 
@@ -187,7 +77,7 @@
             this.gunaPanel1.Controls.Add(this.gunaLabel7);
             this.gunaPanel1.Controls.Add(this.lb_CountVirus);
             this.gunaPanel1.Controls.Add(this.gunaPictureBox1);
-            this.gunaPanel1.Controls.Add(this.txt);
+            this.gunaPanel1.Controls.Add(this.txtListVirus);
             this.gunaPanel1.Controls.Add(this.gunaLabel5);
             this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gunaPanel1.Location = new System.Drawing.Point(0, 399);
@@ -276,17 +166,18 @@
             this.gunaPictureBox1.TabIndex = 8;
             this.gunaPictureBox1.TabStop = false;
             // 
-            // txt
+            // txtListVirus
             // 
-            this.txt.AutoSize = true;
-            this.txt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt.Location = new System.Drawing.Point(72, 77);
-            this.txt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txt.Name = "txt";
-            this.txt.Size = new System.Drawing.Size(256, 23);
-            this.txt.TabIndex = 7;
-            this.txt.Text = "Xem đối tượng nghi nhiễm virus";
+            this.txtListVirus.AutoSize = true;
+            this.txtListVirus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtListVirus.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtListVirus.Location = new System.Drawing.Point(72, 77);
+            this.txtListVirus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtListVirus.Name = "txtListVirus";
+            this.txtListVirus.Size = new System.Drawing.Size(285, 23);
+            this.txtListVirus.TabIndex = 7;
+            this.txtListVirus.Text = "Xem đối tượng nghi nhiễm malware";
+            this.txtListVirus.Click += new System.EventHandler(this.txtListVirus_Click);
             // 
             // gunaLabel5
             // 
@@ -298,19 +189,6 @@
             this.gunaLabel5.Size = new System.Drawing.Size(93, 30);
             this.gunaLabel5.TabIndex = 6;
             this.gunaLabel5.Text = "Kết quả";
-            // 
-            // gunaPanel2
-            // 
-            this.gunaPanel2.Controls.Add(this.checkFolder);
-            this.gunaPanel2.Controls.Add(this.checkFile);
-            this.gunaPanel2.Controls.Add(this.gunaLabel4);
-            this.gunaPanel2.Controls.Add(this.checkProcess);
-            this.gunaPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPanel2.Location = new System.Drawing.Point(0, 0);
-            this.gunaPanel2.Margin = new System.Windows.Forms.Padding(2);
-            this.gunaPanel2.Name = "gunaPanel2";
-            this.gunaPanel2.Size = new System.Drawing.Size(382, 223);
-            this.gunaPanel2.TabIndex = 8;
             // 
             // gunaLinePanel1
             // 
@@ -331,6 +209,32 @@
             this.gunaLinePanel1.Name = "gunaLinePanel1";
             this.gunaLinePanel1.Size = new System.Drawing.Size(382, 637);
             this.gunaLinePanel1.TabIndex = 11;
+            // 
+            // gunaLabel2
+            // 
+            this.gunaLabel2.AutoSize = true;
+            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel2.Location = new System.Drawing.Point(80, 240);
+            this.gunaLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel2.Name = "gunaLabel2";
+            this.gunaLabel2.Size = new System.Drawing.Size(232, 28);
+            this.gunaLabel2.TabIndex = 14;
+            this.gunaLabel2.Text = "Quét macro trong tài liệu";
+            // 
+            // sw_macro
+            // 
+            this.sw_macro.BackColor = System.Drawing.Color.Transparent;
+            this.sw_macro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sw_macro.BackgroundImage")));
+            this.sw_macro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sw_macro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sw_macro.Location = new System.Drawing.Point(21, 243);
+            this.sw_macro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sw_macro.Name = "sw_macro";
+            this.sw_macro.OffColor = System.Drawing.Color.Gray;
+            this.sw_macro.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
+            this.sw_macro.Size = new System.Drawing.Size(43, 25);
+            this.sw_macro.TabIndex = 13;
+            this.sw_macro.Value = false;
             // 
             // lbwe
             // 
@@ -368,6 +272,7 @@
             this.sw_DynamicScan.Size = new System.Drawing.Size(43, 25);
             this.sw_DynamicScan.TabIndex = 10;
             this.sw_DynamicScan.Value = false;
+            this.sw_DynamicScan.OnValueChange += new System.EventHandler(this.sw_DynamicScan_OnValueChange);
             // 
             // sw_SmartScan
             // 
@@ -384,17 +289,158 @@
             this.sw_SmartScan.TabIndex = 9;
             this.sw_SmartScan.Value = false;
             // 
+            // gunaPanel2
+            // 
+            this.gunaPanel2.Controls.Add(this.checkFolder);
+            this.gunaPanel2.Controls.Add(this.checkFile);
+            this.gunaPanel2.Controls.Add(this.gunaLabel4);
+            this.gunaPanel2.Controls.Add(this.checkProcess);
+            this.gunaPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gunaPanel2.Location = new System.Drawing.Point(0, 0);
+            this.gunaPanel2.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaPanel2.Name = "gunaPanel2";
+            this.gunaPanel2.Size = new System.Drawing.Size(382, 223);
+            this.gunaPanel2.TabIndex = 8;
+            // 
+            // checkFolder
+            // 
+            this.checkFolder.BaseColor = System.Drawing.Color.White;
+            this.checkFolder.CheckedOffColor = System.Drawing.Color.Gray;
+            this.checkFolder.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.checkFolder.FillColor = System.Drawing.Color.White;
+            this.checkFolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkFolder.Location = new System.Drawing.Point(28, 125);
+            this.checkFolder.Margin = new System.Windows.Forms.Padding(2);
+            this.checkFolder.Name = "checkFolder";
+            this.checkFolder.Size = new System.Drawing.Size(159, 31);
+            this.checkFolder.TabIndex = 4;
+            this.checkFolder.Text = "Quét thư mục";
+            // 
+            // checkFile
+            // 
+            this.checkFile.BaseColor = System.Drawing.Color.White;
+            this.checkFile.CheckedOffColor = System.Drawing.Color.Gray;
+            this.checkFile.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.checkFile.FillColor = System.Drawing.Color.White;
+            this.checkFile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkFile.Location = new System.Drawing.Point(28, 73);
+            this.checkFile.Margin = new System.Windows.Forms.Padding(2);
+            this.checkFile.Name = "checkFile";
+            this.checkFile.Size = new System.Drawing.Size(114, 31);
+            this.checkFile.TabIndex = 0;
+            this.checkFile.Text = "Quét File";
+            // 
+            // gunaLabel4
+            // 
+            this.gunaLabel4.AutoSize = true;
+            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel4.Location = new System.Drawing.Point(16, 25);
+            this.gunaLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel4.Name = "gunaLabel4";
+            this.gunaLabel4.Size = new System.Drawing.Size(139, 30);
+            this.gunaLabel4.TabIndex = 5;
+            this.gunaLabel4.Text = "Chế độ quét";
+            // 
+            // checkProcess
+            // 
+            this.checkProcess.BaseColor = System.Drawing.Color.White;
+            this.checkProcess.CheckedOffColor = System.Drawing.Color.Gray;
+            this.checkProcess.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.checkProcess.FillColor = System.Drawing.Color.White;
+            this.checkProcess.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkProcess.Location = new System.Drawing.Point(28, 181);
+            this.checkProcess.Margin = new System.Windows.Forms.Padding(2);
+            this.checkProcess.Name = "checkProcess";
+            this.checkProcess.Size = new System.Drawing.Size(166, 31);
+            this.checkProcess.TabIndex = 3;
+            this.checkProcess.Text = "Quét tiến trình";
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel1.ForeColor = System.Drawing.Color.Black;
+            this.gunaLabel1.Location = new System.Drawing.Point(34, 539);
+            this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(198, 28);
+            this.gunaLabel1.TabIndex = 17;
+            this.gunaLabel1.Text = "Tổng số tập tin quét: ";
+            // 
+            // lb_AllFile
+            // 
+            this.lb_AllFile.AutoSize = true;
+            this.lb_AllFile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_AllFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_AllFile.Location = new System.Drawing.Point(236, 539);
+            this.lb_AllFile.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_AllFile.Name = "lb_AllFile";
+            this.lb_AllFile.Size = new System.Drawing.Size(24, 28);
+            this.lb_AllFile.TabIndex = 18;
+            this.lb_AllFile.Text = "...";
+            // 
+            // progressBar_Scan
+            // 
+            this.progressBar_Scan.AnimationSpeed = 0.6F;
+            this.progressBar_Scan.BaseColor = System.Drawing.Color.White;
+            this.progressBar_Scan.Font = new System.Drawing.Font("Segoe UI Semilight", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressBar_Scan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(206)))), ((int)(((byte)(155)))));
+            this.progressBar_Scan.IdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.progressBar_Scan.IdleOffset = 21;
+            this.progressBar_Scan.Image = null;
+            this.progressBar_Scan.ImageSize = new System.Drawing.Size(52, 52);
+            this.progressBar_Scan.Location = new System.Drawing.Point(77, 107);
+            this.progressBar_Scan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.progressBar_Scan.Name = "progressBar_Scan";
+            this.progressBar_Scan.ProgressMaxColor = System.Drawing.Color.DeepPink;
+            this.progressBar_Scan.ProgressMinColor = System.Drawing.Color.DeepPink;
+            this.progressBar_Scan.ProgressOffset = 20;
+            this.progressBar_Scan.ProgressThickness = 13;
+            this.progressBar_Scan.Size = new System.Drawing.Size(408, 376);
+            this.progressBar_Scan.TabIndex = 16;
+            this.progressBar_Scan.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.ClearTypeGridFit;
+            this.progressBar_Scan.UseProgressPercentText = true;
+            // 
+            // gunaLabel3
+            // 
+            this.gunaLabel3.AutoSize = true;
+            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel3.ForeColor = System.Drawing.Color.Black;
+            this.gunaLabel3.Location = new System.Drawing.Point(34, 578);
+            this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel3.Name = "gunaLabel3";
+            this.gunaLabel3.Size = new System.Drawing.Size(90, 28);
+            this.gunaLabel3.TabIndex = 19;
+            this.gunaLabel3.Text = "Quét file:";
+            // 
             // lb_LocationFileScan
             // 
             this.lb_LocationFileScan.AutoSize = true;
             this.lb_LocationFileScan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_LocationFileScan.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_LocationFileScan.Location = new System.Drawing.Point(505, 561);
+            this.lb_LocationFileScan.Location = new System.Drawing.Point(128, 578);
             this.lb_LocationFileScan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_LocationFileScan.Name = "lb_LocationFileScan";
             this.lb_LocationFileScan.Size = new System.Drawing.Size(24, 28);
-            this.lb_LocationFileScan.TabIndex = 15;
+            this.lb_LocationFileScan.TabIndex = 23;
             this.lb_LocationFileScan.Text = "...";
+            // 
+            // gunaPanel3
+            // 
+            this.gunaPanel3.Controls.Add(this.lb_LocationFileScan);
+            this.gunaPanel3.Controls.Add(this.btn_CancelScan);
+            this.gunaPanel3.Controls.Add(this.btn_PauseScan);
+            this.gunaPanel3.Controls.Add(this.btn_Scan);
+            this.gunaPanel3.Controls.Add(this.gunaLabel3);
+            this.gunaPanel3.Controls.Add(this.progressBar_Scan);
+            this.gunaPanel3.Controls.Add(this.lb_AllFile);
+            this.gunaPanel3.Controls.Add(this.gunaLabel1);
+            this.gunaPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gunaPanel3.Location = new System.Drawing.Point(382, 0);
+            this.gunaPanel3.Name = "gunaPanel3";
+            this.gunaPanel3.Size = new System.Drawing.Size(553, 637);
+            this.gunaPanel3.TabIndex = 16;
             // 
             // btn_CancelScan
             // 
@@ -409,7 +455,7 @@
             this.btn_CancelScan.ForeColor = System.Drawing.Color.DimGray;
             this.btn_CancelScan.Image = global::Ladin.mtaAV.Properties.Resources.Cancel_48px;
             this.btn_CancelScan.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_CancelScan.Location = new System.Drawing.Point(748, 13);
+            this.btn_CancelScan.Location = new System.Drawing.Point(371, 30);
             this.btn_CancelScan.Margin = new System.Windows.Forms.Padding(2);
             this.btn_CancelScan.Name = "btn_CancelScan";
             this.btn_CancelScan.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
@@ -418,7 +464,7 @@
             this.btn_CancelScan.OnHoverImage = null;
             this.btn_CancelScan.OnPressedColor = System.Drawing.Color.Black;
             this.btn_CancelScan.Size = new System.Drawing.Size(168, 42);
-            this.btn_CancelScan.TabIndex = 14;
+            this.btn_CancelScan.TabIndex = 22;
             this.btn_CancelScan.Text = "Hủy quét";
             this.btn_CancelScan.Click += new System.EventHandler(this.btn_CancelScan_Click);
             // 
@@ -435,7 +481,7 @@
             this.btn_PauseScan.ForeColor = System.Drawing.Color.DimGray;
             this.btn_PauseScan.Image = global::Ladin.mtaAV.Properties.Resources.Stop_Squared_48px;
             this.btn_PauseScan.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_PauseScan.Location = new System.Drawing.Point(569, 13);
+            this.btn_PauseScan.Location = new System.Drawing.Point(192, 30);
             this.btn_PauseScan.Margin = new System.Windows.Forms.Padding(2);
             this.btn_PauseScan.Name = "btn_PauseScan";
             this.btn_PauseScan.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
@@ -444,7 +490,7 @@
             this.btn_PauseScan.OnHoverImage = null;
             this.btn_PauseScan.OnPressedColor = System.Drawing.Color.Black;
             this.btn_PauseScan.Size = new System.Drawing.Size(175, 42);
-            this.btn_PauseScan.TabIndex = 13;
+            this.btn_PauseScan.TabIndex = 21;
             this.btn_PauseScan.Text = "Tạm dừng";
             this.btn_PauseScan.Click += new System.EventHandler(this.btn_PauseScan_Click);
             // 
@@ -461,7 +507,7 @@
             this.btn_Scan.ForeColor = System.Drawing.Color.DimGray;
             this.btn_Scan.Image = global::Ladin.mtaAV.Properties.Resources.Play_48px;
             this.btn_Scan.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Scan.Location = new System.Drawing.Point(390, 13);
+            this.btn_Scan.Location = new System.Drawing.Point(13, 30);
             this.btn_Scan.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Scan.Name = "btn_Scan";
             this.btn_Scan.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
@@ -470,49 +516,16 @@
             this.btn_Scan.OnHoverImage = null;
             this.btn_Scan.OnPressedColor = System.Drawing.Color.Black;
             this.btn_Scan.Size = new System.Drawing.Size(175, 42);
-            this.btn_Scan.TabIndex = 12;
+            this.btn_Scan.TabIndex = 20;
             this.btn_Scan.Text = "Chạy quét";
             this.btn_Scan.Click += new System.EventHandler(this.btn_Scan_Click);
-            // 
-            // gunaLabel2
-            // 
-            this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel2.Location = new System.Drawing.Point(80, 240);
-            this.gunaLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(209, 28);
-            this.gunaLabel2.TabIndex = 14;
-            this.gunaLabel2.Text = "Quét macro document";
-            // 
-            // sw_macro
-            // 
-            this.sw_macro.BackColor = System.Drawing.Color.Transparent;
-            this.sw_macro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sw_macro.BackgroundImage")));
-            this.sw_macro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.sw_macro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sw_macro.Location = new System.Drawing.Point(21, 243);
-            this.sw_macro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.sw_macro.Name = "sw_macro";
-            this.sw_macro.OffColor = System.Drawing.Color.Gray;
-            this.sw_macro.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.sw_macro.Size = new System.Drawing.Size(43, 25);
-            this.sw_macro.TabIndex = 13;
-            this.sw_macro.Value = false;
             // 
             // UC_Scan
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.lb_LocationFileScan);
-            this.Controls.Add(this.btn_CancelScan);
-            this.Controls.Add(this.btn_PauseScan);
-            this.Controls.Add(this.btn_Scan);
+            this.Controls.Add(this.gunaPanel3);
             this.Controls.Add(this.gunaLinePanel1);
-            this.Controls.Add(this.gunaLabel3);
-            this.Controls.Add(this.progressBar_Scan);
-            this.Controls.Add(this.lb_AllFile);
-            this.Controls.Add(this.gunaLabel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.Name = "UC_Scan";
@@ -522,24 +535,17 @@
             this.gunaPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
-            this.gunaPanel2.ResumeLayout(false);
-            this.gunaPanel2.PerformLayout();
             this.gunaLinePanel1.ResumeLayout(false);
             this.gunaLinePanel1.PerformLayout();
+            this.gunaPanel2.ResumeLayout(false);
+            this.gunaPanel2.PerformLayout();
+            this.gunaPanel3.ResumeLayout(false);
+            this.gunaPanel3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        internal Guna.UI.WinForms.GunaCircleProgressBar progressBar_Scan;
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private Guna.UI.WinForms.GunaLabel lb_AllFile;
-        private Guna.UI.WinForms.GunaLabel gunaLabel3;
-        private Guna.UI.WinForms.GunaCheckBox checkFile;
-        private Guna.UI.WinForms.GunaCheckBox checkProcess;
-        private Guna.UI.WinForms.GunaCheckBox checkFolder;
-        private Guna.UI.WinForms.GunaLabel gunaLabel4;
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
         private Guna.UI.WinForms.GunaLabel gunaLabel8;
         private Guna.UI.WinForms.GunaLabel lb_CountMacro;
@@ -548,19 +554,28 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel7;
         private Guna.UI.WinForms.GunaLabel lb_CountVirus;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
-        private Guna.UI.WinForms.GunaLabel txt;
+        private Guna.UI.WinForms.GunaLabel txtListVirus;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
-        private Guna.UI.WinForms.GunaPanel gunaPanel2;
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel1;
         private Guna.UI.WinForms.GunaLabel lbwe;
         private Guna.UI.WinForms.GunaLabel gunaLabel11;
         private Bunifu.Framework.UI.BunifuiOSSwitch sw_DynamicScan;
         private Bunifu.Framework.UI.BunifuiOSSwitch sw_SmartScan;
+        private Guna.UI.WinForms.GunaLabel gunaLabel2;
+        private Bunifu.Framework.UI.BunifuiOSSwitch sw_macro;
+        private Guna.UI.WinForms.GunaPanel gunaPanel2;
+        private Guna.UI.WinForms.GunaCheckBox checkFolder;
+        private Guna.UI.WinForms.GunaCheckBox checkFile;
+        private Guna.UI.WinForms.GunaLabel gunaLabel4;
+        private Guna.UI.WinForms.GunaCheckBox checkProcess;
+        private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private Guna.UI.WinForms.GunaLabel lb_AllFile;
+        internal Guna.UI.WinForms.GunaCircleProgressBar progressBar_Scan;
+        private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaButton btn_Scan;
         private Guna.UI.WinForms.GunaButton btn_PauseScan;
         private Guna.UI.WinForms.GunaButton btn_CancelScan;
         private Guna.UI.WinForms.GunaLabel lb_LocationFileScan;
-        private Guna.UI.WinForms.GunaLabel gunaLabel2;
-        private Bunifu.Framework.UI.BunifuiOSSwitch sw_macro;
+        private Guna.UI.WinForms.GunaPanel gunaPanel3;
     }
 }

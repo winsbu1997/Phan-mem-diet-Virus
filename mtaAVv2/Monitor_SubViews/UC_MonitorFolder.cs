@@ -49,7 +49,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
             row.Cells["Virus"].Value = Virus;
             row.Cells["Type_Scan"].Value = Type_Scan;
             row.Cells["Create_Date"].Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
-            dgv_FileDetect.Refresh();
+            //dgv_FileDetect.Refresh();
         }
         private void FileWatcher(string path)
         {
@@ -91,7 +91,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
         private void btn_SelectFolder_Click(object sender, EventArgs e)
         {
             string path = Provider.Select_Folder();
-            if(File.Exists(path)) FileWatcher(path);
+            if(Directory.Exists(path)) FileWatcher(path);
         }
 
         private void btnDeleteAll_Click(object sender, EventArgs e)

@@ -54,6 +54,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
         private string pathfile = "";
         private int _source, _destination;
         int no = 0; //stt
+        private long limitSizeFile = 1024 * 1024;
         Queue queue = new Queue();
         Queue qfile = new Queue();
 
@@ -66,6 +67,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
         #region Method
         private void LoadAdapters()
         {
+            cbx_LimitSize.SelectedIndex = 0;
             try
             {
                 AdaptersList = LivePacketDevice.AllLocalMachine;//locate all adapters
@@ -185,7 +187,6 @@ namespace Ladin.mtaAV.Monitor_SubViews
                                         Array.Copy(httpPacket.Body.ToMemoryStream().ToArray(), packet1.Data, httpPacket.Body.Length);
                                         packet1.Order = (uint)(tcp.SequenceNumber + payload.Length - httpPacket.Body.Length);
                                         packet1.Data_Length = httpPacket.Body.Length;
-
                                     }
                                     else
                                     {

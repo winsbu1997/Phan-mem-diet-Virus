@@ -9,7 +9,7 @@ namespace Ladin.mtaAV.Manager
 {
     class ProcessManager
     {
-        static List<string> GetListFileOfCurrentPath(string Path)
+        public static List<string> GetListFileOfCurrentPath(string Path)
         {
             List<string> ListF = new List<string>();
             DirectoryInfo d = new DirectoryInfo(Path);//Assuming Test is your Folder
@@ -22,7 +22,7 @@ namespace Ladin.mtaAV.Manager
                 ListF.Add(folder.Name);
             return ListF;
         }
-        static double CalculateSimilarity(string a, string b)
+        public static double CalculateSimilarity(string a, string b)
         {
             int c = 0;
             int k = a.Length;
@@ -37,7 +37,7 @@ namespace Ladin.mtaAV.Manager
             // c = 9; k = 7;
             return (c * 1000 / k);
         }
-        static string Normalize(string path)
+        public static string Normalize(string path)
         {
             char a = '\\';
             string[] pathArr = path.Split(a);
@@ -51,7 +51,6 @@ namespace Ladin.mtaAV.Manager
                 foreach (string f in ListF)
                 {
                     double tmp = CalculateSimilarity(f, pathArr[i]);
-                    //    Console.WriteLine(tmp);
                     if (tmp > max)
                     {
                         max = tmp;
@@ -62,11 +61,7 @@ namespace Ladin.mtaAV.Manager
                     Path = Path + strMax + "\\";
                 else Path = Path + strMax;
             }
-
-            //  Console.WriteLine(Path);
             pathArr[countNum - 1] = Path;
-            //        System.IO.File.WriteAllLines(@"C:\Users\Nguyen Dinh Hoang\Desktop\WriteLines.txt", pathArr);
-            //    Console.ReadKey();
             return Path;
         }
     }

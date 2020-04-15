@@ -31,35 +31,36 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.GunaLinePanel2 = new Guna.UI.WinForms.GunaLinePanel();
-            this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
-            this.GunaImageButton3 = new Guna.UI.WinForms.GunaImageButton();
-            this.Minimize = new Guna.UI.WinForms.GunaImageButton();
-            this.GunaImageButton1 = new Guna.UI.WinForms.GunaImageButton();
             this.GunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.GunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.GunaLinePanel4 = new Guna.UI.WinForms.GunaLinePanel();
-            this.GunaAdvenceTileButton7 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.GunaButton3 = new Guna.UI.WinForms.GunaButton();
             this.GunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
-            this.uC_Main1 = new Ladin.mtaAV.Views.UC_Main();
-            this.uC_Setting1 = new Ladin.mtaAV.Views.UC_Setting();
-            this.uC_Quarantine1 = new Ladin.mtaAV.Views.UC_Quarantine();
-            this.uC_Scan1 = new Ladin.mtaAV.Views.UC_Scan();
-            this.uC_Monitoring1 = new Ladin.mtaAV.Views.UC_Monitoring();
             this.pnlHeader = new Guna.UI.WinForms.GunaLinePanel();
+            this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.GunaAdvenceTileButton7 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.nav_activity = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.nav_quarantine = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.nav_modules = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.nav_scan = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.nav_status = new Guna.UI.WinForms.GunaAdvenceTileButton();
-            this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
+            this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
+            this.GunaImageButton3 = new Guna.UI.WinForms.GunaImageButton();
+            this.Minimize = new Guna.UI.WinForms.GunaImageButton();
+            this.GunaImageButton1 = new Guna.UI.WinForms.GunaImageButton();
+            this.uC_Main1 = new Ladin.mtaAV.Views.UC_Main();
+            this.uC_Setting1 = new Ladin.mtaAV.Views.UC_Setting();
+            this.uC_Quarantine1 = new Ladin.mtaAV.Views.UC_Quarantine();
+            this.uC_Scan1 = new Ladin.mtaAV.Views.UC_Scan();
+            this.uC_Monitoring1 = new Ladin.mtaAV.Views.UC_Monitoring();
             this.GunaLinePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
             this.GunaLinePanel4.SuspendLayout();
             this.GunaLinePanel1.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // GunaLinePanel2
@@ -80,59 +81,6 @@
             this.GunaLinePanel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.GunaLinePanel2.Size = new System.Drawing.Size(1095, 79);
             this.GunaLinePanel2.TabIndex = 0;
-            // 
-            // gunaCirclePictureBox1
-            // 
-            this.gunaCirclePictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaCirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaCirclePictureBox1.Image")));
-            this.gunaCirclePictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.gunaCirclePictureBox1.Name = "gunaCirclePictureBox1";
-            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(91, 76);
-            this.gunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaCirclePictureBox1.TabIndex = 9;
-            this.gunaCirclePictureBox1.TabStop = false;
-            this.gunaCirclePictureBox1.UseTransfarantBackground = false;
-            // 
-            // GunaImageButton3
-            // 
-            this.GunaImageButton3.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.GunaImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("GunaImageButton3.Image")));
-            this.GunaImageButton3.ImageSize = new System.Drawing.Size(12, 12);
-            this.GunaImageButton3.Location = new System.Drawing.Point(948, 22);
-            this.GunaImageButton3.Margin = new System.Windows.Forms.Padding(4);
-            this.GunaImageButton3.Name = "GunaImageButton3";
-            this.GunaImageButton3.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("GunaImageButton3.OnHoverImage")));
-            this.GunaImageButton3.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.GunaImageButton3.Size = new System.Drawing.Size(27, 39);
-            this.GunaImageButton3.TabIndex = 8;
-            // 
-            // Minimize
-            // 
-            this.Minimize.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Minimize.Image = ((System.Drawing.Image)(resources.GetObject("Minimize.Image")));
-            this.Minimize.ImageSize = new System.Drawing.Size(12, 12);
-            this.Minimize.Location = new System.Drawing.Point(993, 22);
-            this.Minimize.Margin = new System.Windows.Forms.Padding(4);
-            this.Minimize.Name = "Minimize";
-            this.Minimize.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("Minimize.OnHoverImage")));
-            this.Minimize.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.Minimize.Size = new System.Drawing.Size(27, 39);
-            this.Minimize.TabIndex = 7;
-            this.Minimize.Click += new System.EventHandler(this.Minimized_Click);
-            // 
-            // GunaImageButton1
-            // 
-            this.GunaImageButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.GunaImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("GunaImageButton1.Image")));
-            this.GunaImageButton1.ImageSize = new System.Drawing.Size(12, 12);
-            this.GunaImageButton1.Location = new System.Drawing.Point(1038, 22);
-            this.GunaImageButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.GunaImageButton1.Name = "GunaImageButton1";
-            this.GunaImageButton1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("GunaImageButton1.OnHoverImage")));
-            this.GunaImageButton1.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.GunaImageButton1.Size = new System.Drawing.Size(27, 39);
-            this.GunaImageButton1.TabIndex = 1;
-            this.GunaImageButton1.Click += new System.EventHandler(this.HideWindow_Click);
             // 
             // GunaLabel2
             // 
@@ -172,40 +120,6 @@
             this.GunaLinePanel4.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.GunaLinePanel4.Size = new System.Drawing.Size(159, 32);
             this.GunaLinePanel4.TabIndex = 2;
-            // 
-            // GunaAdvenceTileButton7
-            // 
-            this.GunaAdvenceTileButton7.AnimationHoverSpeed = 0.07F;
-            this.GunaAdvenceTileButton7.AnimationSpeed = 0.03F;
-            this.GunaAdvenceTileButton7.BaseColor = System.Drawing.Color.White;
-            this.GunaAdvenceTileButton7.BorderColor = System.Drawing.Color.Black;
-            this.GunaAdvenceTileButton7.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.GunaAdvenceTileButton7.CheckedBorderColor = System.Drawing.Color.Black;
-            this.GunaAdvenceTileButton7.CheckedForeColor = System.Drawing.Color.White;
-            this.GunaAdvenceTileButton7.CheckedImage = ((System.Drawing.Image)(resources.GetObject("GunaAdvenceTileButton7.CheckedImage")));
-            this.GunaAdvenceTileButton7.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.GunaAdvenceTileButton7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GunaAdvenceTileButton7.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.GunaAdvenceTileButton7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.GunaAdvenceTileButton7.FocusedColor = System.Drawing.Color.Empty;
-            this.GunaAdvenceTileButton7.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.GunaAdvenceTileButton7.ForeColor = System.Drawing.Color.White;
-            this.GunaAdvenceTileButton7.Image = ((System.Drawing.Image)(resources.GetObject("GunaAdvenceTileButton7.Image")));
-            this.GunaAdvenceTileButton7.ImageSize = new System.Drawing.Size(17, 17);
-            this.GunaAdvenceTileButton7.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(225)))), ((int)(((byte)(228)))));
-            this.GunaAdvenceTileButton7.LineRight = 1;
-            this.GunaAdvenceTileButton7.Location = new System.Drawing.Point(0, 1);
-            this.GunaAdvenceTileButton7.Margin = new System.Windows.Forms.Padding(4);
-            this.GunaAdvenceTileButton7.Name = "GunaAdvenceTileButton7";
-            this.GunaAdvenceTileButton7.OnHoverBaseColor = System.Drawing.Color.White;
-            this.GunaAdvenceTileButton7.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.GunaAdvenceTileButton7.OnHoverForeColor = System.Drawing.Color.White;
-            this.GunaAdvenceTileButton7.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("GunaAdvenceTileButton7.OnHoverImage")));
-            this.GunaAdvenceTileButton7.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(225)))), ((int)(((byte)(228)))));
-            this.GunaAdvenceTileButton7.OnPressedColor = System.Drawing.Color.Black;
-            this.GunaAdvenceTileButton7.OnPressedDepth = 0;
-            this.GunaAdvenceTileButton7.Size = new System.Drawing.Size(40, 31);
-            this.GunaAdvenceTileButton7.TabIndex = 3;
             // 
             // GunaButton3
             // 
@@ -266,55 +180,6 @@
             this.gunaPanel1.Size = new System.Drawing.Size(935, 637);
             this.gunaPanel1.TabIndex = 2;
             // 
-            // uC_Main1
-            // 
-            this.uC_Main1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Main1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Main1.Name = "uC_Main1";
-            this.uC_Main1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Main1.TabIndex = 8;
-            // 
-            // uC_Setting1
-            // 
-            this.uC_Setting1.BackColor = System.Drawing.Color.White;
-            this.uC_Setting1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Setting1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.uC_Setting1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.uC_Setting1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Setting1.Name = "uC_Setting1";
-            this.uC_Setting1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Setting1.TabIndex = 4;
-            // 
-            // uC_Quarantine1
-            // 
-            this.uC_Quarantine1.BackColor = System.Drawing.Color.White;
-            this.uC_Quarantine1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Quarantine1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.uC_Quarantine1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Quarantine1.Name = "uC_Quarantine1";
-            this.uC_Quarantine1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Quarantine1.TabIndex = 3;
-            // 
-            // uC_Scan1
-            // 
-            this.uC_Scan1.BackColor = System.Drawing.Color.White;
-            this.uC_Scan1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Scan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.uC_Scan1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.uC_Scan1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Scan1.Name = "uC_Scan1";
-            this.uC_Scan1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Scan1.TabIndex = 2;
-            // 
-            // uC_Monitoring1
-            // 
-            this.uC_Monitoring1.BackColor = System.Drawing.Color.White;
-            this.uC_Monitoring1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Monitoring1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Monitoring1.Name = "uC_Monitoring1";
-            this.uC_Monitoring1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Monitoring1.TabIndex = 0;
-            // 
             // pnlHeader
             // 
             this.pnlHeader.Controls.Add(this.GunaLinePanel4);
@@ -333,6 +198,50 @@
             this.pnlHeader.Padding = new System.Windows.Forms.Padding(0, 16, 1, 0);
             this.pnlHeader.Size = new System.Drawing.Size(160, 637);
             this.pnlHeader.TabIndex = 1;
+            // 
+            // gunaDragControl1
+            // 
+            this.gunaDragControl1.TargetControl = this.GunaLinePanel2;
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // GunaAdvenceTileButton7
+            // 
+            this.GunaAdvenceTileButton7.AnimationHoverSpeed = 0.07F;
+            this.GunaAdvenceTileButton7.AnimationSpeed = 0.03F;
+            this.GunaAdvenceTileButton7.BaseColor = System.Drawing.Color.White;
+            this.GunaAdvenceTileButton7.BorderColor = System.Drawing.Color.Black;
+            this.GunaAdvenceTileButton7.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.GunaAdvenceTileButton7.CheckedBorderColor = System.Drawing.Color.Black;
+            this.GunaAdvenceTileButton7.CheckedForeColor = System.Drawing.Color.White;
+            this.GunaAdvenceTileButton7.CheckedImage = ((System.Drawing.Image)(resources.GetObject("GunaAdvenceTileButton7.CheckedImage")));
+            this.GunaAdvenceTileButton7.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.GunaAdvenceTileButton7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GunaAdvenceTileButton7.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GunaAdvenceTileButton7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.GunaAdvenceTileButton7.FocusedColor = System.Drawing.Color.Empty;
+            this.GunaAdvenceTileButton7.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.GunaAdvenceTileButton7.ForeColor = System.Drawing.Color.White;
+            this.GunaAdvenceTileButton7.Image = ((System.Drawing.Image)(resources.GetObject("GunaAdvenceTileButton7.Image")));
+            this.GunaAdvenceTileButton7.ImageSize = new System.Drawing.Size(17, 17);
+            this.GunaAdvenceTileButton7.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(225)))), ((int)(((byte)(228)))));
+            this.GunaAdvenceTileButton7.LineRight = 1;
+            this.GunaAdvenceTileButton7.Location = new System.Drawing.Point(0, 1);
+            this.GunaAdvenceTileButton7.Margin = new System.Windows.Forms.Padding(4);
+            this.GunaAdvenceTileButton7.Name = "GunaAdvenceTileButton7";
+            this.GunaAdvenceTileButton7.OnHoverBaseColor = System.Drawing.Color.White;
+            this.GunaAdvenceTileButton7.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.GunaAdvenceTileButton7.OnHoverForeColor = System.Drawing.Color.White;
+            this.GunaAdvenceTileButton7.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("GunaAdvenceTileButton7.OnHoverImage")));
+            this.GunaAdvenceTileButton7.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(225)))), ((int)(((byte)(228)))));
+            this.GunaAdvenceTileButton7.OnPressedColor = System.Drawing.Color.Black;
+            this.GunaAdvenceTileButton7.OnPressedDepth = 0;
+            this.GunaAdvenceTileButton7.Size = new System.Drawing.Size(40, 31);
+            this.GunaAdvenceTileButton7.TabIndex = 3;
             // 
             // nav_activity
             // 
@@ -525,9 +434,107 @@
             this.nav_status.CheckedChanged += new System.EventHandler(this.Nav_status_Click);
             this.nav_status.Click += new System.EventHandler(this.Nav_status_Click);
             // 
-            // gunaDragControl1
+            // gunaCirclePictureBox1
             // 
-            this.gunaDragControl1.TargetControl = this.GunaLinePanel2;
+            this.gunaCirclePictureBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaCirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaCirclePictureBox1.Image")));
+            this.gunaCirclePictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.gunaCirclePictureBox1.Name = "gunaCirclePictureBox1";
+            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(91, 76);
+            this.gunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaCirclePictureBox1.TabIndex = 9;
+            this.gunaCirclePictureBox1.TabStop = false;
+            this.gunaCirclePictureBox1.UseTransfarantBackground = false;
+            // 
+            // GunaImageButton3
+            // 
+            this.GunaImageButton3.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GunaImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("GunaImageButton3.Image")));
+            this.GunaImageButton3.ImageSize = new System.Drawing.Size(12, 12);
+            this.GunaImageButton3.Location = new System.Drawing.Point(948, 22);
+            this.GunaImageButton3.Margin = new System.Windows.Forms.Padding(4);
+            this.GunaImageButton3.Name = "GunaImageButton3";
+            this.GunaImageButton3.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("GunaImageButton3.OnHoverImage")));
+            this.GunaImageButton3.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.GunaImageButton3.Size = new System.Drawing.Size(27, 39);
+            this.GunaImageButton3.TabIndex = 8;
+            // 
+            // Minimize
+            // 
+            this.Minimize.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Minimize.Image = ((System.Drawing.Image)(resources.GetObject("Minimize.Image")));
+            this.Minimize.ImageSize = new System.Drawing.Size(12, 12);
+            this.Minimize.Location = new System.Drawing.Point(993, 22);
+            this.Minimize.Margin = new System.Windows.Forms.Padding(4);
+            this.Minimize.Name = "Minimize";
+            this.Minimize.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("Minimize.OnHoverImage")));
+            this.Minimize.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.Minimize.Size = new System.Drawing.Size(27, 39);
+            this.Minimize.TabIndex = 7;
+            this.Minimize.Click += new System.EventHandler(this.Minimized_Click);
+            // 
+            // GunaImageButton1
+            // 
+            this.GunaImageButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GunaImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("GunaImageButton1.Image")));
+            this.GunaImageButton1.ImageSize = new System.Drawing.Size(12, 12);
+            this.GunaImageButton1.Location = new System.Drawing.Point(1038, 22);
+            this.GunaImageButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.GunaImageButton1.Name = "GunaImageButton1";
+            this.GunaImageButton1.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("GunaImageButton1.OnHoverImage")));
+            this.GunaImageButton1.OnHoverImageOffset = new System.Drawing.Point(0, 0);
+            this.GunaImageButton1.Size = new System.Drawing.Size(27, 39);
+            this.GunaImageButton1.TabIndex = 1;
+            this.GunaImageButton1.Click += new System.EventHandler(this.HideWindow_Click);
+            // 
+            // uC_Main1
+            // 
+            this.uC_Main1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Main1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Main1.Name = "uC_Main1";
+            this.uC_Main1.Size = new System.Drawing.Size(935, 637);
+            this.uC_Main1.TabIndex = 8;
+            // 
+            // uC_Setting1
+            // 
+            this.uC_Setting1.BackColor = System.Drawing.Color.White;
+            this.uC_Setting1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Setting1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.uC_Setting1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.uC_Setting1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Setting1.Name = "uC_Setting1";
+            this.uC_Setting1.Size = new System.Drawing.Size(935, 637);
+            this.uC_Setting1.TabIndex = 4;
+            // 
+            // uC_Quarantine1
+            // 
+            this.uC_Quarantine1.BackColor = System.Drawing.Color.White;
+            this.uC_Quarantine1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Quarantine1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.uC_Quarantine1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Quarantine1.Name = "uC_Quarantine1";
+            this.uC_Quarantine1.Size = new System.Drawing.Size(935, 637);
+            this.uC_Quarantine1.TabIndex = 3;
+            // 
+            // uC_Scan1
+            // 
+            this.uC_Scan1.BackColor = System.Drawing.Color.White;
+            this.uC_Scan1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Scan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.uC_Scan1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.uC_Scan1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Scan1.Name = "uC_Scan1";
+            this.uC_Scan1.Size = new System.Drawing.Size(935, 637);
+            this.uC_Scan1.TabIndex = 2;
+            // 
+            // uC_Monitoring1
+            // 
+            this.uC_Monitoring1.BackColor = System.Drawing.Color.White;
+            this.uC_Monitoring1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Monitoring1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Monitoring1.Name = "uC_Monitoring1";
+            this.uC_Monitoring1.Size = new System.Drawing.Size(935, 637);
+            this.uC_Monitoring1.TabIndex = 0;
             // 
             // FormMain
             // 
@@ -538,15 +545,19 @@
             this.ClientSize = new System.Drawing.Size(1097, 718);
             this.Controls.Add(this.GunaLinePanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
+            this.Resize += new System.EventHandler(this.FormMain_Resize);
             this.GunaLinePanel2.ResumeLayout(false);
             this.GunaLinePanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).EndInit();
             this.GunaLinePanel4.ResumeLayout(false);
             this.GunaLinePanel1.ResumeLayout(false);
             this.gunaPanel1.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -577,5 +588,6 @@
         private Views.UC_Quarantine uC_Quarantine1;
         private Views.UC_Main uC_Main1;
         private Views.UC_Setting uC_Setting1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

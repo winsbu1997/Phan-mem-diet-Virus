@@ -56,7 +56,12 @@ namespace Ladin.mtaAV
             {
                 RegisterInStartup(my_location);
             }
+            if (!Directory.Exists("log"))
+            {
+                Directory.CreateDirectory("log");
+            }
         }
+        #region Load_UC
         private void Nav_status_Click(object sender, EventArgs e)
         {
             uC_Main1.Reload();
@@ -84,16 +89,65 @@ namespace Ladin.mtaAV
         {
             uC_Monitoring1.BringToFront();
         }
-
+        #endregion
+        #region Event Close, Open Form
         private void Minimized_Click(object sender, EventArgs e)
         {
-            if (Visible)
-                Hide();
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void HideWindow_Click(object sender, EventArgs e)
         {
-            Close();
+            try
+            {
+                Provider.search.Abort();
+            }
+            catch { }
+            Application.Exit();
+        }
+        private void FormMain_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                notifyIcon1.Visible = true;
+                Hide();
+            }
+        }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                notifyIcon1.Visible = true;
+                this.Hide();
+                e.Cancel = true;
+            }
+            else if (e.CloseReason == CloseReason.ApplicationExitCall)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void frmShow_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Visible = false;
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void frmClose_Click(object sender, EventArgs e)
+        {
+            Provider.search.Abort();
+            Application.Exit();
+        }
+
+        #endregion
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.Linq.Mapping;
 using System.Data.SQLite;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,12 +34,19 @@ namespace Ladin.mtaAV.Model
         public string CREATE_DATE { get; set; }
 
         public QUARANTINES() { }
-        public QUARANTINES(string FILENAME, string VIRUS, string TYPE_SCAN, string CREATE_DATE)
+        public QUARANTINES(string FILENAME, string VIRUS, string TYPE_SCAN, string CREATE_DATE )
         {
             this.FILENAME = FILENAME;
             this.VIRUS = VIRUS;
             this.TYPE_SCAN = TYPE_SCAN;
             this.CREATE_DATE = CREATE_DATE;
+        }
+        public QUARANTINES(string FILENAME, string VIRUS, string TYPE_SCAN)
+        {
+            this.FILENAME = FILENAME;
+            this.VIRUS = VIRUS;
+            this.TYPE_SCAN = TYPE_SCAN;
+            this.CREATE_DATE = DateTime.Now.ToString("dd/MM/yyyy HH:mm",CultureInfo.InvariantCulture);
         }
     }
 }

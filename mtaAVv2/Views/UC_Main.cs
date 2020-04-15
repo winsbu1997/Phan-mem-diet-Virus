@@ -86,7 +86,10 @@ namespace Ladin.mtaAV.Views
                         {
                             infected++;
                             QUARANTINES quarantine = new QUARANTINES(file, res.VirusName, "Tĩnh", DateTime.Now.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture));
-                            Provider.list_NewQuarantines.Add(quarantine);
+                            lock (Provider.list_NewQuarantines)
+                            {
+                                Provider.list_NewQuarantines.Add(quarantine);
+                            }
                         }
                     }
                     catch (Exception e)

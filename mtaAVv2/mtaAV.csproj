@@ -101,12 +101,19 @@
     <Compile Include="Manager\QuarantineManager.cs" />
     <Compile Include="Manager\Detail_Macro.cs" />
     <Compile Include="Model\Database.cs" />
+    <Compile Include="Model\Engineer.cs" />
     <Compile Include="Model\EXCLUSION.cs" />
     <Compile Include="Model\FOLDER_LOCKER.cs" />
     <Compile Include="Model\FOLDER_MONITOR.cs" />
     <Compile Include="Model\HISTORY.cs" />
     <Compile Include="Model\QUARANTINES.cs" />
     <Compile Include="Model\TIMER.cs" />
+    <Compile Include="Monitor_SubViews\UC_DetectRansomware.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Monitor_SubViews\UC_DetectRansomware.Designer.cs">
+      <DependentUpon>UC_DetectRansomware.cs</DependentUpon>
+    </Compile>
     <Compile Include="Monitor_SubViews\UC_MonitorFolder.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,6 +146,8 @@
     <Compile Include="UsbManager\UsbStateChange.cs" />
     <Compile Include="UsbManager\UsbStateChangedEventArgs.cs" />
     <Compile Include="UsbManager\WmiExtensions.cs" />
+    <Compile Include="Utilities\CallPython_RestfulApi.cs" />
+    <Compile Include="Utilities\ConnectApi.cs" />
     <Compile Include="Utilities\ConsoleSetups.cs" />
     <Compile Include="Utilities\Ini.cs" />
     <Compile Include="Views\frmAlert.cs">
@@ -146,6 +155,18 @@
     </Compile>
     <Compile Include="Views\frmAlert.Designer.cs">
       <DependentUpon>frmAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reprot_DynamicScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Reprot_DynamicScan.Designer.cs">
+      <DependentUpon>Reprot_DynamicScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UC_ConnectApi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UC_ConnectApi.Designer.cs">
+      <DependentUpon>UC_ConnectApi.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UC_Monitoring.cs">
       <SubType>UserControl</SubType>
@@ -192,6 +213,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Monitor_SubViews\UC_DetectRansomware.resx">
+      <DependentUpon>UC_DetectRansomware.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Monitor_SubViews\UC_MonitorFolder.resx">
       <DependentUpon>UC_MonitorFolder.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +232,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmAlert.resx">
       <DependentUpon>frmAlert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reprot_DynamicScan.resx">
+      <DependentUpon>Reprot_DynamicScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UC_ConnectApi.resx">
+      <DependentUpon>UC_ConnectApi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UC_Monitoring.resx">
       <DependentUpon>UC_Monitoring.cs</DependentUpon>
@@ -235,6 +265,7 @@
     </None>
     <None Include="Properties\DataSources\Ladin.mtaAV.Manager.Suspecious.datasource" />
     <None Include="Properties\DataSources\Ladin.mtaAV.Model.QUARANTINES.datasource" />
+    <None Include="Properties\DataSources\Ladin.mtaAV.Utilities.ConnectApi.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -248,9 +279,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Dll\Guna.UI.dll" />
     <Content Include="Dll\process-killer.dll" />
@@ -290,6 +319,9 @@
     <None Include="Resources\1.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
     <PackageReference Include="SQLite.CodeFirst">
       <Version>1.5.3.29</Version>
     </PackageReference>

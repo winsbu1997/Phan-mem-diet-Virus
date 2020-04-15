@@ -1,0 +1,12 @@
+H:\Ngiencuukhoahoc\CookuSandBox\MtaAv\FileWatcherEx\bin\Debug\FileWatcherEx.dll
+H:\Ngiencuukhoahoc\CookuSandBox\MtaAv\FileWatcherEx\bin\Debug\FileWatcherEx.pdb
+H:\Ngiencuukhoahoc\CookuSandBox\MtaAv\FileWatcherEx\bin\Debug\EntityFramework.SqlServer.dll
+H:\Ngiencuukhoahoc\CookuSandBox\MtaAv\FileWatcherEx\bin\Debug\EntityFramework.dll
+H:\Ngiencuukhoahoc\CookuSandBox\MtaAv\FileWatcherEx\bin\Debug\System.Data.SQLite.dll
+H:\Ngiencuukhoahoc\CookuSandBox\MtaAv\FileWatcherEx\bin\Debug\System.Data.SQLite.EF6.dll
+H:\Ngiencuukhoahoc\CookuSandBox\MtaAv\FileWatcherEx\bin\Debug\System.Data.SQLite.Linq.dll
+H:\Ngiencuukhoahoc\CookuSandBox\MtaAv\FileWatcherEx\obj\Debug\FileWatcherEx.csprojAssemblyReference.cache
+H:\Ngiencuukhoahoc\CookuSandBox\MtaAv\FileWatcherEx\obj\Debug\FileWatcherEx.csproj.CoreCompileInputs.cache
+H:\Ngiencuukhoahoc\CookuSandBox\MtaAv\FileWatcherEx\obj\Debug\FileWatcherEx.csproj.CopyComplete
+H:\Ngiencuukhoahoc\CookuSandBox\MtaAv\FileWatcherEx\obj\Debug\FileWatcherEx.dll
+H:\Ngiencuukhoahoc\CookuSandBox\MtaAv\FileWatcherEx\obj\Debug\FileWatcherEx.pdb

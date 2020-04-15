@@ -45,13 +45,14 @@
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.pnlMain = new Guna.UI.WinForms.GunaPanel();
+            this.uC_MonitorFolder1 = new Ladin.mtaAV.Monitor_SubViews.UC_MonitorFolder();
+            this.uC_Network1 = new Ladin.mtaAV.Monitor_SubViews.UC_Network();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
             this.btnProcess = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnNetwork = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnApplication = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnRansomware = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.uC_MonitorFolder1 = new Ladin.mtaAV.Monitor_SubViews.UC_MonitorFolder();
-            this.uC_Network1 = new Ladin.mtaAV.Monitor_SubViews.UC_Network();
+            this.uC_Process1 = new Ladin.mtaAV.Monitor_SubViews.UC_Process();
             this.gunaGroupBox1.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
@@ -251,6 +252,7 @@
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.uC_Process1);
             this.pnlMain.Controls.Add(this.uC_MonitorFolder1);
             this.pnlMain.Controls.Add(this.uC_Network1);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -258,6 +260,24 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(935, 388);
             this.pnlMain.TabIndex = 23;
+            // 
+            // uC_MonitorFolder1
+            // 
+            this.uC_MonitorFolder1.BackColor = System.Drawing.Color.White;
+            this.uC_MonitorFolder1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_MonitorFolder1.Location = new System.Drawing.Point(0, 0);
+            this.uC_MonitorFolder1.Name = "uC_MonitorFolder1";
+            this.uC_MonitorFolder1.Size = new System.Drawing.Size(935, 388);
+            this.uC_MonitorFolder1.TabIndex = 1;
+            // 
+            // uC_Network1
+            // 
+            this.uC_Network1.BackColor = System.Drawing.Color.White;
+            this.uC_Network1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Network1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Network1.Name = "uC_Network1";
+            this.uC_Network1.Size = new System.Drawing.Size(935, 388);
+            this.uC_Network1.TabIndex = 0;
             // 
             // gunaPanel2
             // 
@@ -429,23 +449,14 @@
             this.btnRansomware.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnRansomware.Click += new System.EventHandler(this.btnRansomware_Click);
             // 
-            // uC_MonitorFolder1
+            // uC_Process1
             // 
-            this.uC_MonitorFolder1.BackColor = System.Drawing.Color.White;
-            this.uC_MonitorFolder1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_MonitorFolder1.Location = new System.Drawing.Point(0, 0);
-            this.uC_MonitorFolder1.Name = "uC_MonitorFolder1";
-            this.uC_MonitorFolder1.Size = new System.Drawing.Size(935, 388);
-            this.uC_MonitorFolder1.TabIndex = 1;
-            // 
-            // uC_Network1
-            // 
-            this.uC_Network1.BackColor = System.Drawing.Color.White;
-            this.uC_Network1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Network1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Network1.Name = "uC_Network1";
-            this.uC_Network1.Size = new System.Drawing.Size(935, 388);
-            this.uC_Network1.TabIndex = 0;
+            this.uC_Process1.BackColor = System.Drawing.Color.White;
+            this.uC_Process1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Process1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Process1.Name = "uC_Process1";
+            this.uC_Process1.Size = new System.Drawing.Size(935, 388);
+            this.uC_Process1.TabIndex = 2;
             // 
             // UC_Monitoring
             // 
@@ -489,5 +500,6 @@
         private Guna.UI.WinForms.GunaPanel pnlMain;
         private Monitor_SubViews.UC_Network uC_Network1;
         private Monitor_SubViews.UC_MonitorFolder uC_MonitorFolder1;
+        private Monitor_SubViews.UC_Process uC_Process1;
     }
 }

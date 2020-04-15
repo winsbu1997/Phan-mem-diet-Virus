@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearch", "..\BinarySe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWatcherEx", "..\FileWatcherEx\FileWatcherEx.csproj", "{97E6C206-CB3A-41F3-A088-57F19D4481C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "..\ConsoleApp1\ConsoleApp1.csproj", "{4E25BA72-612B-4995-8C29-319DB98600A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{97E6C206-CB3A-41F3-A088-57F19D4481C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97E6C206-CB3A-41F3-A088-57F19D4481C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97E6C206-CB3A-41F3-A088-57F19D4481C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E25BA72-612B-4995-8C29-319DB98600A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E25BA72-612B-4995-8C29-319DB98600A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E25BA72-612B-4995-8C29-319DB98600A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E25BA72-612B-4995-8C29-319DB98600A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

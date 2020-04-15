@@ -17,18 +17,22 @@ namespace Ladin.mtaAV
 {
     class Provider
     {
+        #region avariable 
         public static Model.Database db = new Model.Database();
         public static OpenFileDialog openFile = new OpenFileDialog();
         public static FolderBrowserDialog openFolder = new FolderBrowserDialog();
         public static Thread search = null;
         public static Task scanUSB = null;
-        public static Task scanNewProcess = null;
         public static bool scanning = false;
         //public static bool scanningUSB = false;
         public static bool suspended = false;
         public static int countDoc = 0;
+        public static string url = "127.0.0.1";
+        public static string port = "8123";
         //public static string runningPath = AppDomain.CurrentDomain.BaseDirectory; database bath, md5 path
         //public static string DllPath = string.Format("{0}Dll\\", Path.GetFullPath(Path.Combine(runningPath, @"..\..\")));
+        #endregion
+
         #region Method
         public static void Reload()
         {

@@ -29,7 +29,7 @@ namespace Ladin.mtaAV.Views
 
         private void btnProcess_Click(object sender, EventArgs e)
         {
-            pnlMain.BringToFront();
+            uC_Process1.BringToFront();
         }
 
         private void btnRansomware_Click(object sender, EventArgs e)

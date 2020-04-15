@@ -49,7 +49,7 @@
             this.btnDeleteFile = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel18 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel17 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaComboBox2 = new Guna.UI.WinForms.GunaComboBox();
+            this.cbx_LimitSize = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel16 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel15 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel14 = new Guna.UI.WinForms.GunaLabel();
@@ -127,13 +127,13 @@
             this.dgv_NetworkFile.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_NetworkFile.EnableHeadersVisualStyles = false;
             this.dgv_NetworkFile.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(192)))), ((int)(((byte)(188)))));
-            this.dgv_NetworkFile.Location = new System.Drawing.Point(0, 66);
+            this.dgv_NetworkFile.Location = new System.Drawing.Point(0, 77);
             this.dgv_NetworkFile.Name = "dgv_NetworkFile";
             this.dgv_NetworkFile.ReadOnly = true;
             this.dgv_NetworkFile.RowHeadersVisible = false;
             this.dgv_NetworkFile.RowTemplate.Height = 40;
             this.dgv_NetworkFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_NetworkFile.Size = new System.Drawing.Size(651, 330);
+            this.dgv_NetworkFile.Size = new System.Drawing.Size(651, 319);
             this.dgv_NetworkFile.TabIndex = 28;
             this.dgv_NetworkFile.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Alizarin;
             this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(201)))), ((int)(((byte)(197)))));
@@ -302,7 +302,7 @@
             this.groupBox1.Controls.Add(this.gunaPanel1);
             this.groupBox1.Controls.Add(this.gunaLabel18);
             this.groupBox1.Controls.Add(this.gunaLabel17);
-            this.groupBox1.Controls.Add(this.gunaComboBox2);
+            this.groupBox1.Controls.Add(this.cbx_LimitSize);
             this.groupBox1.Controls.Add(this.gunaLabel16);
             this.groupBox1.Controls.Add(this.gunaLabel15);
             this.groupBox1.Controls.Add(this.gunaLabel14);
@@ -376,28 +376,28 @@
             this.gunaLabel17.TabIndex = 27;
             this.gunaLabel17.Text = "MB";
             // 
-            // gunaComboBox2
+            // cbx_LimitSize
             // 
-            this.gunaComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox2.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox2.BorderColor = System.Drawing.Color.Silver;
-            this.gunaComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.gunaComboBox2.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox2.FormattingEnabled = true;
-            this.gunaComboBox2.Items.AddRange(new object[] {
+            this.cbx_LimitSize.BackColor = System.Drawing.Color.Transparent;
+            this.cbx_LimitSize.BaseColor = System.Drawing.Color.White;
+            this.cbx_LimitSize.BorderColor = System.Drawing.Color.Silver;
+            this.cbx_LimitSize.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbx_LimitSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_LimitSize.FocusedColor = System.Drawing.Color.Empty;
+            this.cbx_LimitSize.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbx_LimitSize.ForeColor = System.Drawing.Color.Black;
+            this.cbx_LimitSize.FormattingEnabled = true;
+            this.cbx_LimitSize.Items.AddRange(new object[] {
             "1",
             "2",
             "5",
             "10"});
-            this.gunaComboBox2.Location = new System.Drawing.Point(166, 52);
-            this.gunaComboBox2.Name = "gunaComboBox2";
-            this.gunaComboBox2.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaComboBox2.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox2.Size = new System.Drawing.Size(74, 31);
-            this.gunaComboBox2.TabIndex = 26;
+            this.cbx_LimitSize.Location = new System.Drawing.Point(166, 52);
+            this.cbx_LimitSize.Name = "cbx_LimitSize";
+            this.cbx_LimitSize.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cbx_LimitSize.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.cbx_LimitSize.Size = new System.Drawing.Size(74, 31);
+            this.cbx_LimitSize.TabIndex = 26;
             // 
             // gunaLabel16
             // 
@@ -507,7 +507,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private Guna.UI.WinForms.GunaLabel gunaLabel18;
         private Guna.UI.WinForms.GunaLabel gunaLabel17;
-        private Guna.UI.WinForms.GunaComboBox gunaComboBox2;
+        private Guna.UI.WinForms.GunaComboBox cbx_LimitSize;
         private Guna.UI.WinForms.GunaLabel gunaLabel16;
         private Guna.UI.WinForms.GunaLabel gunaLabel15;
         private Guna.UI.WinForms.GunaLabel gunaLabel14;

@@ -16,6 +16,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Globalization;
 using Ladin.mtaAV.Manager;
+using Ladin.mtaAV.Utilities;
 
 namespace Ladin.mtaAV.Views
 {
@@ -31,6 +32,8 @@ namespace Ladin.mtaAV.Views
         string date = DateTime.Now.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
         private List<Detail_Macro> dt_mc = new List<Detail_Macro>();
         private BindingList<File_Macro> lst_FileMacro = new BindingList<File_Macro>();
+        private List<ConnectApi> lst_DynamicMalware = new List<ConnectApi>();
+        ConnectApi api = new ConnectApi();
         #endregion
         public UC_Scan()
         {
@@ -127,6 +130,20 @@ namespace Ladin.mtaAV.Views
         }
         private int ScanFile(string loc, bool silent)
         {
+            if (sw_DynamicScan.Value)
+            {
+                string[] s = { loc };
+                QUARANTINES kq = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", s).First();
+                if (kq != null)
+                {
+                    kq.FILENAME = loc;
+                    if (kq.VIRUS == "1") Provider.list_NewQuarantines.Add(kq);
+
+                    lst_DynamicMalware = api.GetResult();
+                }
+                checkFile.Checked = false;
+                return 4;
+            }
             int ret = 0;
             if (File.Exists(loc))
             {
@@ -177,7 +194,13 @@ namespace Ladin.mtaAV.Views
                 Provider.Alert("MtaAV bắt đầu quét virus", frmAlert.alertTypeEnum.Info);
                 Init_Scanning();
             }));
-
+            //if (sw_DynamicScan.Value)
+            //{
+            //    List<QUARANTINES> kq = ConnectApi.Upload_MultiFiles<QUARANTINES>("upload-multiple", Provider.GetFiles(loc_to_search, wildcard, SearchOption.AllDirectories));
+            //    infected = kq.Count;
+            //    Provider.list_NewQuarantines.AddRange(kq);
+            //    goto Labelx;
+            //}
             if (sw_SmartScan.Value) files = Provider.GetFiles(loc_to_search, smart_ext, SearchOption.AllDirectories);
             else files = Provider.GetFiles(loc_to_search, wildcard, SearchOption.AllDirectories);
             int total = files.Length;
@@ -192,7 +215,7 @@ namespace Ladin.mtaAV.Views
                 if (File.Exists(file))
                 {
                     FileInfo fi = new FileInfo(file);
-                    if(fi.Length > 52428800) goto NEXT;
+                    if(fi.Length > 5242880) goto NEXT;
                     try
                     {
                         string find = Path.GetExtension(file);
@@ -372,6 +395,22 @@ namespace Ladin.mtaAV.Views
             frm.sender(dt_mc, lst_FileMacro);
             frm.ShowDialog();
             lb_CountMacro.Text = Provider.countDoc.ToString();
+        }
+
+        private void sw_DynamicScan_OnValueChange(object sender, EventArgs e)
+        {
+            if (sw_DynamicScan.Value)
+            {
+                //gunaPanel4.BringToFront();
+            }
+            else gunaPanel1.BringToFront();
+        }
+
+        private void txtListVirus_Click(object sender, EventArgs e)
+        {
+            Reprot_DynamicScan frm = new Reprot_DynamicScan();
+            frm.sender(lst_DynamicMalware);
+            frm.ShowDialog();
         }
     }
 }
