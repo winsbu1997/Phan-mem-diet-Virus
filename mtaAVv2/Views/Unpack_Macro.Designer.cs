@@ -29,16 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.dgv_DocumentFile = new Guna.UI.WinForms.GunaDataGridView();
+            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_DeleteExclusion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Macro_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Suspecious_Patterns = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
             this.gunaGroupBox1 = new Guna.UI.WinForms.GunaGroupBox();
             this.gunaLabel20 = new Guna.UI.WinForms.GunaLabel();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gunaLabel19 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel18 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel17 = new Guna.UI.WinForms.GunaLabel();
@@ -59,12 +65,6 @@
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.txtMacro = new System.Windows.Forms.RichTextBox();
-            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_DeleteExclusion = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Macro_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Suspecious_Patterns = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gunaPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DocumentFile)).BeginInit();
             this.gunaPanel2.SuspendLayout();
@@ -124,22 +124,22 @@
             // 
             this.dgv_DocumentFile.AllowUserToAddRows = false;
             this.dgv_DocumentFile.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(201)))), ((int)(((byte)(197)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_DocumentFile.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(201)))), ((int)(((byte)(197)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_DocumentFile.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_DocumentFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_DocumentFile.BackgroundColor = System.Drawing.Color.White;
             this.dgv_DocumentFile.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_DocumentFile.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_DocumentFile.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_DocumentFile.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DocumentFile.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_DocumentFile.ColumnHeadersHeight = 40;
             this.dgv_DocumentFile.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileName,
@@ -147,14 +147,14 @@
             this.ID,
             this.Macro_Code,
             this.Suspecious_Patterns});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(135)))), ((int)(((byte)(125)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_DocumentFile.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(135)))), ((int)(((byte)(125)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_DocumentFile.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_DocumentFile.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgv_DocumentFile.EnableHeadersVisualStyles = false;
             this.dgv_DocumentFile.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(192)))), ((int)(((byte)(188)))));
@@ -189,6 +189,58 @@
             this.dgv_DocumentFile.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(135)))), ((int)(((byte)(125)))));
             this.dgv_DocumentFile.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgv_DocumentFile.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DocumentFile_CellClick);
+            // 
+            // FileName
+            // 
+            this.FileName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FileName.DataPropertyName = "FileName";
+            this.FileName.FillWeight = 118.7817F;
+            this.FileName.HeaderText = "Tên đường dẫn";
+            this.FileName.Name = "FileName";
+            this.FileName.ReadOnly = true;
+            // 
+            // btn_DeleteExclusion
+            // 
+            this.btn_DeleteExclusion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
+            this.btn_DeleteExclusion.DefaultCellStyle = dataGridViewCellStyle3;
+            this.btn_DeleteExclusion.FillWeight = 81.21826F;
+            this.btn_DeleteExclusion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_DeleteExclusion.HeaderText = "Xóa";
+            this.btn_DeleteExclusion.Name = "btn_DeleteExclusion";
+            this.btn_DeleteExclusion.ReadOnly = true;
+            this.btn_DeleteExclusion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btn_DeleteExclusion.Text = "X";
+            this.btn_DeleteExclusion.UseColumnTextForButtonValue = true;
+            this.btn_DeleteExclusion.Width = 60;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // Macro_Code
+            // 
+            this.Macro_Code.DataPropertyName = "Macro_Code";
+            this.Macro_Code.HeaderText = "Macro_Code";
+            this.Macro_Code.Name = "Macro_Code";
+            this.Macro_Code.ReadOnly = true;
+            this.Macro_Code.Visible = false;
+            // 
+            // Suspecious_Patterns
+            // 
+            this.Suspecious_Patterns.DataPropertyName = "Suspecious_Patterns";
+            this.Suspecious_Patterns.HeaderText = "Suspecious_Patterns";
+            this.Suspecious_Patterns.Name = "Suspecious_Patterns";
+            this.Suspecious_Patterns.ReadOnly = true;
+            this.Suspecious_Patterns.Visible = false;
             // 
             // gunaPanel2
             // 
@@ -245,6 +297,10 @@
             this.gunaLabel20.Size = new System.Drawing.Size(17, 20);
             this.gunaLabel20.TabIndex = 20;
             this.gunaLabel20.Text = "0";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(Ladin.mtaAV.Manager.Suspecious);
             // 
             // gunaLabel19
             // 
@@ -455,62 +511,6 @@
             this.txtMacro.TabIndex = 8;
             this.txtMacro.Text = "";
             // 
-            // FileName
-            // 
-            this.FileName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FileName.DataPropertyName = "FileName";
-            this.FileName.FillWeight = 118.7817F;
-            this.FileName.HeaderText = "Tên đường dẫn";
-            this.FileName.Name = "FileName";
-            this.FileName.ReadOnly = true;
-            // 
-            // btn_DeleteExclusion
-            // 
-            this.btn_DeleteExclusion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Red;
-            this.btn_DeleteExclusion.DefaultCellStyle = dataGridViewCellStyle11;
-            this.btn_DeleteExclusion.FillWeight = 81.21826F;
-            this.btn_DeleteExclusion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_DeleteExclusion.HeaderText = "Xóa";
-            this.btn_DeleteExclusion.Name = "btn_DeleteExclusion";
-            this.btn_DeleteExclusion.ReadOnly = true;
-            this.btn_DeleteExclusion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btn_DeleteExclusion.Text = "X";
-            this.btn_DeleteExclusion.UseColumnTextForButtonValue = true;
-            this.btn_DeleteExclusion.Width = 60;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // Macro_Code
-            // 
-            this.Macro_Code.DataPropertyName = "Macro_Code";
-            this.Macro_Code.HeaderText = "Macro_Code";
-            this.Macro_Code.Name = "Macro_Code";
-            this.Macro_Code.ReadOnly = true;
-            this.Macro_Code.Visible = false;
-            // 
-            // Suspecious_Patterns
-            // 
-            this.Suspecious_Patterns.DataPropertyName = "Suspecious_Patterns";
-            this.Suspecious_Patterns.HeaderText = "Suspecious_Patterns";
-            this.Suspecious_Patterns.Name = "Suspecious_Patterns";
-            this.Suspecious_Patterns.ReadOnly = true;
-            this.Suspecious_Patterns.Visible = false;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(Ladin.mtaAV.Manager.Suspecious);
-            // 
             // Unpack_Macro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -522,6 +522,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Unpack_Macro";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Unpack_Macro_FormClosing);
             this.gunaPanel1.ResumeLayout(false);

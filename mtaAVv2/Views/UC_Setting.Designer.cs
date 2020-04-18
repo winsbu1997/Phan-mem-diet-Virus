@@ -98,7 +98,7 @@
             this.btn_DeleteVault = new Guna.UI.WinForms.GunaButton();
             this.gunaProgressBar1 = new Guna.UI.WinForms.GunaProgressBar();
             this.gunaButton11 = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton12 = new Guna.UI.WinForms.GunaButton();
+            this.btnUdate_Online = new Guna.UI.WinForms.GunaButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1035,7 +1035,7 @@
             this.tabUpdateDatabase.Controls.Add(this.groupBox1);
             this.tabUpdateDatabase.Controls.Add(this.gunaProgressBar1);
             this.tabUpdateDatabase.Controls.Add(this.gunaButton11);
-            this.tabUpdateDatabase.Controls.Add(this.gunaButton12);
+            this.tabUpdateDatabase.Controls.Add(this.btnUdate_Online);
             this.tabUpdateDatabase.Location = new System.Drawing.Point(4, 40);
             this.tabUpdateDatabase.Name = "tabUpdateDatabase";
             this.tabUpdateDatabase.Padding = new System.Windows.Forms.Padding(3);
@@ -1192,32 +1192,33 @@
             this.gunaButton11.Text = "Cập nhập từ file";
             this.gunaButton11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // gunaButton12
+            // btnUdate_Online
             // 
-            this.gunaButton12.AnimationHoverSpeed = 0.07F;
-            this.gunaButton12.AnimationSpeed = 0.03F;
-            this.gunaButton12.BaseColor = System.Drawing.Color.White;
-            this.gunaButton12.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton12.BorderSize = 1;
-            this.gunaButton12.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton12.FocusedColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.gunaButton12.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaButton12.ForeColor = System.Drawing.Color.DimGray;
-            this.gunaButton12.Image = null;
-            this.gunaButton12.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton12.Location = new System.Drawing.Point(26, 29);
-            this.gunaButton12.Margin = new System.Windows.Forms.Padding(2);
-            this.gunaButton12.Name = "gunaButton12";
-            this.gunaButton12.OnHoverBaseColor = System.Drawing.Color.MistyRose;
-            this.gunaButton12.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton12.OnHoverForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.gunaButton12.OnHoverImage = null;
-            this.gunaButton12.OnPressedColor = System.Drawing.Color.MistyRose;
-            this.gunaButton12.OnPressedDepth = 0;
-            this.gunaButton12.Size = new System.Drawing.Size(185, 42);
-            this.gunaButton12.TabIndex = 30;
-            this.gunaButton12.Text = "Cập nhập online";
-            this.gunaButton12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnUdate_Online.AnimationHoverSpeed = 0.07F;
+            this.btnUdate_Online.AnimationSpeed = 0.03F;
+            this.btnUdate_Online.BaseColor = System.Drawing.Color.White;
+            this.btnUdate_Online.BorderColor = System.Drawing.Color.Black;
+            this.btnUdate_Online.BorderSize = 1;
+            this.btnUdate_Online.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnUdate_Online.FocusedColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnUdate_Online.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUdate_Online.ForeColor = System.Drawing.Color.DimGray;
+            this.btnUdate_Online.Image = null;
+            this.btnUdate_Online.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnUdate_Online.Location = new System.Drawing.Point(26, 29);
+            this.btnUdate_Online.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUdate_Online.Name = "btnUdate_Online";
+            this.btnUdate_Online.OnHoverBaseColor = System.Drawing.Color.MistyRose;
+            this.btnUdate_Online.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnUdate_Online.OnHoverForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnUdate_Online.OnHoverImage = null;
+            this.btnUdate_Online.OnPressedColor = System.Drawing.Color.MistyRose;
+            this.btnUdate_Online.OnPressedDepth = 0;
+            this.btnUdate_Online.Size = new System.Drawing.Size(185, 42);
+            this.btnUdate_Online.TabIndex = 30;
+            this.btnUdate_Online.Text = "Cập nhập online";
+            this.btnUdate_Online.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnUdate_Online.Click += new System.EventHandler(this.btnUdate_Online_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1494,7 +1495,7 @@
         private Guna.UI.WinForms.GunaButton btn_DeleteVault;
         private Guna.UI.WinForms.GunaProgressBar gunaProgressBar1;
         private Guna.UI.WinForms.GunaButton gunaButton11;
-        private Guna.UI.WinForms.GunaButton gunaButton12;
+        private Guna.UI.WinForms.GunaButton btnUdate_Online;
         private Guna.UI.WinForms.GunaDataGridView dgvTimer;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;

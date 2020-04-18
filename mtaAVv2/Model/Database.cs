@@ -14,8 +14,7 @@ namespace Ladin.mtaAV.Model
     public partial class Database : DbContext
     {
         public Database()
-        : base("db")
-        { }
+        : base("db") { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

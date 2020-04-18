@@ -45,6 +45,7 @@
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.pnlMain = new Guna.UI.WinForms.GunaPanel();
+            this.uC_Process1 = new Ladin.mtaAV.Monitor_SubViews.UC_Process();
             this.uC_MonitorFolder1 = new Ladin.mtaAV.Monitor_SubViews.UC_MonitorFolder();
             this.uC_Network1 = new Ladin.mtaAV.Monitor_SubViews.UC_Network();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
@@ -52,7 +53,6 @@
             this.btnNetwork = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnApplication = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnRansomware = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.uC_Process1 = new Ladin.mtaAV.Monitor_SubViews.UC_Process();
             this.gunaGroupBox1.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
@@ -261,6 +261,15 @@
             this.pnlMain.Size = new System.Drawing.Size(935, 388);
             this.pnlMain.TabIndex = 23;
             // 
+            // uC_Process1
+            // 
+            this.uC_Process1.BackColor = System.Drawing.Color.White;
+            this.uC_Process1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Process1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Process1.Name = "uC_Process1";
+            this.uC_Process1.Size = new System.Drawing.Size(935, 388);
+            this.uC_Process1.TabIndex = 2;
+            // 
             // uC_MonitorFolder1
             // 
             this.uC_MonitorFolder1.BackColor = System.Drawing.Color.White;
@@ -328,7 +337,7 @@
             this.btnProcess.OnPressedDepth = 0;
             this.btnProcess.Size = new System.Drawing.Size(147, 42);
             this.btnProcess.TabIndex = 26;
-            this.btnProcess.Text = "Process";
+            this.btnProcess.Text = "Tiến trình mới";
             this.btnProcess.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
             // 
@@ -367,7 +376,7 @@
             this.btnNetwork.OnPressedDepth = 0;
             this.btnNetwork.Size = new System.Drawing.Size(147, 42);
             this.btnNetwork.TabIndex = 25;
-            this.btnNetwork.Text = "Network";
+            this.btnNetwork.Text = "Mạng";
             this.btnNetwork.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnNetwork.Click += new System.EventHandler(this.btnNetwork_Click);
             // 
@@ -406,7 +415,7 @@
             this.btnApplication.OnPressedDepth = 0;
             this.btnApplication.Size = new System.Drawing.Size(147, 42);
             this.btnApplication.TabIndex = 24;
-            this.btnApplication.Text = "Application ";
+            this.btnApplication.Text = "Thư mục";
             this.btnApplication.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnApplication.Click += new System.EventHandler(this.btnApplication_Click);
             // 
@@ -448,15 +457,6 @@
             this.btnRansomware.Text = "Ransomware ";
             this.btnRansomware.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnRansomware.Click += new System.EventHandler(this.btnRansomware_Click);
-            // 
-            // uC_Process1
-            // 
-            this.uC_Process1.BackColor = System.Drawing.Color.White;
-            this.uC_Process1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Process1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Process1.Name = "uC_Process1";
-            this.uC_Process1.Size = new System.Drawing.Size(935, 388);
-            this.uC_Process1.TabIndex = 2;
             // 
             // UC_Monitoring
             // 

@@ -19,7 +19,8 @@ namespace Ladin.mtaAV.Views
 
         private void gunaButton1_Click(object sender, EventArgs e)
         {
-
+            Provider.url = txtUrl.Text;
+            Provider.port = txtPort.Text;
         }
     }
 }

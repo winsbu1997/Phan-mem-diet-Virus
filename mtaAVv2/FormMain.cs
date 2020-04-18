@@ -19,6 +19,7 @@ namespace Ladin.mtaAV
     public partial class FormMain : Form
     {
         // check Program
+        int flag = 0;
         private bool CheckStartup()
         {
             RegistryKey registryKey = Registry.CurrentUser.OpenSubKey
@@ -59,6 +60,10 @@ namespace Ladin.mtaAV
             if (!Directory.Exists("log"))
             {
                 Directory.CreateDirectory("log");
+            }
+            if (!Directory.Exists("Update"))
+            {
+                Directory.CreateDirectory("Update");
             }
         }
         #region Load_UC
@@ -148,6 +153,17 @@ namespace Ladin.mtaAV
             this.Show();
             this.WindowState = FormWindowState.Normal;
             notifyIcon1.Visible = false;
+        }
+
+        private void btnSetUp_Server_Click(object sender, EventArgs e)
+        {
+            pnl_ConnectServer.BringToFront();
+        }
+
+        private void gunaButton2_Click(object sender, EventArgs e)
+        {
+            Provider.url = txtUrl.Text;
+            Provider.port = txtPort.Text;
         }
     }
 }

@@ -74,7 +74,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
             }
             catch (Exception e)
             {
-                MessageBox.Show("Please make sure to run as Adminstrator and install Winpcap");
+                MessageBox.Show("Please make sure to run as Adminstrator and install Winpcap" + e.Message);
             }
             PcapDotNetAnalysis.OptIn = true;//enable pcap analysis
 
@@ -165,7 +165,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
                                 string pattern1 = "=";
                                 Regex filterfile = new Regex(pattern);
                                 Regex dllfile = new Regex(pattern1);
-                                if (re.Uri != null && dllfile.IsMatch(re.Uri) == false && filterfile.IsMatch(re.Uri)) //&& filterfile.IsMatch(re.Uri)
+                                if (re.Uri != null && dllfile.IsMatch(re.Uri) == false && filterfile.IsMatch(re.Uri)) 
                                 {
                                     packets.Add(_source, packet1);
                                     FileDownload fdl = new FileDownload();
@@ -277,14 +277,14 @@ namespace Ladin.mtaAV.Monitor_SubViews
             if (File.Exists(path))
             {
                 var scanResult = Manage.MD5Scan(path);
-                if (!scanResult.IsEmpty)
+                if (scanResult.IsEmpty)
                 {
                     Invoke(new MethodInvoker(delegate
                     {
                         int index = dgv_NetworkFile.Rows.Add();
                         DataGridViewRow row = dgv_NetworkFile.Rows[index];
                         row.Cells["FileName"].Value = Path.GetFileName(path);
-                        row.Cells["Virus"].Value = scanResult.VirusName;
+                        row.Cells["Virus"].Value = "";// scanResult.VirusName;
                         row.Cells["Type_Scan"].Value = "Tĩnh";
                         row.Cells["Create_Date"].Value = DateTime.Now.ToString("dd/MM/yyyy HH: mm", CultureInfo.InvariantCulture);
                     }));
@@ -298,6 +298,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
 
         private void btn_Scan_Click(object sender, EventArgs e)
         {
+            dgv_NetworkFile.DataSource = null;
             if (cbx_CardNetwork.SelectedIndex >= 0)
             {
                 backgroundWorker1 = new AbortableBackgroundWorker
@@ -372,7 +373,6 @@ namespace Ladin.mtaAV.Monitor_SubViews
             no = 0;
             btn_Scan.Enabled = true;
             timer1.Stop();
-            dgv_NetworkFile.DataSource = null;
         }
 
         #endregion

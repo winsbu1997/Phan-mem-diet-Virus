@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,12 +38,13 @@
             this.Type_Scan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Create_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_CancelScan = new Guna.UI.WinForms.GunaButton();
             this.btn_PauseScan = new Guna.UI.WinForms.GunaButton();
             this.btn_Scan = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel17 = new Guna.UI.WinForms.GunaLabel();
             this.gunaComboBox2 = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel16 = new Guna.UI.WinForms.GunaLabel();
-            this.btn_CancelScan = new Guna.UI.WinForms.GunaButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MonitorProcess)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -161,6 +163,32 @@
             this.panel1.Size = new System.Drawing.Size(935, 87);
             this.panel1.TabIndex = 30;
             // 
+            // btn_CancelScan
+            // 
+            this.btn_CancelScan.AnimationHoverSpeed = 0.07F;
+            this.btn_CancelScan.AnimationSpeed = 0.03F;
+            this.btn_CancelScan.BaseColor = System.Drawing.Color.White;
+            this.btn_CancelScan.BorderColor = System.Drawing.Color.Black;
+            this.btn_CancelScan.BorderSize = 1;
+            this.btn_CancelScan.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_CancelScan.FocusedColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_CancelScan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CancelScan.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_CancelScan.Image = global::Ladin.mtaAV.Properties.Resources.Cancel_48px;
+            this.btn_CancelScan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_CancelScan.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_CancelScan.Location = new System.Drawing.Point(746, 25);
+            this.btn_CancelScan.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_CancelScan.Name = "btn_CancelScan";
+            this.btn_CancelScan.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btn_CancelScan.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_CancelScan.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_CancelScan.OnHoverImage = null;
+            this.btn_CancelScan.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_CancelScan.Size = new System.Drawing.Size(40, 40);
+            this.btn_CancelScan.TabIndex = 33;
+            this.btn_CancelScan.Click += new System.EventHandler(this.btn_CancelScan_Click);
+            // 
             // btn_PauseScan
             // 
             this.btn_PauseScan.AnimationHoverSpeed = 0.07F;
@@ -256,32 +284,6 @@
             this.gunaLabel16.TabIndex = 28;
             this.gunaLabel16.Text = "Dung lượng tối đa:";
             // 
-            // btn_CancelScan
-            // 
-            this.btn_CancelScan.AnimationHoverSpeed = 0.07F;
-            this.btn_CancelScan.AnimationSpeed = 0.03F;
-            this.btn_CancelScan.BaseColor = System.Drawing.Color.White;
-            this.btn_CancelScan.BorderColor = System.Drawing.Color.Black;
-            this.btn_CancelScan.BorderSize = 1;
-            this.btn_CancelScan.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_CancelScan.FocusedColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_CancelScan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CancelScan.ForeColor = System.Drawing.Color.DimGray;
-            this.btn_CancelScan.Image = global::Ladin.mtaAV.Properties.Resources.Cancel_48px;
-            this.btn_CancelScan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_CancelScan.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_CancelScan.Location = new System.Drawing.Point(746, 25);
-            this.btn_CancelScan.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_CancelScan.Name = "btn_CancelScan";
-            this.btn_CancelScan.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btn_CancelScan.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btn_CancelScan.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_CancelScan.OnHoverImage = null;
-            this.btn_CancelScan.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_CancelScan.Size = new System.Drawing.Size(40, 40);
-            this.btn_CancelScan.TabIndex = 33;
-            this.btn_CancelScan.Click += new System.EventHandler(this.btn_CancelScan_Click);
-            // 
             // UC_Process
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -311,5 +313,6 @@
         private Guna.UI.WinForms.GunaButton btn_PauseScan;
         private Guna.UI.WinForms.GunaButton btn_Scan;
         private Guna.UI.WinForms.GunaButton btn_CancelScan;
+        private System.Windows.Forms.Timer timer1;
     }
 }

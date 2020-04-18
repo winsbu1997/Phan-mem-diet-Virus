@@ -101,7 +101,6 @@
     <Compile Include="Manager\QuarantineManager.cs" />
     <Compile Include="Manager\Detail_Macro.cs" />
     <Compile Include="Model\Database.cs" />
-    <Compile Include="Model\Engineer.cs" />
     <Compile Include="Model\EXCLUSION.cs" />
     <Compile Include="Model\FOLDER_LOCKER.cs" />
     <Compile Include="Model\FOLDER_MONITOR.cs" />

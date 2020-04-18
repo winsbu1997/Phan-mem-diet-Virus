@@ -57,7 +57,7 @@ namespace Ladin.mtaAV.Views
         {
             dgv_Exclusion.DataSource = db.EXCLUSION.ToList();
             dgv_Quarantine.DataSource = db.QUARANTINE.ToList();
-            //Provider.Reload();
+            Provider.Reload();
         }
         private void UC_Setting_Load(object sender, EventArgs e)
         {
@@ -213,6 +213,13 @@ namespace Ladin.mtaAV.Views
         {
             Provider.autoUsbOn = sw_ScanUSB.Value;
         }
+        private void btnUdate_Online_Click(object sender, EventArgs e)
+        {
+            ConnectApi api = new ConnectApi();
+            api.Download_File("download-file");
+        }
         #endregion
+
+
     }
 }

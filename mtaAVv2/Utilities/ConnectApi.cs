@@ -13,9 +13,10 @@ namespace Ladin.mtaAV.Utilities
 {
     public class ConnectApi
     {
-        public static string path = "http://192.168.1.106:5001/";
+        //public static string path = "http://192.168.1.106:5001/";
         public List<ConnectApi> resultEngine = new List<ConnectApi>();
-        //public static string path = "http://" + Provider.url + ":" + Provider.port + "/";
+        private static string path = "http://" + Provider.url + ":" + Provider.port + "/";
+        private static string runningPath = AppDomain.CurrentDomain.BaseDirectory;
         public string Engine { get; set; }
         public string Is_Malware { get; set; }
         public string Score { get; set; }
@@ -42,7 +43,7 @@ namespace Ladin.mtaAV.Utilities
             tmp.Engine = engineer;
             return tmp;
         }
-        public List<QUARANTINES> Upload_MultiFiles<T>(string endpointUrl, string[] files)
+        public async Task<List<QUARANTINES>> Upload_MultiFiles<T>(string endpointUrl, string[] files)
         {
             using (var client = new HttpClient())
             {
@@ -54,13 +55,14 @@ namespace Ladin.mtaAV.Utilities
                     {
                         formData.Add(new ByteArrayContent(File.ReadAllBytes(filePath)), "files[]", Path.GetFileName(filePath));
                     }
-                    var response = client.PostAsync(endpointUrl, formData);
-                    response.Wait();
+                    HttpResponseMessage response = await client.PostAsync(endpointUrl, formData);
+                     
                     List<QUARANTINES> lst = new List<QUARANTINES>();
-                    if (response.Result.IsSuccessStatusCode)
+                    if (response.IsSuccessStatusCode)
                     {
-                        var json = response.Result.Content.ReadAsStringAsync().Result;
-                        File.WriteAllText(@"~/log/" + DateTime.Now.ToString("dd/MM/yyyy-HH:mm:ss", CultureInfo.InvariantCulture) + ".json", json);
+                        var json = response.Content.ReadAsStringAsync().Result;
+                        string saveFile = string.Format("{0}\\log\\", Path.GetFullPath(runningPath));
+                        File.WriteAllText(saveFile + DateTime.Now.ToString("dd/MM/yyyy-HH:mm:ss", CultureInfo.InvariantCulture) + ".json", json);
                         var dict = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(json);
                         string dyn = dict["status"].ToString();
                         if (dyn == "success")
@@ -90,6 +92,20 @@ namespace Ladin.mtaAV.Utilities
             }
         }
 
+        public async void Download_File(string endpointUrl)
+        {
+            using(var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(path);
+                HttpResponseMessage response = await client.GetAsync(endpointUrl);
+                if(response.IsSuccessStatusCode)
+                {
+                    var contentStream = response.Content.ReadAsByteArrayAsync().Result;
+                    string saveFile = string.Format("{0}\\Update\\", Path.GetFullPath(runningPath));
+                    File.WriteAllBytes(saveFile + DateTime.Now.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture) + ".txt", contentStream);
+                }
+            }
+        }
         //public static T Upload_File<T>(string endpointUrl, string file)
         //{
         //    using (var client = new HttpClient())

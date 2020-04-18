@@ -29,11 +29,14 @@ namespace Ladin.mtaAV.Views
             lst = dt;
             lst_File = dt_File;
             dgv_DocumentFile.DataSource = dt_File;
-            dgv_DocumentFile.Rows[0].Cells["FileName"].Selected = true;
-            Detail_Macro tmp = new Detail_Macro();
-            tmp = lst[0];
-            txtMacro.Text = tmp.Macro_Code.ToString();
-            bindingSource1.DataSource = tmp.Suspecious_Patterns;
+            if(dt_File.Count > 0)
+            {
+                dgv_DocumentFile.Rows[0].Cells["FileName"].Selected = true;
+                Detail_Macro tmp = new Detail_Macro();
+                tmp = lst[0];
+                txtMacro.Text = tmp.Macro_Code.ToString();
+                bindingSource1.DataSource = tmp.Suspecious_Patterns;
+            }
         }
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
