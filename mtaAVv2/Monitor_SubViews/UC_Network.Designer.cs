@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlNetwork = new Guna.UI.WinForms.GunaPanel();
             this.gunaPanel3 = new Guna.UI.WinForms.GunaPanel();
             this.dgv_NetworkFile = new Guna.UI.WinForms.GunaDataGridView();
@@ -39,6 +39,7 @@
             this.Virus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type_Scan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Create_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Check_File = new System.Windows.Forms.DataGridViewImageColumn();
             this.dw = new Guna.UI.WinForms.GunaLabel();
             this.cbx_CardNetwork = new Guna.UI.WinForms.GunaComboBox();
             this.btn_CancelScan = new Guna.UI.WinForms.GunaButton();
@@ -94,76 +95,76 @@
             // 
             this.dgv_NetworkFile.AllowUserToAddRows = false;
             this.dgv_NetworkFile.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(201)))), ((int)(((byte)(197)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_NetworkFile.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_NetworkFile.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_NetworkFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_NetworkFile.BackgroundColor = System.Drawing.Color.White;
             this.dgv_NetworkFile.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_NetworkFile.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_NetworkFile.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_NetworkFile.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_NetworkFile.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_NetworkFile.ColumnHeadersHeight = 40;
             this.dgv_NetworkFile.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileName,
             this.Virus,
             this.Type_Scan,
-            this.Create_Date});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(135)))), ((int)(((byte)(125)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_NetworkFile.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Create_Date,
+            this.Check_File});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(197)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_NetworkFile.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_NetworkFile.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_NetworkFile.EnableHeadersVisualStyles = false;
-            this.dgv_NetworkFile.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(192)))), ((int)(((byte)(188)))));
+            this.dgv_NetworkFile.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(230)))), ((int)(((byte)(251)))));
             this.dgv_NetworkFile.Location = new System.Drawing.Point(0, 77);
             this.dgv_NetworkFile.Name = "dgv_NetworkFile";
-            this.dgv_NetworkFile.ReadOnly = true;
             this.dgv_NetworkFile.RowHeadersVisible = false;
             this.dgv_NetworkFile.RowTemplate.Height = 40;
             this.dgv_NetworkFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_NetworkFile.Size = new System.Drawing.Size(651, 319);
             this.dgv_NetworkFile.TabIndex = 28;
-            this.dgv_NetworkFile.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Alizarin;
-            this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(201)))), ((int)(((byte)(197)))));
+            this.dgv_NetworkFile.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.LightBlue;
+            this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
             this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.dgv_NetworkFile.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgv_NetworkFile.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(192)))), ((int)(((byte)(188)))));
-            this.dgv_NetworkFile.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.dgv_NetworkFile.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(230)))), ((int)(((byte)(251)))));
+            this.dgv_NetworkFile.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(243)))));
             this.dgv_NetworkFile.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgv_NetworkFile.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_NetworkFile.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgv_NetworkFile.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgv_NetworkFile.ThemeStyle.HeaderStyle.Height = 40;
-            this.dgv_NetworkFile.ThemeStyle.ReadOnly = true;
-            this.dgv_NetworkFile.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
+            this.dgv_NetworkFile.ThemeStyle.ReadOnly = false;
+            this.dgv_NetworkFile.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
             this.dgv_NetworkFile.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_NetworkFile.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_NetworkFile.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dgv_NetworkFile.ThemeStyle.RowsStyle.Height = 40;
-            this.dgv_NetworkFile.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(135)))), ((int)(((byte)(125)))));
+            this.dgv_NetworkFile.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(197)))), ((int)(((byte)(247)))));
             this.dgv_NetworkFile.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgv_NetworkFile.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_NetworkFile_CellClick);
             // 
             // FileName
             // 
             this.FileName.DataPropertyName = "FILENAME";
             this.FileName.HeaderText = "Tên file";
             this.FileName.Name = "FileName";
-            this.FileName.ReadOnly = true;
             this.FileName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.FileName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -172,7 +173,6 @@
             this.Virus.DataPropertyName = "VIRUS";
             this.Virus.HeaderText = "Loại mã độc";
             this.Virus.Name = "Virus";
-            this.Virus.ReadOnly = true;
             this.Virus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Virus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -181,14 +181,20 @@
             this.Type_Scan.DataPropertyName = "TYPE_SCAN";
             this.Type_Scan.HeaderText = "Kiểu quét";
             this.Type_Scan.Name = "Type_Scan";
-            this.Type_Scan.ReadOnly = true;
             // 
             // Create_Date
             // 
             this.Create_Date.DataPropertyName = "CREATE_DATE";
             this.Create_Date.HeaderText = "Thời gian";
             this.Create_Date.Name = "Create_Date";
-            this.Create_Date.ReadOnly = true;
+            // 
+            // Check_File
+            // 
+            this.Check_File.HeaderText = "Kiểm Tra Động";
+            this.Check_File.Image = global::Ladin.mtaAV.Properties.Resources.icons8_Telegram_App_16;
+            this.Check_File.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Check_File.Name = "Check_File";
+            this.Check_File.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // dw
             // 
@@ -464,6 +470,7 @@
             // gunaMediumRadioButton1
             // 
             this.gunaMediumRadioButton1.BaseColor = System.Drawing.Color.White;
+            this.gunaMediumRadioButton1.Checked = true;
             this.gunaMediumRadioButton1.CheckedOffColor = System.Drawing.Color.Gray;
             this.gunaMediumRadioButton1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.gunaMediumRadioButton1.FillColor = System.Drawing.Color.White;
@@ -495,10 +502,6 @@
         private Guna.UI.WinForms.GunaPanel pnlNetwork;
         private Guna.UI.WinForms.GunaPanel gunaPanel3;
         private Guna.UI.WinForms.GunaDataGridView dgv_NetworkFile;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Virus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type_Scan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Create_Date;
         private Guna.UI.WinForms.GunaLabel dw;
         private Guna.UI.WinForms.GunaComboBox cbx_CardNetwork;
         private Guna.UI.WinForms.GunaButton btn_CancelScan;
@@ -518,5 +521,10 @@
         private Guna.UI.WinForms.GunaButton btnDeleteFile;
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Virus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type_Scan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Create_Date;
+        private System.Windows.Forms.DataGridViewImageColumn Check_File;
     }
 }

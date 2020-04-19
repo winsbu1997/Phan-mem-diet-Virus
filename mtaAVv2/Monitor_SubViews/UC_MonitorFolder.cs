@@ -72,7 +72,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
             if (check) return;
             FileInfo info  = new FileInfo(e.FullPath);
             long FileLength = info.Length;
-            if (FileLength > 5000000) return;
+            if (FileLength > 50000) return;
             if (ck_Shortcut.Checked && Path.GetExtension(e.FullPath) == ".lnk")
             {
                 string mainLocation = TakeLnk_Location(e.FullPath);
@@ -90,18 +90,21 @@ namespace Ladin.mtaAV.Monitor_SubViews
         }
         private void btn_SelectFolder_Click(object sender, EventArgs e)
         {
+            Provider.realtimeOn = true;
             string path = Provider.Select_Folder();
             if(Directory.Exists(path)) FileWatcher(path);
         }
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
+            Provider.realtimeOn = false;
             foreach (FileWatcherEx.FileWatcherEx item in listWatcher)
             {
                 item.Stop();
                 item.Dispose();
             }
             dgv_Folder.DataSource = null;
+            dgv_Folder.Refresh();
         }
         private void dgv_Folder_CellClick(object sender, DataGridViewCellEventArgs e)
         {

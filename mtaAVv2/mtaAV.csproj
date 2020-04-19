@@ -95,7 +95,6 @@
     </Compile>
     <Compile Include="Manager\Firewall.cs" />
     <Compile Include="Manager\FolderLocker.cs" />
-    <Compile Include="Manager\History.cs" />
     <Compile Include="Manager\PacketCapture.cs" />
     <Compile Include="Manager\ProcessManager.cs" />
     <Compile Include="Manager\QuarantineManager.cs" />
@@ -148,7 +147,6 @@
     <Compile Include="Utilities\CallPython_RestfulApi.cs" />
     <Compile Include="Utilities\ConnectApi.cs" />
     <Compile Include="Utilities\ConsoleSetups.cs" />
-    <Compile Include="Utilities\Ini.cs" />
     <Compile Include="Views\frmAlert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +298,7 @@
     <None Include="Resources\Error_28px.png" />
     <None Include="Resources\Info_28px.png" />
     <None Include="Resources\Delete Bin_48px.png" />
+    <None Include="Resources\icons8_Telegram_App_16.png" />
     <Content Include="Resources\mta_logo.png" />
     <None Include="Resources\Play_48px.png" />
     <None Include="Resources\Play_32px.png" />

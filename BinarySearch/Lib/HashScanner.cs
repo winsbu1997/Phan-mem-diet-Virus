@@ -135,32 +135,81 @@ namespace BinarySearch.Lib
             return res;
         }
 
-        public void Update(Virus virus)
+        public void Update(string path = "")
         {
-            int id = ConvertCharToNum(virus.HashValue[0]);
-            fs = new FileStream(pathz[id], FileMode.Open, FileAccess.ReadWrite);
-            bs = new BufferedStream(fs, BufferSize);
-            if (BinarySearch(virus.HashValue).IsEmpty == true)
+            //List<Virus>[] lstVirus = new List<Virus>[8];
+            List<List<Virus>> lstVirus = new List<List<Virus>>();
+            List<Virus> lstVirusZ = new List<Virus>();
+            for (int i = 0; i < 8; i++)
             {
-                long N = fs.Length / BufferSize;
-                for (long i = N; i >= 1; i--)
+                List<Virus> sub = new List<Virus>();
+                lstVirus.Add(sub);
+            }
+            using (StreamReader sr = new StreamReader(path))
+            {
+                string line; //int i = 0;
+                //int Counter = 0;
+                while ((line = sr.ReadLine()) != null)
                 {
-                    Virus tmp = GetVirus(i);
-                    if (virus.HashValue.CompareTo(tmp.HashValue) < 0)
+                    line = line.Trim();
+                    Virus item = new Virus();
+                    List<string> lst = line.Split(':').ToList();
+                    if (lst.Count >= 2)
                     {
-                        bs.Seek(i * BufferSize, SeekOrigin.Begin);
-                        bs.Write(ConvertByte(tmp), 0, BufferSize);
-                    }
-                    else
-                    {
-                        bs.Seek(i * BufferSize, SeekOrigin.Begin);
-                        bs.Write(ConvertByte(virus), 0, BufferSize);
-                        break;
+                        item.Name = lst[0];
+                        item.HashValue = lst[1];
+                        if (Search(item.HashValue).IsEmpty == true)
+                        {
+                            //Counter++;
+                            //if (Counter <= 10)
+                            //Console.WriteLine(item.Name + " " + item.HashValue);
+                            int id = ConvertCharToNum(item.HashValue[0]);
+                            lstVirus[id].Add(item);
+                        }
+                        //i++;
+                        //if (i < 10) 
+                        //Console.WriteLine(item.Name + "-------" + item.HashValue + ">>>>");
+                        //Update(item);
                     }
                 }
             }
-            fs.Close(); bs.Close();
+            /*foreach (List<Virus> item in lstVirus)
+            {
+                foreach (Virus tmp in item)
+                {
+                    Console.WriteLine(tmp.HashValue + "---" + tmp.Name);
+                }
+                Console.WriteLine();
+            }*/
+            for (int ii = 0; ii < 8; ii++)
+                if (lstVirus[ii].Count > 0)
+                {
+                    //Console.WriteLine("II= {0}", ii);
+                    lstVirusZ = new List<Virus>();
+                    fs = new FileStream(pathz[ii], FileMode.Open, FileAccess.Read);
+                    bs = new BufferedStream(fs, BufferSize);
+                    long Len = fs.Length / BufferSize;
+                    for (int i = 1; i <= Len; i++)
+                    {
+                        Virus tmp = GetVirus(i);
+                        lstVirusZ.Add(tmp);
+                    }
+                    foreach (Virus item in lstVirus[ii])
+                        lstVirusZ.Add(item);
+                    lstVirusZ = lstVirusZ.OrderBy(p => p.HashValue).ToList();
+                    fs.Close(); bs.Close();
+                    fs = new FileStream(pathz[ii], FileMode.Open, FileAccess.Write);
+                    bs = new BufferedStream(fs, BufferSize);
+                    for (int i = 0; i < lstVirusZ.Count; i++)
+                    {
+                        bs.Write(ConvertByte(lstVirusZ[i]), 0, BufferSize);
+                    }
+                    lstVirusZ.Clear();
+                    fs.Close(); bs.Close();
+                }
+            lstVirus.Clear();
         }
+
 
         public void PrintDB()
         {

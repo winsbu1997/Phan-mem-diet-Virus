@@ -27,6 +27,9 @@ using System.Threading.Tasks;
 using Ladin.mtaAV.Manager;
 using BinarySearch;
 using System.Globalization;
+using Ladin.mtaAV.Utilities;
+using Ladin.mtaAV.Model;
+using Ladin.mtaAV.Views;
 
 namespace Ladin.mtaAV.Monitor_SubViews
 {
@@ -57,6 +60,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
         private long limitSizeFile = 1024 * 1024;
         Queue queue = new Queue();
         Queue qfile = new Queue();
+        private string saveFile_Download = @"D:\FileDownload\";
 
         #endregion
         public UC_Network()
@@ -153,7 +157,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
                     {
                         payload = new byte[tcp.PayloadLength];
                         tcp.Payload.ToMemoryStream().Read(payload, 0, tcp.PayloadLength);// read payload from 0 to length
-                        if (_destination == 80)// request from server
+                        if (_destination == 8080 || _destination == 80)// request from server
                         {
                             PacketCapture packet1 = new PacketCapture();
                             if (payload.Count() > 1)
@@ -174,7 +178,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
                                 }
                             }
                         }
-                        else if (_source == 80)
+                        else if (_source == 8080 || _source == 80)
                             if (packets.ContainsKey(_destination))
                             {
                                 httpPacket = tcp.Http;
@@ -212,12 +216,12 @@ namespace Ladin.mtaAV.Monitor_SubViews
 
                                     if (packet1.Data != null && packet1.Data_Length == packet1.Data.Length)
                                     {
-                                        using (BinaryWriter writer = new BinaryWriter(File.Open(@"D:\capturedlive\" + Directory.CreateDirectory(Path.GetFileName(packet1.Name)), FileMode.Create)))
+                                        using (BinaryWriter writer = new BinaryWriter(File.Open(saveFile_Download + Directory.CreateDirectory(Path.GetFileName(packet1.Name)), FileMode.Create)))
                                         {
                                             writer.Write(packet1.Data);
                                         }
                                         FileDownload f = new FileDownload();
-                                        f.FileName = @"D:\capturedlive\" + Path.GetFileName(packet1.Name);
+                                        f.FileName = saveFile_Download + Path.GetFileName(packet1.Name);
                                         f.Source = _destination;
                                         lock (qfile)
                                         {
@@ -227,12 +231,12 @@ namespace Ladin.mtaAV.Monitor_SubViews
                                     }
                                     if (packet1.Data_Length > packet1.Data.Length)
                                     {
-                                        using (BinaryWriter writer = new BinaryWriter(File.Open(@"D:\capturedlive\" + Directory.CreateDirectory(Path.GetFileName(packet1.Name)), FileMode.Create)))
+                                        using (BinaryWriter writer = new BinaryWriter(File.Open(saveFile_Download + Directory.CreateDirectory(Path.GetFileName(packet1.Name)), FileMode.Create)))
                                         {
                                             writer.Write(packet1.Data);
                                         }
                                         FileDownload f = new FileDownload();
-                                        f.FileName = @"D:\capturedlive\" + Path.GetFileName(packet1.Name);
+                                        f.FileName = saveFile_Download + Path.GetFileName(packet1.Name);
                                         f.Source = _destination;
                                         lock (qfile)
                                         {
@@ -277,18 +281,16 @@ namespace Ladin.mtaAV.Monitor_SubViews
             if (File.Exists(path))
             {
                 var scanResult = Manage.MD5Scan(path);
-                if (scanResult.IsEmpty)
+                Invoke(new MethodInvoker(delegate
                 {
-                    Invoke(new MethodInvoker(delegate
-                    {
-                        int index = dgv_NetworkFile.Rows.Add();
-                        DataGridViewRow row = dgv_NetworkFile.Rows[index];
-                        row.Cells["FileName"].Value = Path.GetFileName(path);
-                        row.Cells["Virus"].Value = "";// scanResult.VirusName;
-                        row.Cells["Type_Scan"].Value = "Tĩnh";
-                        row.Cells["Create_Date"].Value = DateTime.Now.ToString("dd/MM/yyyy HH: mm", CultureInfo.InvariantCulture);
-                    }));
-                }
+                    int index = dgv_NetworkFile.Rows.Add();
+                    DataGridViewRow row = dgv_NetworkFile.Rows[index];
+                    dgv_NetworkFile.Rows[index].DefaultCellStyle.BackColor = Color.LightGreen;
+                    row.Cells["FileName"].Value = Path.GetFileName(path);
+                    row.Cells["Virus"].Value = scanResult.VirusName;
+                    row.Cells["Type_Scan"].Value = "Tĩnh";
+                    row.Cells["Create_Date"].Value = DateTime.Now.ToString("dd/MM/yyyy HH: mm", CultureInfo.InvariantCulture);
+                }));
             }
         }
 
@@ -298,6 +300,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
 
         private void btn_Scan_Click(object sender, EventArgs e)
         {
+            Provider.monitoring_NetworkOn = true;
             dgv_NetworkFile.DataSource = null;
             if (cbx_CardNetwork.SelectedIndex >= 0)
             {
@@ -338,6 +341,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
 
         private void btn_PauseScan_Click(object sender, EventArgs e)
         {
+            Provider.monitoring_NetworkOn = false;
             ThreadWatcher.StopThread = true;//t
             if (backgroundWorker1.IsBusy)
             {
@@ -357,6 +361,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
 
         private void btn_CancelScan_Click(object sender, EventArgs e)
         {
+            Provider.monitoring_NetworkOn = false;
             ThreadWatcher.StopThread = true;//t
             if (backgroundWorker1.IsBusy)
             {
@@ -442,14 +447,37 @@ namespace Ladin.mtaAV.Monitor_SubViews
                 }
             } while (true);
         }
-        async Task UseDelay()
+
+        private void dgv_NetworkFile_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            await Task.Delay(1000);
+            string columnName = dgv_NetworkFile.Columns[e.ColumnIndex].Name;
+            if (columnName == "Check_File")
+            {
+                string path = saveFile_Download + dgv_NetworkFile.Rows[e.RowIndex].Cells["FILENAME"].Value.ToString();
+                string[] file = { path };
+                ConnectApi api = new ConnectApi();
+                Provider.Alert("Bắt đầu phân tích động... !", frmAlert.alertTypeEnum.Info);
+                Task.Run(new Action(() => {
+                    var task = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", file);
+                    task.Wait();
+                    QUARANTINES kq = task.Result.First();
+                    kq.FILENAME = path;
+                    if (kq.VIRUS == "1")
+                    {
+                        Provider.list_NewQuarantines.Add(kq);
+                        Invoke(new Action(() =>
+                        {
+                            Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra các file tải về", frmAlert.alertTypeEnum.Warning);
+                        }));
+                    }
+                }));                
+            }
         }
 
         private void btnDeleteFile_Click(object sender, EventArgs e)
         {
             dgv_NetworkFile.DataSource = null;
+            dgv_NetworkFile.Refresh();
         }
         #endregion
     }

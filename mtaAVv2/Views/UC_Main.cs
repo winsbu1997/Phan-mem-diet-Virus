@@ -13,14 +13,16 @@ using System.IO;
 using Ladin.mtaAV.Model;
 using BinarySearch;
 using System.Globalization;
+using System.Threading;
 
 namespace Ladin.mtaAV.Views
 {
     public partial class UC_Main : System.Windows.Forms.UserControl
     {
+#pragma warning disable CS0618 
         string loc_to_search = null;
         private UsbManager.UsbManager usb = new UsbManager.UsbManager();
-        private string smart_ext = "*.exe|*.cpl|*.reg|*.ini|*.bat|*.com|*.dll|*.pif|*.lnk|*.scr|*.vbs|*.ocx|*.drv|*.sys";
+        private string smart_ext = "*.*"; // .exe|*.cpl|*.reg|*.ini|*.bat|*.com|*.dll|*.pif|*.lnk|*.scr|*.vbs|*.ocx|*.drv|*.sys
         public UC_Main()
         {
             InitializeComponent();
@@ -64,12 +66,12 @@ namespace Ladin.mtaAV.Views
         {
             int infected = 0;
             string[] files = Provider.GetFiles(loc_to_search, smart_ext, SearchOption.AllDirectories);
-            int count = files.Length;
-            if (count == 0) return;
             Invoke(new Action(() =>
             {
                 Provider.Alert("MtaAV bắt đầu quét USB", frmAlert.alertTypeEnum.Info);
             }));
+            int count = files.Length;
+            if (count == 0) return;
             foreach (string file in files)
             {
                 if (File.Exists(file))
@@ -112,7 +114,7 @@ namespace Ladin.mtaAV.Views
                 if (Provider.autoUsbOn)
                 {
                     loc_to_search = e.Disk.Name;
-                    Provider.scanUSB = new Task(ScanUSB);
+                    Provider.scanUSB = new Thread(ScanUSB);
                     Provider.scanUSB.Start();
                 }
             }

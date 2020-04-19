@@ -117,6 +117,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
             dgv_MonitorProcess.DataSource = null;
             btn_PauseScan.Enabled = true;
             btn_Scan.Enabled = false;
+            Provider.monitoring_ProcessOn = true;
             backgroundWorker1 = new AbortableBackgroundWorker
             {
                 WorkerReportsProgress = true,
@@ -143,6 +144,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
         }
         private void btn_PauseScan_Click(object sender, EventArgs e)
         {
+            Provider.monitoring_ProcessOn = false;
             btn_PauseScan.Enabled = false;
             btn_Scan.Enabled = true;
             startWatch.Stop();
@@ -163,6 +165,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
 
         private void btn_CancelScan_Click(object sender, EventArgs e)
         {
+            Provider.monitoring_ProcessOn = false;
             btn_Scan.Enabled = true;
             btn_CancelScan.Enabled = false;
             startWatch.Stop();

@@ -22,13 +22,13 @@ namespace Ladin.mtaAV
         public static OpenFileDialog openFile = new OpenFileDialog();
         public static FolderBrowserDialog openFolder = new FolderBrowserDialog();
         public static Thread search = null;
-        public static Task scanUSB = null;
+        public static Thread scanUSB = null;
         public static bool scanning = false;
         //public static bool scanningUSB = false;
         public static bool suspended = false;
         public static int countDoc = 0;
-        public static string url = "127.0.0.1";
-        public static string port = "8123";
+        public static string url = "192.168.1.137";
+        public static string port = "5001";
         //public static string runningPath = AppDomain.CurrentDomain.BaseDirectory; database bath, md5 path
         //public static string DllPath = string.Format("{0}Dll\\", Path.GetFullPath(Path.Combine(runningPath, @"..\..\")));
         #endregion

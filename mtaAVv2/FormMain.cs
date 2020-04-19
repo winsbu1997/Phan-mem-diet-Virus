@@ -146,8 +146,6 @@ namespace Ladin.mtaAV
             Application.Exit();
         }
 
-        #endregion
-
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.Show();
@@ -157,13 +155,9 @@ namespace Ladin.mtaAV
 
         private void btnSetUp_Server_Click(object sender, EventArgs e)
         {
-            pnl_ConnectServer.BringToFront();
+            uC_ConnectApi1.BringToFront();
         }
+        #endregion
 
-        private void gunaButton2_Click(object sender, EventArgs e)
-        {
-            Provider.url = txtUrl.Text;
-            Provider.port = txtPort.Text;
-        }
     }
 }

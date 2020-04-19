@@ -33,12 +33,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaPanel4 = new Guna.UI.WinForms.GunaPanel();
             this.dgv_DynamicResult = new Guna.UI.WinForms.GunaDataGridView();
+            this.lb_SingleFile = new System.Windows.Forms.Label();
+            this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.Engine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Is_Malware = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Messeage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lb_SingleFile = new System.Windows.Forms.Label();
-            this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
+            this.msg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gunaPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DynamicResult)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +80,7 @@
             this.Engine,
             this.Is_Malware,
             this.Score,
-            this.Messeage});
+            this.msg});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
@@ -94,6 +94,7 @@
             this.dgv_DynamicResult.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(192)))), ((int)(((byte)(188)))));
             this.dgv_DynamicResult.Location = new System.Drawing.Point(0, 55);
             this.dgv_DynamicResult.Name = "dgv_DynamicResult";
+            this.dgv_DynamicResult.ReadOnly = true;
             this.dgv_DynamicResult.RowHeadersVisible = false;
             this.dgv_DynamicResult.RowTemplate.Height = 40;
             this.dgv_DynamicResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -113,7 +114,7 @@
             this.dgv_DynamicResult.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgv_DynamicResult.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgv_DynamicResult.ThemeStyle.HeaderStyle.Height = 40;
-            this.dgv_DynamicResult.ThemeStyle.ReadOnly = false;
+            this.dgv_DynamicResult.ThemeStyle.ReadOnly = true;
             this.dgv_DynamicResult.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
             this.dgv_DynamicResult.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_DynamicResult.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
@@ -122,12 +123,33 @@
             this.dgv_DynamicResult.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(135)))), ((int)(((byte)(125)))));
             this.dgv_DynamicResult.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
+            // lb_SingleFile
+            // 
+            this.lb_SingleFile.AutoSize = true;
+            this.lb_SingleFile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_SingleFile.Location = new System.Drawing.Point(103, 15);
+            this.lb_SingleFile.Name = "lb_SingleFile";
+            this.lb_SingleFile.Size = new System.Drawing.Size(0, 20);
+            this.lb_SingleFile.TabIndex = 24;
+            // 
+            // gunaLabel6
+            // 
+            this.gunaLabel6.AutoSize = true;
+            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel6.Location = new System.Drawing.Point(7, 8);
+            this.gunaLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel6.Name = "gunaLabel6";
+            this.gunaLabel6.Size = new System.Drawing.Size(200, 28);
+            this.gunaLabel6.TabIndex = 22;
+            this.gunaLabel6.Text = "Kết quả từ các Engine";
+            // 
             // Engine
             // 
             this.Engine.DataPropertyName = "Engine";
             this.Engine.FillWeight = 92.7242F;
-            this.Engine.HeaderText = "Kiểu quét";
+            this.Engine.HeaderText = "Engine";
             this.Engine.Name = "Engine";
+            this.Engine.ReadOnly = true;
             this.Engine.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Engine.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -137,6 +159,7 @@
             this.Is_Malware.FillWeight = 92.7242F;
             this.Is_Malware.HeaderText = "Là mã độc";
             this.Is_Malware.Name = "Is_Malware";
+            this.Is_Malware.ReadOnly = true;
             this.Is_Malware.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Is_Malware.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -146,34 +169,14 @@
             this.Score.FillWeight = 92.7242F;
             this.Score.HeaderText = "Điểm ";
             this.Score.Name = "Score";
+            this.Score.ReadOnly = true;
             // 
-            // Messeage
+            // msg
             // 
-            this.Messeage.DataPropertyName = "Messeage";
-            this.Messeage.HeaderText = "Trạng thái";
-            this.Messeage.Name = "Messeage";
-            this.Messeage.ReadOnly = true;
-            // 
-            // lb_SingleFile
-            // 
-            this.lb_SingleFile.AutoSize = true;
-            this.lb_SingleFile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_SingleFile.Location = new System.Drawing.Point(103, 15);
-            this.lb_SingleFile.Name = "lb_SingleFile";
-            this.lb_SingleFile.Size = new System.Drawing.Size(18, 20);
-            this.lb_SingleFile.TabIndex = 24;
-            this.lb_SingleFile.Text = "...";
-            // 
-            // gunaLabel6
-            // 
-            this.gunaLabel6.AutoSize = true;
-            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel6.Location = new System.Drawing.Point(7, 8);
-            this.gunaLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(83, 28);
-            this.gunaLabel6.TabIndex = 22;
-            this.gunaLabel6.Text = "Kết quả:";
+            this.msg.DataPropertyName = "msg";
+            this.msg.HeaderText = "Trạng thái";
+            this.msg.Name = "msg";
+            this.msg.ReadOnly = true;
             // 
             // Reprot_DynamicScan
             // 
@@ -196,11 +199,11 @@
 
         private Guna.UI.WinForms.GunaPanel gunaPanel4;
         private Guna.UI.WinForms.GunaDataGridView dgv_DynamicResult;
+        private System.Windows.Forms.Label lb_SingleFile;
+        private Guna.UI.WinForms.GunaLabel gunaLabel6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Engine;
         private System.Windows.Forms.DataGridViewTextBoxColumn Is_Malware;
         private System.Windows.Forms.DataGridViewTextBoxColumn Score;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Messeage;
-        private System.Windows.Forms.Label lb_SingleFile;
-        private Guna.UI.WinForms.GunaLabel gunaLabel6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn msg;
     }
 }

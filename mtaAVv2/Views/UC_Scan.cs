@@ -130,13 +130,14 @@ namespace Ladin.mtaAV.Views
         }
         private async void ScanFile(string loc)
         {
+            int ret = 0;
             if (File.Exists(loc))
             {
                 var scanResult = Manage.MD5Scan(loc);
                 if (scanResult.IsEmpty)
                 {
-                    MessageBox.Show(this, "File không nhiễm mã độc!", "File sạch",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Provider.Alert("File sạch", frmAlert.alertTypeEnum.Success);
+                    ret = 1;
                 }
                 else
                 {
@@ -156,21 +157,21 @@ namespace Ladin.mtaAV.Views
             }
             else
             {
-                MessageBox.Show(this, "Không quét được file này", "Lỗi", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                Provider.Alert("Không quét được file này!", frmAlert.alertTypeEnum.Error);
             }
-            if (sw_DynamicScan.Value)
+            if (sw_DynamicScan.Value && ret == 1)
             {
+                Provider.Alert("Bắt đầu phân tích động... !", frmAlert.alertTypeEnum.Info);
+                lb_LocationFileScan.Text = Path.GetFileName(loc);
                 string[] s = { loc };
                 ConnectApi api = new ConnectApi();
-                var task = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", s);
-                await task;
-                QUARANTINES kq = task.Result.First();
+                var task = await api.Upload_MultiFiles<QUARANTINES>("upload-multiple", s);
+                QUARANTINES kq = task.First();
                 if (kq != null)
                 {
-                    Provider.Alert("Phân tích động xong!", frmAlert.alertTypeEnum.Success);
+                    MessageBox.Show("Kết quả quét file: " + loc);
                     kq.FILENAME = loc;
-                    if (kq.VIRUS == "Có")
+                    if (kq.VIRUS == "1")
                     {
                         Provider.list_NewQuarantines.Add(kq);
                         Provider.Alert(Path.GetFileName(loc) + "có mã độc!", frmAlert.alertTypeEnum.Warning);
@@ -184,51 +185,21 @@ namespace Ladin.mtaAV.Views
             }
             checkFile.Checked = false;
         }
-        private void ScanFolder()
+        private async void ScanFolder()
         {
             Provider.scanning = true;
             int infected = 0;
-            string[] lstFile = Provider.GetFiles(loc_to_search, wildcard, SearchOption.AllDirectories);
             Invoke(new Action(() =>
             {
                 Provider.Alert("MtaAV bắt đầu quét mã độc", frmAlert.alertTypeEnum.Info);
                 Init_Scanning();
             }));
-            if (sw_DynamicScan.Value)
-            {
-                ConnectApi api = new ConnectApi();
-                List<QUARANTINES> kq = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", lstFile).Result;
-                Invoke(new Action(() => {
-                    Provider.Alert("Phân tích động xong!", frmAlert.alertTypeEnum.Success);
-                }));
-                if (kq == null)
-                {
-                    lst_DynamicMalware.AddRange(api.GetResult());
-                    int index = 0;
-                    foreach (QUARANTINES item in kq)
-                    {
-                        item.FILENAME = files[index++];
-                        if (item.VIRUS == "Có")
-                        {
-                            infected++;
-                            Provider.list_NewQuarantines.Add(item);
-                            Invoke(new Action(() => {
-                                Provider.Alert(Path.GetFileName(item.FILENAME) + "có mã độc!", frmAlert.alertTypeEnum.Warning);
-                            }));
-                        }
-                    }
-                    goto Labelx;
-                }
-                else {
-                    Invoke(new Action(() =>
-                    {
-                        Provider.Alert("Lỗi kết nối !", frmAlert.alertTypeEnum.Error);
-                    }));
-                }
-            }
+
             if (sw_SmartScan.Value) files = Provider.GetFiles(loc_to_search, smart_ext, SearchOption.AllDirectories);
             else files = Provider.GetFiles(loc_to_search, wildcard, SearchOption.AllDirectories);
             int total = files.Length;
+            string[] lst_Dynamic = new string[total];
+            int count_Dynamic = 0;
 
             Invoke(new Action(() =>
             {
@@ -261,6 +232,10 @@ namespace Ladin.mtaAV.Views
                             QUARANTINES quarantine = new QUARANTINES(file, res.VirusName, "Tĩnh", date);
                             Provider.list_NewQuarantines.Add(quarantine);
                         }
+                        else
+                        {
+                            lst_Dynamic[count_Dynamic++] = file;
+                        }
                     }
                     catch (Exception e)
                     {
@@ -272,16 +247,40 @@ namespace Ladin.mtaAV.Views
                progressBar_Scan.Value = progressBar_Scan.Value + 1;
            }));
             }
+            if (sw_DynamicScan.Value)
+            {
+                Provider.Alert("Bắt đầu phân tích động... !", frmAlert.alertTypeEnum.Info);
+                ConnectApi api = new ConnectApi();
+                lst_Dynamic = lst_Dynamic.Where(x => x != null).ToArray();
+                var task = await api.Upload_MultiFiles<QUARANTINES>("upload-multiple", lst_Dynamic);
+                List<QUARANTINES> kq = task;
+                if (kq == null) goto Labelx;
+                foreach (QUARANTINES item in kq)
+                {
+                    item.FILENAME = lst_Dynamic.Where(x => x.Contains(item.FILENAME)).First();
+                    if (item.VIRUS == "1")
+                    {
+                        infected++;
+                        Invoke(new Action(() =>
+                        {
+                            lb_CountVirus.Text = infected.ToString();
+                            Provider.Alert(Path.GetFileName(item.FILENAME) + " có mã độc!", frmAlert.alertTypeEnum.Warning);
+                        }));
+                        Provider.list_NewQuarantines.Add(item);
+                    }
+                    lst_DynamicMalware.AddRange(api.GetResult());
+                }
+            }
         Labelx: Invoke(new Action(() =>
-       {
-                // file am thanh thong bao
-                //SoundPlayer snd = new SoundPlayer(Properties.Resources.virfound);
-                //snd.Play();
-                if (infected > 0) Provider.Alert("Có mã độc kiểm tra trong Tab cách ly", frmAlert.alertTypeEnum.Warning);
-           else Provider.Alert("Thư mục an toàn", frmAlert.alertTypeEnum.Success);
-           checkFolder.Checked = false;
-           Init();
-       }));
+           {
+               // file am thanh thong bao
+               //SoundPlayer snd = new SoundPlayer(Properties.Resources.virfound);
+               //snd.Play();
+               if (infected > 0) Provider.Alert("Có mã độc kiểm tra trong Tab cách ly", frmAlert.alertTypeEnum.Warning);
+               else Provider.Alert("Thư mục an toàn", frmAlert.alertTypeEnum.Success);
+               checkFolder.Checked = false;
+               Init();
+           }));
         }
         private void ScanProcess()
         {
@@ -300,6 +299,7 @@ namespace Ladin.mtaAV.Views
                 {
                     try
                     {
+                        lb_LocationFileScan.Text = Path.GetFileName(proc);
                         var res = Manage.MD5Scan(proc);
                         if (!res.IsEmpty)
                         {
@@ -337,6 +337,7 @@ namespace Ladin.mtaAV.Views
         {
             if (!Provider.scanning) Init();
         }
+
         private void btn_Scan_Click(object sender, EventArgs e)
         {
             Provider.currentScan = DateTime.Now.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
@@ -412,7 +413,6 @@ namespace Ladin.mtaAV.Views
                 checkProcess.Checked = false;
             }
         }
-        #endregion
 
         private void lb_ShowMacro_Click(object sender, EventArgs e)
         {
@@ -437,5 +437,6 @@ namespace Ladin.mtaAV.Views
             frm.sender(lst_DynamicMalware);
             frm.ShowDialog();
         }
+        #endregion
     }
 }

@@ -15,12 +15,15 @@ namespace Ladin.mtaAV.Views
         public UC_ConnectApi()
         {
             InitializeComponent();
+            txtUrl.Text = Provider.url;
+            txtPort.Text = Provider.port;
         }
 
         private void gunaButton1_Click(object sender, EventArgs e)
         {
             Provider.url = txtUrl.Text;
             Provider.port = txtPort.Text;
+            gunaLabel4.Text = "Thành công";
         }
     }
 }

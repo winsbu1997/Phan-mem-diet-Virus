@@ -11,6 +11,10 @@ using Ladin.mtaAV.Manager;
 using Ladin.mtaAV;
 using Ladin.mtaAV.Utilities;
 using Ladin.mtaAV.Model;
+using System.Globalization;
+using System.IO;
+using BinarySearch;
+
 namespace Ladin.mtaAV.Views
 {
     public partial class UC_Setting : System.Windows.Forms.UserControl
@@ -28,7 +32,11 @@ namespace Ladin.mtaAV.Views
         #endregion
 
         #region Method
-
+        private void InitProgress()
+        {
+            progress_Update.Minimum = 0;
+            progress_Update.Value = 0;
+        }
         #endregion
         #region LoadUserControl
         public UC_Setting()
@@ -61,7 +69,7 @@ namespace Ladin.mtaAV.Views
         }
         private void UC_Setting_Load(object sender, EventArgs e)
         {
-            Load_Firewall();    
+            Load_Firewall();
         }
         #endregion
 
@@ -88,11 +96,11 @@ namespace Ladin.mtaAV.Views
             exclusion.FILENAME = path;
             db.EXCLUSION.Add(exclusion);
             db.SaveChanges();
-            dgv_Exclusion.DataSource = db.EXCLUSION.ToList(); 
+            dgv_Exclusion.DataSource = db.EXCLUSION.ToList();
         }
 
         private void btn_SelectFolderExclusion_Click(object sender, EventArgs e)
-        {           
+        {
             string path = Provider.Select_Folder();
             exclusion.FILENAME = path;
             db.EXCLUSION.Add(exclusion);
@@ -104,10 +112,10 @@ namespace Ladin.mtaAV.Views
         {
             string columnName = dgv_Exclusion.Columns[e.ColumnIndex].Name;
             if (columnName == "btn_DeleteExclusion")
-            {               
+            {
                 int ID = (int)dgv_Exclusion.Rows[e.RowIndex].Cells["ID_Exclusion"].Value;
                 exclusion = db.EXCLUSION.Where(x => x.ID == ID).FirstOrDefault();
-                
+
                 db.EXCLUSION.Remove(exclusion);
                 db.SaveChanges();
                 dgv_Exclusion.DataSource = db.EXCLUSION.ToList();
@@ -143,7 +151,7 @@ namespace Ladin.mtaAV.Views
                     string filePath = dgv_Quarantine.Rows[i].Cells["FileName_Quarantine"].Value.ToString();
                     quarantine = db.QUARANTINE.Where(x => x.ID == id).FirstOrDefault();
                     db.QUARANTINE.Remove(quarantine);
-                    qr.RestoreQuarantine(filePath); 
+                    qr.RestoreQuarantine(filePath);
                 }
             }
             db.SaveChanges();
@@ -201,25 +209,76 @@ namespace Ladin.mtaAV.Views
         }
 
         // Su kien Switch #
-        private void sw_MonitorNetwork_OnValueChange(object sender, EventArgs e)
+        private void sw_AutoRun_OnValueChange(object sender, EventArgs e)
         {
-            Provider.monitoring_NetworkOn = sw_MonitorNetwork.Value;
-        }
-        private void sw_MonitorProcess_OnValueChange(object sender, EventArgs e)
-        {
-            Provider.monitoring_ProcessOn = sw_MonitorProcess.Value;
+            Provider.autorunOn = sw_AutoRun.Value;
         }
         private void sw_ScanUSB_OnValueChange(object sender, EventArgs e)
         {
             Provider.autoUsbOn = sw_ScanUSB.Value;
         }
-        private void btnUdate_Online_Click(object sender, EventArgs e)
+
+        // Sự kiện Update
+        private void btn_UpdateOnline_Click(object sender, EventArgs e)
         {
+            InitProgress();
+            progress_Update.Maximum = 100;
+            Provider.Alert("Kiểm tra cập nhập!", frmAlert.alertTypeEnum.Info);
             ConnectApi api = new ConnectApi();
-            api.Download_File("download-file");
+            Task.Run(new Action(() =>
+           {
+               string path = api.Download_File("download-file");
+               if (path != null)
+               {
+                   Invoke(new Action(() =>
+                  {
+                      progress_Update.Value = progress_Update.Value + 20;
+                  }));
+                   Manage.UdpateDb_Md5(path);
+                   Invoke(new Action(() =>
+                   {
+                       progress_Update.Value = progress_Update.Value + 60;
+                       Task.Delay(1000);
+                       progress_Update.Value = progress_Update.Value + 20;
+                       Provider.Alert("Cập nhập dữ liệu thành công!", frmAlert.alertTypeEnum.Success);
+                       InitProgress();
+                   }));
+               }
+               else
+               {
+                   Invoke(new Action(() =>
+                   {
+                       Provider.Alert("Không có bản cập nhập!", frmAlert.alertTypeEnum.Info);
+                   }));
+               }
+           }));
+            
         }
+        private void btn_UpdateOffline_Click(object sender, EventArgs e)
+        {
+            string path = Provider.Select_File();
+            if (path != null)
+            {
+                progress_Update.Maximum = 100;
+                Task.Run(new Action(() =>
+                {
+                    Invoke(new Action(() =>
+                    {
+                        progress_Update.Value = progress_Update.Value + 20;
+                    }));
+                    Manage.UdpateDb_Md5(path);
+                    Invoke(new Action(() =>
+                    {
+                        progress_Update.Value = progress_Update.Value + 60;
+                        Task.Delay(1000);
+                        progress_Update.Value = progress_Update.Value + 20;
+                        Provider.Alert("Cập nhập dữ liệu thành công!", frmAlert.alertTypeEnum.Success);
+                        InitProgress();
+                    }));
+                }));
+            }
+        }
+
         #endregion
-
-
     }
 }

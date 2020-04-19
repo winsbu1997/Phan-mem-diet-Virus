@@ -124,6 +124,9 @@
   <data name="Checkmark_28px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Checkmark_28px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Checked_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Checked_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Encrypt_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Encrypt_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,6 +154,9 @@
   <data name="Info_28px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Info_28px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Delete Bin_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete Bin_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="System Information_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\System Information_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,8 +166,8 @@
   <data name="Search_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Search_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Checked_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Checked_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Pause Button_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pause Button_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Automation_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Automation_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,9 +187,6 @@
   <data name="green-checkbox-png-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\green-checkbox-png-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pause Button_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pause Button_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Multiply_18px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Multiply_18px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,10 +202,10 @@
   <data name="Cancel_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cancel_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Delete Bin_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Delete Bin_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Opened Folder_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Opened Folder_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_Telegram_App_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_Telegram_App_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
