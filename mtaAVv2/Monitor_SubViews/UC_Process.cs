@@ -17,11 +17,16 @@ using System.Globalization;
 using BinarySearch;
 using System.Threading;
 using System.Collections;
+using Ladin.mtaAV.Views;
+using Ladin.mtaAV.Model;
+using System.Runtime.InteropServices;
 
 namespace Ladin.mtaAV.Monitor_SubViews
 {
     public partial class UC_Process : UserControl
     {
+        [DllImport("process-killer.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern int KillProcess(IntPtr handle, string proc_name);
         #region variable
         static ConsoleSetups con = new ConsoleSetups();
         static ManagementEventWatcher startWatch = new ManagementEventWatcher(
@@ -29,9 +34,9 @@ namespace Ladin.mtaAV.Monitor_SubViews
         private AbortableBackgroundWorker backgroundWorker1;
         private AbortableBackgroundWorker backgroundWorker2;
         private AbortableBackgroundWorker backgroundWorker3;
-        private long limitSizeFile = 1024 * 1024;
         Queue queue = new Queue();
         Queue qfile = new Queue();
+        long limitSize = 1024 * 1024;
         #endregion 
         public UC_Process()
         {
@@ -39,21 +44,28 @@ namespace Ladin.mtaAV.Monitor_SubViews
             btn_PauseScan.Enabled = true;
         }
         #region Method
-        private void AddRow(string FileName, string Virus, string Type_Scan)
-        {
-            int index = dgv_MonitorProcess.Rows.Add();
-            DataGridViewRow row = dgv_MonitorProcess.Rows[index];
-            row.Cells["FileName"].Value = FileName;
-            row.Cells["Virus"].Value = Virus;
-            row.Cells["Type_Scan"].Value = Type_Scan;
-            row.Cells["Create_Date"].Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
-        }
         private void ScanFile(string path)
         {
-            var scanResult = BinarySearch.Manage.MD5Scan(path);
-            if (!scanResult.IsEmpty)
+            if (File.Exists(path))
             {
-                AddRow(path, scanResult.VirusName, "Tĩnh");
+                FileInfo info = new FileInfo(path);
+                long FileLength = info.Length;
+                if (FileLength > (Convert.ToInt32(cbx_LimitSize.Text) * limitSize)) return;
+                var scanResult = Manage.MD5Scan(path);
+                Invoke(new MethodInvoker(delegate
+                {
+                    int index = dgv_MonitorProcess.Rows.Add();
+                    DataGridViewRow row = dgv_MonitorProcess.Rows[index];
+                    row.Cells["FileName"].Value = Path.GetFileName(path);
+                    if (!scanResult.IsEmpty)
+                    {
+                        row.Cells["Virus"].Value = scanResult.VirusName;
+                        Provider.Alert("Phát hiện virus! Kiểm tra trong giám sát thư mục", frmAlert.alertTypeEnum.Warning);
+                    }
+                    else row.Cells["Virus"].Value = "Không";
+                    row.Cells["Type_Scan"].Value = "Tĩnh";
+                    row.Cells["Create_Date"].Value = DateTime.Now.ToString("dd/MM/yyyy HH: mm", CultureInfo.InvariantCulture);
+                }));
             }
         }
         public List<string> printDllLoaded(string id)
@@ -185,6 +197,58 @@ namespace Ladin.mtaAV.Monitor_SubViews
             timer1.Stop();
         }
 
+        private void dgv_MonitorProcess_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string columnName = dgv_MonitorProcess.Columns[e.ColumnIndex].Name;
+            string path = dgv_MonitorProcess.Rows[e.RowIndex].Cells["FileName"].Value.ToString();
+            if (columnName == "Check_File")
+            {
+                string[] file = { path };
+                ConnectApi api = new ConnectApi();
+                Provider.Alert("Bắt đầu phân tích động... !", frmAlert.alertTypeEnum.Info);
+                dgv_MonitorProcess.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Properties.Resources.icons8_Loader_32;
+                try
+                {
+                    Task.Run(new Action(() => {
+                        var task = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", file);
+                        QUARANTINES kq = task.First();
+                        kq.FILENAME = path;
+                        dgv_MonitorProcess.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Properties.Resources.Checked_48px;
+                        if (kq.VIRUS == "1")
+                        {
+                            Provider.list_NewQuarantines.Add(kq);
+                            dgv_MonitorProcess.Rows[e.RowIndex].Cells["Virus"].Value = "Có";
+                            dgv_MonitorProcess.Rows[e.RowIndex].Cells["Type_Scan"].Value = "Động";
+                            dgv_MonitorProcess.Refresh();
+                            //Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
+                            BeginInvoke(new Action(() =>
+                            {
+                                Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
+                            }));
+                        }
+                        else
+                        {
+                            dgv_MonitorProcess.Rows[e.RowIndex].Cells["Virus"].Value = "Không";
+                        }
+                    }));
+                }
+                catch
+                {
+                    Provider.Alert("Lỗi kết nối", frmAlert.alertTypeEnum.Error);
+                }
+            }
+
+            else if (columnName == "btn_DeleteFile")
+            {
+                try
+                {
+                    KillProcess(this.Handle, path);
+                    File.Delete(path);
+                }
+                catch { }
+            }
+        }
+
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             if (this.backgroundWorker1.CancellationPending)
@@ -272,6 +336,6 @@ namespace Ladin.mtaAV.Monitor_SubViews
                 }
             }
         }
-        #endregion 
+        #endregion
     }
 }

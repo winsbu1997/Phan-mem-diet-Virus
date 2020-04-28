@@ -299,12 +299,15 @@
     <None Include="Resources\Info_28px.png" />
     <None Include="Resources\Delete Bin_48px.png" />
     <None Include="Resources\icons8_Telegram_App_16.png" />
+    <None Include="Resources\icons8_Telegram_App_32.png" />
+    <None Include="Resources\icons8_Loader_32.png" />
     <Content Include="Resources\mta_logo.png" />
     <None Include="Resources\Play_48px.png" />
     <None Include="Resources\Play_32px.png" />
     <None Include="Resources\Pause Button_32px.png" />
     <None Include="Resources\Multiply_18px.png" />
     <None Include="Resources\Opened Folder_48px.png" />
+    <None Include="Resources\Presentation_48px.png" />
     <Content Include="Resources\protected.png" />
     <None Include="Resources\Stop Squared_48px.png" />
     <None Include="Resources\Spam_48px.png" />
@@ -313,6 +316,7 @@
     <None Include="Resources\Pulse_48px.png" />
     <Content Include="Resources\System Information_96px.png" />
     <Content Include="Resources\System Report_96px.png" />
+    <None Include="Resources\Telegram App_48px.png" />
     <Content Include="Resources\unprotected.png" />
     <None Include="Resources\1.jpg" />
   </ItemGroup>

@@ -128,7 +128,7 @@ namespace Ladin.mtaAV.Views
                 dt_mc.Add(tmp);
             }
         }
-        private async void ScanFile(string loc)
+        private void ScanFile(string loc)
         {
             int ret = 0;
             if (File.Exists(loc))
@@ -164,28 +164,37 @@ namespace Ladin.mtaAV.Views
                 Provider.Alert("Bắt đầu phân tích động... !", frmAlert.alertTypeEnum.Info);
                 lb_LocationFileScan.Text = Path.GetFileName(loc);
                 string[] s = { loc };
-                ConnectApi api = new ConnectApi();
-                var task = await api.Upload_MultiFiles<QUARANTINES>("upload-multiple", s);
-                QUARANTINES kq = task.First();
-                if (kq != null)
-                {
-                    MessageBox.Show("Kết quả quét file: " + loc);
-                    kq.FILENAME = loc;
-                    if (kq.VIRUS == "1")
-                    {
-                        Provider.list_NewQuarantines.Add(kq);
-                        Provider.Alert(Path.GetFileName(loc) + "có mã độc!", frmAlert.alertTypeEnum.Warning);
-                    }
-                    lst_DynamicMalware.AddRange(api.GetResult());
-                }
-            }
-            else
-            {
-                Provider.Alert("Lỗi kết nối !", frmAlert.alertTypeEnum.Error);
+                Task.Run(new Action(() =>
+               {
+                   ConnectApi api = new ConnectApi();
+                   try
+                   {
+                       QUARANTINES kq = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", s).First();
+                       kq.FILENAME = loc;
+                       if (kq.VIRUS == "1")
+                       {
+                           //Provider.Alert(loc + "nhiễm mã độc", frmAlert.alertTypeEnum.Warning);
+                           BeginInvoke(new Action(() =>
+                           {
+                               Provider.Alert(loc + "nhiễm mã độc", frmAlert.alertTypeEnum.Warning);
+                               txtListVirus.Text = "1";
+                           }));
+                           Provider.list_NewQuarantines.Add(kq);
+                       }
+                       lst_DynamicMalware.AddRange(api.GetResult());
+                   }
+                   catch
+                   {
+                       BeginInvoke(new Action(() =>
+                       {
+                           Provider.Alert("Lỗi kết nối !", frmAlert.alertTypeEnum.Error);
+                       }));
+                   };
+               }));
             }
             checkFile.Checked = false;
         }
-        private async void ScanFolder()
+        private void ScanFolder()
         {
             Provider.scanning = true;
             int infected = 0;
@@ -252,26 +261,37 @@ namespace Ladin.mtaAV.Views
                 Provider.Alert("Bắt đầu phân tích động... !", frmAlert.alertTypeEnum.Info);
                 ConnectApi api = new ConnectApi();
                 lst_Dynamic = lst_Dynamic.Where(x => x != null).ToArray();
-                var task = await api.Upload_MultiFiles<QUARANTINES>("upload-multiple", lst_Dynamic);
-                List<QUARANTINES> kq = task;
-                if (kq == null) goto Labelx;
-                foreach (QUARANTINES item in kq)
+                Task.Run(new Action(() =>
                 {
-                    item.FILENAME = lst_Dynamic.Where(x => x.Contains(item.FILENAME)).First();
-                    if (item.VIRUS == "1")
+                    try
                     {
-                        infected++;
-                        Invoke(new Action(() =>
+                        List<QUARANTINES> kq = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", lst_Dynamic);
+                        foreach (QUARANTINES item in kq)
                         {
-                            lb_CountVirus.Text = infected.ToString();
-                            Provider.Alert(Path.GetFileName(item.FILENAME) + " có mã độc!", frmAlert.alertTypeEnum.Warning);
-                        }));
-                        Provider.list_NewQuarantines.Add(item);
+                            item.FILENAME = lst_Dynamic.Where(x => x.Contains(item.FILENAME)).First();
+                            if (item.VIRUS == "1")
+                            {
+                                infected++;
+                                BeginInvoke(new MethodInvoker(delegate
+                                {
+                                    lb_CountVirus.Text = infected.ToString();
+                                    Provider.Alert(Path.GetFileName(item.FILENAME) + " có mã độc!", frmAlert.alertTypeEnum.Warning);
+                                }));
+                                Provider.list_NewQuarantines.Add(item);
+                            }
+                            lst_DynamicMalware.AddRange(api.GetResult());
+                        }
                     }
-                    lst_DynamicMalware.AddRange(api.GetResult());
-                }
+                    catch
+                    {
+                        BeginInvoke(new Action(() =>
+                        {
+                            Provider.Alert("Lỗi kết nối !", frmAlert.alertTypeEnum.Error);
+                        }));
+                    }
+                }));
             }
-        Labelx: Invoke(new Action(() =>
+            Invoke(new Action(() =>
            {
                // file am thanh thong bao
                //SoundPlayer snd = new SoundPlayer(Properties.Resources.virfound);

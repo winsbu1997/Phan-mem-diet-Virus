@@ -42,14 +42,7 @@
             this.GunaButton3 = new Guna.UI.WinForms.GunaButton();
             this.GunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
-            this.pnlHeader = new Guna.UI.WinForms.GunaLinePanel();
-            this.nav_activity = new Guna.UI.WinForms.GunaAdvenceTileButton();
-            this.nav_quarantine = new Guna.UI.WinForms.GunaAdvenceTileButton();
-            this.nav_modules = new Guna.UI.WinForms.GunaAdvenceTileButton();
-            this.nav_scan = new Guna.UI.WinForms.GunaAdvenceTileButton();
-            this.nav_status = new Guna.UI.WinForms.GunaAdvenceTileButton();
-            this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.uC_Main1 = new Ladin.mtaAV.Views.UC_Main();
             this.pnl_ConnectServer = new Guna.UI.WinForms.GunaShadowPanel();
             this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
@@ -58,19 +51,26 @@
             this.txtPort = new Guna.UI.WinForms.GunaTextBox();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
-            this.uC_Main1 = new Ladin.mtaAV.Views.UC_Main();
             this.uC_ConnectApi1 = new Ladin.mtaAV.Views.UC_ConnectApi();
             this.uC_Setting1 = new Ladin.mtaAV.Views.UC_Setting();
             this.uC_Quarantine1 = new Ladin.mtaAV.Views.UC_Quarantine();
             this.uC_Scan1 = new Ladin.mtaAV.Views.UC_Scan();
             this.uC_Monitoring1 = new Ladin.mtaAV.Views.UC_Monitoring();
+            this.pnlHeader = new Guna.UI.WinForms.GunaLinePanel();
+            this.nav_activity = new Guna.UI.WinForms.GunaAdvenceTileButton();
+            this.nav_quarantine = new Guna.UI.WinForms.GunaAdvenceTileButton();
+            this.nav_modules = new Guna.UI.WinForms.GunaAdvenceTileButton();
+            this.nav_scan = new Guna.UI.WinForms.GunaAdvenceTileButton();
+            this.nav_status = new Guna.UI.WinForms.GunaAdvenceTileButton();
+            this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.GunaLinePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
             this.GunaLinePanel4.SuspendLayout();
             this.GunaLinePanel1.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
-            this.pnlHeader.SuspendLayout();
             this.pnl_ConnectServer.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // GunaLinePanel2
@@ -280,6 +280,176 @@
             this.gunaPanel1.Size = new System.Drawing.Size(935, 637);
             this.gunaPanel1.TabIndex = 2;
             // 
+            // uC_Main1
+            // 
+            this.uC_Main1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Main1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Main1.Name = "uC_Main1";
+            this.uC_Main1.Size = new System.Drawing.Size(935, 637);
+            this.uC_Main1.TabIndex = 8;
+            // 
+            // pnl_ConnectServer
+            // 
+            this.pnl_ConnectServer.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_ConnectServer.BaseColor = System.Drawing.Color.LightCyan;
+            this.pnl_ConnectServer.Controls.Add(this.gunaButton2);
+            this.pnl_ConnectServer.Controls.Add(this.gunaLabel7);
+            this.pnl_ConnectServer.Controls.Add(this.gunaLabel8);
+            this.pnl_ConnectServer.Controls.Add(this.txtUrl);
+            this.pnl_ConnectServer.Controls.Add(this.txtPort);
+            this.pnl_ConnectServer.Controls.Add(this.gunaLabel5);
+            this.pnl_ConnectServer.Controls.Add(this.gunaLabel6);
+            this.pnl_ConnectServer.Location = new System.Drawing.Point(121, 419);
+            this.pnl_ConnectServer.Name = "pnl_ConnectServer";
+            this.pnl_ConnectServer.ShadowColor = System.Drawing.Color.Black;
+            this.pnl_ConnectServer.Size = new System.Drawing.Size(316, 127);
+            this.pnl_ConnectServer.TabIndex = 9;
+            this.pnl_ConnectServer.Visible = false;
+            // 
+            // gunaButton2
+            // 
+            this.gunaButton2.AnimationHoverSpeed = 0.07F;
+            this.gunaButton2.AnimationSpeed = 0.03F;
+            this.gunaButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaButton2.BorderColor = System.Drawing.Color.Black;
+            this.gunaButton2.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaButton2.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaButton2.ForeColor = System.Drawing.Color.White;
+            this.gunaButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton2.Image")));
+            this.gunaButton2.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton2.Location = new System.Drawing.Point(0, 0);
+            this.gunaButton2.Name = "gunaButton2";
+            this.gunaButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.gunaButton2.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaButton2.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaButton2.OnHoverImage = null;
+            this.gunaButton2.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaButton2.Size = new System.Drawing.Size(160, 42);
+            this.gunaButton2.TabIndex = 0;
+            // 
+            // gunaLabel7
+            // 
+            this.gunaLabel7.AutoSize = true;
+            this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel7.Location = new System.Drawing.Point(7, 78);
+            this.gunaLabel7.Name = "gunaLabel7";
+            this.gunaLabel7.Size = new System.Drawing.Size(45, 23);
+            this.gunaLabel7.TabIndex = 14;
+            this.gunaLabel7.Text = "Port:";
+            // 
+            // gunaLabel8
+            // 
+            this.gunaLabel8.AutoSize = true;
+            this.gunaLabel8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel8.Location = new System.Drawing.Point(7, 25);
+            this.gunaLabel8.Name = "gunaLabel8";
+            this.gunaLabel8.Size = new System.Drawing.Size(36, 23);
+            this.gunaLabel8.TabIndex = 11;
+            this.gunaLabel8.Text = "Url:";
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.BaseColor = System.Drawing.Color.White;
+            this.txtUrl.BorderColor = System.Drawing.Color.Silver;
+            this.txtUrl.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUrl.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtUrl.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtUrl.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtUrl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUrl.Location = new System.Drawing.Point(71, 15);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.PasswordChar = '\0';
+            this.txtUrl.Size = new System.Drawing.Size(141, 33);
+            this.txtUrl.TabIndex = 12;
+            this.txtUrl.Text = "127.0.0.1";
+            // 
+            // txtPort
+            // 
+            this.txtPort.BaseColor = System.Drawing.Color.White;
+            this.txtPort.BorderColor = System.Drawing.Color.Silver;
+            this.txtPort.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPort.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtPort.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtPort.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtPort.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPort.Location = new System.Drawing.Point(71, 68);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.PasswordChar = '\0';
+            this.txtPort.Size = new System.Drawing.Size(141, 33);
+            this.txtPort.TabIndex = 10;
+            this.txtPort.Text = "8123";
+            // 
+            // gunaLabel5
+            // 
+            this.gunaLabel5.AutoSize = true;
+            this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel5.Location = new System.Drawing.Point(-40, 54);
+            this.gunaLabel5.Name = "gunaLabel5";
+            this.gunaLabel5.Size = new System.Drawing.Size(45, 23);
+            this.gunaLabel5.TabIndex = 9;
+            this.gunaLabel5.Text = "Port:";
+            // 
+            // gunaLabel6
+            // 
+            this.gunaLabel6.AutoSize = true;
+            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel6.Location = new System.Drawing.Point(-40, 1);
+            this.gunaLabel6.Name = "gunaLabel6";
+            this.gunaLabel6.Size = new System.Drawing.Size(36, 23);
+            this.gunaLabel6.TabIndex = 6;
+            this.gunaLabel6.Text = "Url:";
+            // 
+            // uC_ConnectApi1
+            // 
+            this.uC_ConnectApi1.BackColor = System.Drawing.Color.White;
+            this.uC_ConnectApi1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_ConnectApi1.Location = new System.Drawing.Point(0, 0);
+            this.uC_ConnectApi1.Name = "uC_ConnectApi1";
+            this.uC_ConnectApi1.Size = new System.Drawing.Size(935, 637);
+            this.uC_ConnectApi1.TabIndex = 9;
+            // 
+            // uC_Setting1
+            // 
+            this.uC_Setting1.BackColor = System.Drawing.Color.White;
+            this.uC_Setting1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Setting1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.uC_Setting1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.uC_Setting1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Setting1.Name = "uC_Setting1";
+            this.uC_Setting1.Size = new System.Drawing.Size(935, 637);
+            this.uC_Setting1.TabIndex = 4;
+            // 
+            // uC_Quarantine1
+            // 
+            this.uC_Quarantine1.BackColor = System.Drawing.Color.White;
+            this.uC_Quarantine1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Quarantine1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.uC_Quarantine1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Quarantine1.Name = "uC_Quarantine1";
+            this.uC_Quarantine1.Size = new System.Drawing.Size(935, 637);
+            this.uC_Quarantine1.TabIndex = 3;
+            // 
+            // uC_Scan1
+            // 
+            this.uC_Scan1.BackColor = System.Drawing.Color.White;
+            this.uC_Scan1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Scan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.uC_Scan1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.uC_Scan1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Scan1.Name = "uC_Scan1";
+            this.uC_Scan1.Size = new System.Drawing.Size(935, 637);
+            this.uC_Scan1.TabIndex = 2;
+            // 
+            // uC_Monitoring1
+            // 
+            this.uC_Monitoring1.BackColor = System.Drawing.Color.White;
+            this.uC_Monitoring1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Monitoring1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Monitoring1.Name = "uC_Monitoring1";
+            this.uC_Monitoring1.Size = new System.Drawing.Size(935, 637);
+            this.uC_Monitoring1.TabIndex = 0;
+            // 
             // pnlHeader
             // 
             this.pnlHeader.Controls.Add(this.GunaLinePanel4);
@@ -370,7 +540,7 @@
             this.nav_quarantine.OnPressedDepth = 0;
             this.nav_quarantine.Size = new System.Drawing.Size(159, 106);
             this.nav_quarantine.TabIndex = 5;
-            this.nav_quarantine.Text = "Cách Ly";
+            this.nav_quarantine.Text = "Lịch sử quét";
             this.nav_quarantine.Click += new System.EventHandler(this.Nav_quarantine_Click);
             // 
             // nav_modules
@@ -495,154 +665,6 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
-            // pnl_ConnectServer
-            // 
-            this.pnl_ConnectServer.BackColor = System.Drawing.Color.Transparent;
-            this.pnl_ConnectServer.BaseColor = System.Drawing.Color.LightCyan;
-            this.pnl_ConnectServer.Controls.Add(this.gunaButton2);
-            this.pnl_ConnectServer.Controls.Add(this.gunaLabel7);
-            this.pnl_ConnectServer.Controls.Add(this.gunaLabel8);
-            this.pnl_ConnectServer.Controls.Add(this.txtUrl);
-            this.pnl_ConnectServer.Controls.Add(this.txtPort);
-            this.pnl_ConnectServer.Controls.Add(this.gunaLabel5);
-            this.pnl_ConnectServer.Controls.Add(this.gunaLabel6);
-            this.pnl_ConnectServer.Location = new System.Drawing.Point(121, 419);
-            this.pnl_ConnectServer.Name = "pnl_ConnectServer";
-            this.pnl_ConnectServer.ShadowColor = System.Drawing.Color.Black;
-            this.pnl_ConnectServer.Size = new System.Drawing.Size(316, 127);
-            this.pnl_ConnectServer.TabIndex = 9;
-            this.pnl_ConnectServer.Visible = false;
-            // 
-            // gunaLabel7
-            // 
-            this.gunaLabel7.AutoSize = true;
-            this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel7.Location = new System.Drawing.Point(7, 78);
-            this.gunaLabel7.Name = "gunaLabel7";
-            this.gunaLabel7.Size = new System.Drawing.Size(45, 23);
-            this.gunaLabel7.TabIndex = 14;
-            this.gunaLabel7.Text = "Port:";
-            // 
-            // gunaLabel8
-            // 
-            this.gunaLabel8.AutoSize = true;
-            this.gunaLabel8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel8.Location = new System.Drawing.Point(7, 25);
-            this.gunaLabel8.Name = "gunaLabel8";
-            this.gunaLabel8.Size = new System.Drawing.Size(36, 23);
-            this.gunaLabel8.TabIndex = 11;
-            this.gunaLabel8.Text = "Url:";
-            // 
-            // txtUrl
-            // 
-            this.txtUrl.BaseColor = System.Drawing.Color.White;
-            this.txtUrl.BorderColor = System.Drawing.Color.Silver;
-            this.txtUrl.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUrl.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtUrl.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtUrl.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtUrl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUrl.Location = new System.Drawing.Point(71, 15);
-            this.txtUrl.Name = "txtUrl";
-            this.txtUrl.PasswordChar = '\0';
-            this.txtUrl.Size = new System.Drawing.Size(141, 33);
-            this.txtUrl.TabIndex = 12;
-            this.txtUrl.Text = "127.0.0.1";
-            // 
-            // txtPort
-            // 
-            this.txtPort.BaseColor = System.Drawing.Color.White;
-            this.txtPort.BorderColor = System.Drawing.Color.Silver;
-            this.txtPort.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPort.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtPort.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtPort.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtPort.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPort.Location = new System.Drawing.Point(71, 68);
-            this.txtPort.Name = "txtPort";
-            this.txtPort.PasswordChar = '\0';
-            this.txtPort.Size = new System.Drawing.Size(141, 33);
-            this.txtPort.TabIndex = 10;
-            this.txtPort.Text = "8123";
-            // 
-            // gunaLabel5
-            // 
-            this.gunaLabel5.AutoSize = true;
-            this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel5.Location = new System.Drawing.Point(-40, 54);
-            this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(45, 23);
-            this.gunaLabel5.TabIndex = 9;
-            this.gunaLabel5.Text = "Port:";
-            // 
-            // gunaLabel6
-            // 
-            this.gunaLabel6.AutoSize = true;
-            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel6.Location = new System.Drawing.Point(-40, 1);
-            this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(36, 23);
-            this.gunaLabel6.TabIndex = 6;
-            this.gunaLabel6.Text = "Url:";
-            // 
-            // uC_Main1
-            // 
-            this.uC_Main1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Main1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Main1.Name = "uC_Main1";
-            this.uC_Main1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Main1.TabIndex = 8;
-            // 
-            // uC_ConnectApi1
-            // 
-            this.uC_ConnectApi1.BackColor = System.Drawing.Color.White;
-            this.uC_ConnectApi1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_ConnectApi1.Location = new System.Drawing.Point(0, 0);
-            this.uC_ConnectApi1.Name = "uC_ConnectApi1";
-            this.uC_ConnectApi1.Size = new System.Drawing.Size(935, 637);
-            this.uC_ConnectApi1.TabIndex = 9;
-            // 
-            // uC_Setting1
-            // 
-            this.uC_Setting1.BackColor = System.Drawing.Color.White;
-            this.uC_Setting1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Setting1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.uC_Setting1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.uC_Setting1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Setting1.Name = "uC_Setting1";
-            this.uC_Setting1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Setting1.TabIndex = 4;
-            // 
-            // uC_Quarantine1
-            // 
-            this.uC_Quarantine1.BackColor = System.Drawing.Color.White;
-            this.uC_Quarantine1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Quarantine1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.uC_Quarantine1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Quarantine1.Name = "uC_Quarantine1";
-            this.uC_Quarantine1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Quarantine1.TabIndex = 3;
-            // 
-            // uC_Scan1
-            // 
-            this.uC_Scan1.BackColor = System.Drawing.Color.White;
-            this.uC_Scan1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Scan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.uC_Scan1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.uC_Scan1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Scan1.Name = "uC_Scan1";
-            this.uC_Scan1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Scan1.TabIndex = 2;
-            // 
-            // uC_Monitoring1
-            // 
-            this.uC_Monitoring1.BackColor = System.Drawing.Color.White;
-            this.uC_Monitoring1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Monitoring1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Monitoring1.Name = "uC_Monitoring1";
-            this.uC_Monitoring1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Monitoring1.TabIndex = 0;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -664,9 +686,9 @@
             this.GunaLinePanel4.ResumeLayout(false);
             this.GunaLinePanel1.ResumeLayout(false);
             this.gunaPanel1.ResumeLayout(false);
-            this.pnlHeader.ResumeLayout(false);
             this.pnl_ConnectServer.ResumeLayout(false);
             this.pnl_ConnectServer.PerformLayout();
+            this.pnlHeader.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

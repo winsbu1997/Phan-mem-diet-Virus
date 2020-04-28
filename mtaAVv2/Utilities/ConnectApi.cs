@@ -19,18 +19,16 @@ namespace Ladin.mtaAV.Utilities
         private static string runningPath = AppDomain.CurrentDomain.BaseDirectory;
         public string Engine { get; set; }
         public string Is_Malware { get; set; }
-        public string Score { get; set; }
         public string Message { get; set; }
         public List<ConnectApi> GetResult()
         {
             return resultEngine;
         }
         public ConnectApi() { }
-        public ConnectApi(string Engine, string Is_Malware, string Score, string Message)
+        public ConnectApi(string Engine, string Is_Malware, string Message)
         {
             this.Engine = Engine;
             this.Is_Malware = Is_Malware;
-            this.Score = Score;
             this.Message = Message;
         }
         public ConnectApi AssignEngine(string engineer, string dict)
@@ -39,11 +37,10 @@ namespace Ladin.mtaAV.Utilities
             var dict4 = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(dict);
             tmp.Is_Malware = dict4["is_malware"].ToString();
             tmp.Message = dict4["msg"].ToString();
-            tmp.Score = dict4["score"].ToString();
             tmp.Engine = engineer;
             return tmp;
         }
-        public async Task<List<QUARANTINES>> Upload_MultiFiles<T>(string endpointUrl, string[] files)
+        public List<QUARANTINES> Upload_MultiFiles<T>(string endpointUrl, string[] files)
         {
             using (var client = new HttpClient())
             {
@@ -57,12 +54,12 @@ namespace Ladin.mtaAV.Utilities
                     }
                     try
                     {
-                        var response = await client.PostAsync(endpointUrl, formData);
-                        //response.Wait();
+                        var response = client.PostAsync(endpointUrl, formData);
+                        response.Wait();
                         List<QUARANTINES> lst = new List<QUARANTINES>();
-                        if (response.IsSuccessStatusCode)
+                        if (response.Result.IsSuccessStatusCode)
                         {
-                            var json = response.Content.ReadAsStringAsync().Result;
+                            var json = response.Result.Content.ReadAsStringAsync().Result;
                             string saveFile = string.Format("{0}\\log\\", Path.GetFullPath(runningPath));
                             File.WriteAllText(saveFile + DateTime.Now.ToString("dd-MM-yyyy-HH-mm", CultureInfo.InvariantCulture) + ".json", json);
                             var dict = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(json);

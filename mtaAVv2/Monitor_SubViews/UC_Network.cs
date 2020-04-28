@@ -57,9 +57,10 @@ namespace Ladin.mtaAV.Monitor_SubViews
         private string pathfile = "";
         private int _source, _destination;
         int no = 0; //stt
-        private long limitSizeFile = 1024 * 1024;
+        long limitSizeFile = 1024*1024;
         Queue queue = new Queue();
         Queue qfile = new Queue();
+        //private string runningPath = AppDomain.CurrentDomain.BaseDirectory;
         private string saveFile_Download = @"D:\FileDownload\";
 
         #endregion
@@ -280,14 +281,27 @@ namespace Ladin.mtaAV.Monitor_SubViews
         {
             if (File.Exists(path))
             {
+                FileInfo info = new FileInfo(path);
+                long FileLength = info.Length;
+                if (FileLength > (Convert.ToInt32(cbx_LimitSize.Text) * limitSizeFile))
+                {
+                    File.Delete(path);
+                    return;
+                }
                 var scanResult = Manage.MD5Scan(path);
                 Invoke(new MethodInvoker(delegate
                 {
                     int index = dgv_NetworkFile.Rows.Add();
                     DataGridViewRow row = dgv_NetworkFile.Rows[index];
-                    dgv_NetworkFile.Rows[index].DefaultCellStyle.BackColor = Color.LightGreen;
+                    //if (scanResult.IsEmpty) dgv_NetworkFile.Rows[index].DefaultCellStyle.BackColor = Color.LimeGreen;
+                    //else dgv_NetworkFile.Rows[index].DefaultCellStyle.BackColor = Color.OrangeRed;
                     row.Cells["FileName"].Value = Path.GetFileName(path);
-                    row.Cells["Virus"].Value = scanResult.VirusName;
+                    if (!scanResult.IsEmpty)
+                    {
+                        row.Cells["Virus"].Value = scanResult.VirusName;
+                        Provider.Alert("Phát hiện virus! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
+                    }
+                    else row.Cells["Virus"].Value = "Không";
                     row.Cells["Type_Scan"].Value = "Tĩnh";
                     row.Cells["Create_Date"].Value = DateTime.Now.ToString("dd/MM/yyyy HH: mm", CultureInfo.InvariantCulture);
                 }));
@@ -302,6 +316,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
         {
             Provider.monitoring_NetworkOn = true;
             dgv_NetworkFile.DataSource = null;
+            dgv_NetworkFile.Refresh();
             if (cbx_CardNetwork.SelectedIndex >= 0)
             {
                 backgroundWorker1 = new AbortableBackgroundWorker
@@ -453,30 +468,55 @@ namespace Ladin.mtaAV.Monitor_SubViews
             string columnName = dgv_NetworkFile.Columns[e.ColumnIndex].Name;
             if (columnName == "Check_File")
             {
-                string path = saveFile_Download + dgv_NetworkFile.Rows[e.RowIndex].Cells["FILENAME"].Value.ToString();
+                string path = saveFile_Download + dgv_NetworkFile.Rows[e.RowIndex].Cells["FileName"].Value.ToString();
                 string[] file = { path };
                 ConnectApi api = new ConnectApi();
                 Provider.Alert("Bắt đầu phân tích động... !", frmAlert.alertTypeEnum.Info);
-                Task.Run(new Action(() => {
-                    var task = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", file);
-                    task.Wait();
-                    QUARANTINES kq = task.Result.First();
-                    kq.FILENAME = path;
-                    if (kq.VIRUS == "1")
-                    {
-                        Provider.list_NewQuarantines.Add(kq);
-                        Invoke(new Action(() =>
+                dgv_NetworkFile.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Properties.Resources.icons8_Loader_32;
+                try
+                {
+                    Task.Run(new Action(() => {
+                        var task = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", file);
+                        QUARANTINES kq = task.First();
+                        kq.FILENAME = path;
+                        dgv_NetworkFile.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Properties.Resources.Checked_48px;
+                        if (kq.VIRUS == "1")
                         {
-                            Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra các file tải về", frmAlert.alertTypeEnum.Warning);
-                        }));
-                    }
-                }));                
+                            Provider.list_NewQuarantines.Add(kq);
+                            dgv_NetworkFile.Rows[e.RowIndex].Cells["Virus"].Value = "Có";
+                            dgv_NetworkFile.Rows[e.RowIndex].Cells["Type_Scan"].Value = "Động";
+                            dgv_NetworkFile.Refresh();
+                            //Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
+                            BeginInvoke(new Action(() =>
+                            {
+                                Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
+                            }));
+                        }
+                        else
+                        {
+                            dgv_NetworkFile.Rows[e.RowIndex].Cells["Virus"].Value = "Không";
+                        }
+                    }));
+                }
+                catch {
+                    Provider.Alert("Lỗi kết nối", frmAlert.alertTypeEnum.Error);
+                }
             }
         }
 
         private void btnDeleteFile_Click(object sender, EventArgs e)
         {
-            dgv_NetworkFile.DataSource = null;
+            for (int i = dgv_NetworkFile.Rows.Count - 1; i >= 0; i--)
+            {
+                string path = "";
+                try
+                {
+                    path = saveFile_Download + dgv_NetworkFile.Rows[i].Cells["FILENAME"].Value.ToString();
+                    File.Delete(path);
+                }
+                catch { }
+                dgv_NetworkFile.Rows.RemoveAt(i);
+            }
             dgv_NetworkFile.Refresh();
         }
         #endregion

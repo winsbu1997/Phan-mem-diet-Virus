@@ -193,9 +193,19 @@ namespace Ladin.mtaAV.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_Telegram_App_16 {
+        internal static System.Drawing.Bitmap icons8_Loader_32 {
             get {
-                object obj = ResourceManager.GetObject("icons8_Telegram_App_16", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_Loader_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_Telegram_App_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Telegram_App_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +286,16 @@ namespace Ladin.mtaAV.Properties {
         internal static System.Drawing.Bitmap Play_48px {
             get {
                 object obj = ResourceManager.GetObject("Play_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Presentation_48px {
+            get {
+                object obj = ResourceManager.GetObject("Presentation_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

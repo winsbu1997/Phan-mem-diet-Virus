@@ -104,7 +104,7 @@ namespace Ladin.mtaAV.Views
             switch (this.action)
             {
                 case frmAlert.actionEnum.wait:
-                    this.Timer1.Interval = 3000;
+                    this.Timer1.Interval = 5000;
                     this.action = frmAlert.actionEnum.close;
                     break;
                 case frmAlert.actionEnum.start:

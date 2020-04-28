@@ -46,19 +46,18 @@
             this.btn_PauseScan = new Guna.UI.WinForms.GunaButton();
             this.btn_Scan = new Guna.UI.WinForms.GunaButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gunaCheckBox3 = new Guna.UI.WinForms.GunaCheckBox();
+            this.gunaCheckBox2 = new Guna.UI.WinForms.GunaCheckBox();
+            this.gunaCheckBox1 = new Guna.UI.WinForms.GunaCheckBox();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.btnDeleteFile = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel18 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel17 = new Guna.UI.WinForms.GunaLabel();
             this.cbx_LimitSize = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel16 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel15 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel14 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel13 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaMediumRadioButton3 = new Guna.UI.WinForms.GunaMediumRadioButton();
-            this.gunaMediumRadioButton2 = new Guna.UI.WinForms.GunaMediumRadioButton();
-            this.gunaMediumRadioButton1 = new Guna.UI.WinForms.GunaMediumRadioButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlNetwork.SuspendLayout();
             this.gunaPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NetworkFile)).BeginInit();
@@ -95,7 +94,7 @@
             // 
             this.dgv_NetworkFile.AllowUserToAddRows = false;
             this.dgv_NetworkFile.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_NetworkFile.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_NetworkFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -104,9 +103,9 @@
             this.dgv_NetworkFile.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_NetworkFile.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -118,17 +117,18 @@
             this.Type_Scan,
             this.Create_Date,
             this.Check_File});
+            this.dgv_NetworkFile.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(197)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_NetworkFile.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_NetworkFile.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_NetworkFile.EnableHeadersVisualStyles = false;
-            this.dgv_NetworkFile.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(230)))), ((int)(((byte)(251)))));
+            this.dgv_NetworkFile.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgv_NetworkFile.Location = new System.Drawing.Point(0, 77);
             this.dgv_NetworkFile.Name = "dgv_NetworkFile";
             this.dgv_NetworkFile.RowHeadersVisible = false;
@@ -136,33 +136,32 @@
             this.dgv_NetworkFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_NetworkFile.Size = new System.Drawing.Size(651, 319);
             this.dgv_NetworkFile.TabIndex = 28;
-            this.dgv_NetworkFile.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.LightBlue;
-            this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
+            this.dgv_NetworkFile.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.LightGrid;
+            this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgv_NetworkFile.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.dgv_NetworkFile.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgv_NetworkFile.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(230)))), ((int)(((byte)(251)))));
-            this.dgv_NetworkFile.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(243)))));
+            this.dgv_NetworkFile.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            this.dgv_NetworkFile.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             this.dgv_NetworkFile.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgv_NetworkFile.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_NetworkFile.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgv_NetworkFile.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
             this.dgv_NetworkFile.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgv_NetworkFile.ThemeStyle.HeaderStyle.Height = 40;
             this.dgv_NetworkFile.ThemeStyle.ReadOnly = false;
-            this.dgv_NetworkFile.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
+            this.dgv_NetworkFile.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_NetworkFile.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_NetworkFile.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_NetworkFile.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dgv_NetworkFile.ThemeStyle.RowsStyle.Height = 40;
-            this.dgv_NetworkFile.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(197)))), ((int)(((byte)(247)))));
+            this.dgv_NetworkFile.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgv_NetworkFile.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgv_NetworkFile.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_NetworkFile_CellClick);
             // 
             // FileName
             // 
-            this.FileName.DataPropertyName = "FILENAME";
             this.FileName.HeaderText = "Tên file";
             this.FileName.Name = "FileName";
             this.FileName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -170,7 +169,6 @@
             // 
             // Virus
             // 
-            this.Virus.DataPropertyName = "VIRUS";
             this.Virus.HeaderText = "Loại mã độc";
             this.Virus.Name = "Virus";
             this.Virus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -178,21 +176,18 @@
             // 
             // Type_Scan
             // 
-            this.Type_Scan.DataPropertyName = "TYPE_SCAN";
             this.Type_Scan.HeaderText = "Kiểu quét";
             this.Type_Scan.Name = "Type_Scan";
             // 
             // Create_Date
             // 
-            this.Create_Date.DataPropertyName = "CREATE_DATE";
             this.Create_Date.HeaderText = "Thời gian";
             this.Create_Date.Name = "Create_Date";
             // 
             // Check_File
             // 
             this.Check_File.HeaderText = "Kiểm Tra Động";
-            this.Check_File.Image = global::Ladin.mtaAV.Properties.Resources.icons8_Telegram_App_16;
-            this.Check_File.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Check_File.Image = global::Ladin.mtaAV.Properties.Resources.icons8_Telegram_App_32;
             this.Check_File.Name = "Check_File";
             this.Check_File.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
@@ -305,17 +300,14 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.gunaCheckBox3);
+            this.groupBox1.Controls.Add(this.gunaCheckBox2);
+            this.groupBox1.Controls.Add(this.gunaCheckBox1);
             this.groupBox1.Controls.Add(this.gunaPanel1);
             this.groupBox1.Controls.Add(this.gunaLabel18);
             this.groupBox1.Controls.Add(this.gunaLabel17);
             this.groupBox1.Controls.Add(this.cbx_LimitSize);
             this.groupBox1.Controls.Add(this.gunaLabel16);
-            this.groupBox1.Controls.Add(this.gunaLabel15);
-            this.groupBox1.Controls.Add(this.gunaLabel14);
-            this.groupBox1.Controls.Add(this.gunaLabel13);
-            this.groupBox1.Controls.Add(this.gunaMediumRadioButton3);
-            this.groupBox1.Controls.Add(this.gunaMediumRadioButton2);
-            this.groupBox1.Controls.Add(this.gunaMediumRadioButton1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -325,6 +317,42 @@
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cấu hình";
+            // 
+            // gunaCheckBox3
+            // 
+            this.gunaCheckBox3.BaseColor = System.Drawing.Color.White;
+            this.gunaCheckBox3.CheckedOffColor = System.Drawing.Color.Gray;
+            this.gunaCheckBox3.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaCheckBox3.FillColor = System.Drawing.Color.White;
+            this.gunaCheckBox3.Location = new System.Drawing.Point(47, 235);
+            this.gunaCheckBox3.Name = "gunaCheckBox3";
+            this.gunaCheckBox3.Size = new System.Drawing.Size(73, 20);
+            this.gunaCheckBox3.TabIndex = 32;
+            this.gunaCheckBox3.Text = "SMBv2";
+            // 
+            // gunaCheckBox2
+            // 
+            this.gunaCheckBox2.BaseColor = System.Drawing.Color.White;
+            this.gunaCheckBox2.CheckedOffColor = System.Drawing.Color.Gray;
+            this.gunaCheckBox2.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaCheckBox2.FillColor = System.Drawing.Color.White;
+            this.gunaCheckBox2.Location = new System.Drawing.Point(47, 202);
+            this.gunaCheckBox2.Name = "gunaCheckBox2";
+            this.gunaCheckBox2.Size = new System.Drawing.Size(50, 20);
+            this.gunaCheckBox2.TabIndex = 31;
+            this.gunaCheckBox2.Text = "Ftp";
+            // 
+            // gunaCheckBox1
+            // 
+            this.gunaCheckBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaCheckBox1.CheckedOffColor = System.Drawing.Color.Gray;
+            this.gunaCheckBox1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaCheckBox1.FillColor = System.Drawing.Color.White;
+            this.gunaCheckBox1.Location = new System.Drawing.Point(47, 169);
+            this.gunaCheckBox1.Name = "gunaCheckBox1";
+            this.gunaCheckBox1.Size = new System.Drawing.Size(55, 20);
+            this.gunaCheckBox1.TabIndex = 30;
+            this.gunaCheckBox1.Text = "Http";
             // 
             // gunaPanel1
             // 
@@ -394,10 +422,10 @@
             this.cbx_LimitSize.ForeColor = System.Drawing.Color.Black;
             this.cbx_LimitSize.FormattingEnabled = true;
             this.cbx_LimitSize.Items.AddRange(new object[] {
-            "1",
-            "2",
             "5",
-            "10"});
+            "10",
+            "20",
+            "50"});
             this.cbx_LimitSize.Location = new System.Drawing.Point(166, 52);
             this.cbx_LimitSize.Name = "cbx_LimitSize";
             this.cbx_LimitSize.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -415,69 +443,20 @@
             this.gunaLabel16.TabIndex = 25;
             this.gunaLabel16.Text = "Dung lượng tối đa:";
             // 
-            // gunaLabel15
+            // dataGridViewImageColumn1
             // 
-            this.gunaLabel15.AutoSize = true;
-            this.gunaLabel15.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel15.Location = new System.Drawing.Point(63, 230);
-            this.gunaLabel15.Name = "gunaLabel15";
-            this.gunaLabel15.Size = new System.Drawing.Size(58, 20);
-            this.gunaLabel15.TabIndex = 24;
-            this.gunaLabel15.Text = "Smb v2";
+            this.dataGridViewImageColumn1.HeaderText = "Kiểm Tra Động";
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 130;
             // 
-            // gunaLabel14
+            // dataGridViewImageColumn2
             // 
-            this.gunaLabel14.AutoSize = true;
-            this.gunaLabel14.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel14.Location = new System.Drawing.Point(63, 198);
-            this.gunaLabel14.Name = "gunaLabel14";
-            this.gunaLabel14.Size = new System.Drawing.Size(30, 20);
-            this.gunaLabel14.TabIndex = 23;
-            this.gunaLabel14.Text = "Ftp";
-            // 
-            // gunaLabel13
-            // 
-            this.gunaLabel13.AutoSize = true;
-            this.gunaLabel13.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel13.Location = new System.Drawing.Point(63, 169);
-            this.gunaLabel13.Name = "gunaLabel13";
-            this.gunaLabel13.Size = new System.Drawing.Size(39, 20);
-            this.gunaLabel13.TabIndex = 22;
-            this.gunaLabel13.Text = "Http";
-            // 
-            // gunaMediumRadioButton3
-            // 
-            this.gunaMediumRadioButton3.BaseColor = System.Drawing.Color.White;
-            this.gunaMediumRadioButton3.CheckedOffColor = System.Drawing.Color.Gray;
-            this.gunaMediumRadioButton3.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaMediumRadioButton3.FillColor = System.Drawing.Color.White;
-            this.gunaMediumRadioButton3.Location = new System.Drawing.Point(34, 198);
-            this.gunaMediumRadioButton3.Name = "gunaMediumRadioButton3";
-            this.gunaMediumRadioButton3.Size = new System.Drawing.Size(20, 20);
-            this.gunaMediumRadioButton3.TabIndex = 21;
-            // 
-            // gunaMediumRadioButton2
-            // 
-            this.gunaMediumRadioButton2.BaseColor = System.Drawing.Color.White;
-            this.gunaMediumRadioButton2.CheckedOffColor = System.Drawing.Color.Gray;
-            this.gunaMediumRadioButton2.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaMediumRadioButton2.FillColor = System.Drawing.Color.White;
-            this.gunaMediumRadioButton2.Location = new System.Drawing.Point(34, 230);
-            this.gunaMediumRadioButton2.Name = "gunaMediumRadioButton2";
-            this.gunaMediumRadioButton2.Size = new System.Drawing.Size(20, 20);
-            this.gunaMediumRadioButton2.TabIndex = 20;
-            // 
-            // gunaMediumRadioButton1
-            // 
-            this.gunaMediumRadioButton1.BaseColor = System.Drawing.Color.White;
-            this.gunaMediumRadioButton1.Checked = true;
-            this.gunaMediumRadioButton1.CheckedOffColor = System.Drawing.Color.Gray;
-            this.gunaMediumRadioButton1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaMediumRadioButton1.FillColor = System.Drawing.Color.White;
-            this.gunaMediumRadioButton1.Location = new System.Drawing.Point(34, 169);
-            this.gunaMediumRadioButton1.Name = "gunaMediumRadioButton1";
-            this.gunaMediumRadioButton1.Size = new System.Drawing.Size(20, 20);
-            this.gunaMediumRadioButton1.TabIndex = 19;
+            this.dataGridViewImageColumn2.HeaderText = "Kiểm Tra Động";
+            this.dataGridViewImageColumn2.Image = global::Ladin.mtaAV.Properties.Resources.Presentation_48px;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.Width = 130;
             // 
             // UC_Network
             // 
@@ -512,15 +491,14 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel17;
         private Guna.UI.WinForms.GunaComboBox cbx_LimitSize;
         private Guna.UI.WinForms.GunaLabel gunaLabel16;
-        private Guna.UI.WinForms.GunaLabel gunaLabel15;
-        private Guna.UI.WinForms.GunaLabel gunaLabel14;
-        private Guna.UI.WinForms.GunaLabel gunaLabel13;
-        private Guna.UI.WinForms.GunaMediumRadioButton gunaMediumRadioButton3;
-        private Guna.UI.WinForms.GunaMediumRadioButton gunaMediumRadioButton2;
-        private Guna.UI.WinForms.GunaMediumRadioButton gunaMediumRadioButton1;
         private Guna.UI.WinForms.GunaButton btnDeleteFile;
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private Guna.UI.WinForms.GunaCheckBox gunaCheckBox2;
+        private Guna.UI.WinForms.GunaCheckBox gunaCheckBox1;
+        private Guna.UI.WinForms.GunaCheckBox gunaCheckBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Virus;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type_Scan;
