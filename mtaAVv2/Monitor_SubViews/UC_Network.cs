@@ -55,6 +55,8 @@ namespace Ladin.mtaAV.Monitor_SubViews
         private string length = "";
         private string uri = "";
         private string pathfile = "";
+        private string ip_src = "";
+        private string ip_dst = "";
         private int _source, _destination;
         int no = 0; //stt
         long limitSizeFile = 1024*1024;
@@ -142,11 +144,13 @@ namespace Ladin.mtaAV.Monitor_SubViews
         {
             try
             {
-                this.count = ""; this.time = ""; this.source = ""; this.destination = ""; this.protocol = ""; this.length = ""; this.uri = "";
+                this.count = ""; this.time = ""; this.source = ""; this.destination = ""; this.protocol = ""; this.length = ""; this.uri = ""; this.ip_src = ""; this.ip_dst = "";
 
                 IpV4Datagram ip = packet.Ethernet.IpV4;
                 if (packet.Count != 0 && ip.Protocol.ToString().Equals("Tcp") /*&& (save.Checked)*/)
                 {
+                    ip_src = ip.Source.ToString();
+                    ip_dst = ip.Destination.ToString();
                     TcpDatagram tcp = ip.Tcp;
                     //UdpDatagram udp = ip.Udp;
                     HttpDatagram httpPacket = null;
@@ -207,7 +211,6 @@ namespace Ladin.mtaAV.Monitor_SubViews
                                 {
                                     if (packet1.Data_Length != packet1.Data.Length)
                                     {
-
                                         uint x = tcp.SequenceNumber - packet1.Order;
                                         Console.WriteLine(x.ToString() + "   " + payload.Length.ToString());
 
@@ -224,6 +227,8 @@ namespace Ladin.mtaAV.Monitor_SubViews
                                         FileDownload f = new FileDownload();
                                         f.FileName = saveFile_Download + Path.GetFileName(packet1.Name);
                                         f.Source = _destination;
+                                        Utilities.Capture cap = new Utilities.Capture(f.FileName, packet1.Data_Length.ToString(), ip_src, ip_dst);
+                                        f.CaptureNetwork = cap;
                                         lock (qfile)
                                         {
                                             qfile.Enqueue(f);
@@ -277,10 +282,14 @@ namespace Ladin.mtaAV.Monitor_SubViews
             catch { }
         }
 
-        private void ScanFile(string path)
+        private void ScanFile(FileDownload file)
         {
+            ConnectApi api = new ConnectApi();
+            api.Upload_InfoCapture("api/v1/capture", file.CaptureNetwork);
+            string path = file.FileName;
             if (File.Exists(path))
             {
+
                 FileInfo info = new FileInfo(path);
                 long FileLength = info.Length;
                 if (FileLength > (Convert.ToInt32(cbx_LimitSize.Text) * limitSizeFile))
@@ -458,7 +467,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
                         object pk = qfile.Dequeue();
                         fdl = (FileDownload)pk;
                     }
-                    ScanFile(fdl.FileName);
+                    ScanFile(fdl);
                 }
             } while (true);
         }
@@ -506,6 +515,9 @@ namespace Ladin.mtaAV.Monitor_SubViews
 
         private void btnDeleteFile_Click(object sender, EventArgs e)
         {
+            ConnectApi api = new ConnectApi();
+            Utilities.Capture cap = new Utilities.Capture("ss","ss","ss","sdwe");
+            api.Upload_InfoCapture("api/v1/capture", cap);
             for (int i = dgv_NetworkFile.Rows.Count - 1; i >= 0; i--)
             {
                 string path = "";

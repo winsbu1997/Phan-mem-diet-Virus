@@ -114,7 +114,7 @@ namespace Ladin.mtaAV.Views
                 if (Provider.autoUsbOn)
                 {
                     loc_to_search = e.Disk.Name;
-                    Provider.scanUSB = new Thread(ScanUSB);
+                    Provider.scanUSB = new Task(ScanUSB);
                     Provider.scanUSB.Start();
                 }
             }

@@ -87,7 +87,8 @@ namespace Ladin.mtaAV.Utilities
                             }
                         }
                     }
-                    catch {
+                    catch
+                    {
                         Provider.Alert("Lỗi kết nối! Kiểm tra lại Url !", frmAlert.alertTypeEnum.Error);
                     }
                 }
@@ -117,6 +118,21 @@ namespace Ladin.mtaAV.Utilities
                 catch { }
             }
             return null;
+        }
+
+        public void Upload_InfoCapture(string endpointUrl, Capture cap)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(uri);
+                HttpContent content = new StringContent(JsonConvert.SerializeObject(cap), Encoding.UTF8, "application/json");
+                var response = client.PostAsync(endpointUrl, content);
+                response.Wait();
+                if (!response.Result.IsSuccessStatusCode)
+                {
+                    Provider.Alert("Lỗi kết nối ! Kiểm tra lại Url !", frmAlert.alertTypeEnum.Error);
+                }
+            }
         }
         //public static T Upload_File<T>(string endpointUrl, string file)
         //{

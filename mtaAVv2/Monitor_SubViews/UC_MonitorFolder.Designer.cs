@@ -362,8 +362,7 @@
             // 
             // FileName
             // 
-            this.FileName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FileName.FillWeight = 71.26904F;
+            this.FileName.FillWeight = 122.7842F;
             this.FileName.HeaderText = "Tên file";
             this.FileName.Name = "FileName";
             this.FileName.ReadOnly = true;
@@ -373,47 +372,48 @@
             // Virus
             // 
             this.Virus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Virus.FillWeight = 71.26904F;
+            this.Virus.FillWeight = 151.908F;
             this.Virus.HeaderText = "Loại mã độc";
             this.Virus.Name = "Virus";
             this.Virus.ReadOnly = true;
             this.Virus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Virus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Virus.Width = 150;
+            this.Virus.Width = 120;
             // 
             // Type_Scan
             // 
             this.Type_Scan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Type_Scan.FillWeight = 71.26904F;
+            this.Type_Scan.FillWeight = 304.5685F;
             this.Type_Scan.HeaderText = "Kiểu quét";
             this.Type_Scan.Name = "Type_Scan";
             this.Type_Scan.ReadOnly = true;
+            this.Type_Scan.Width = 80;
             // 
             // Create_Date
             // 
             this.Create_Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Create_Date.FillWeight = 71.26904F;
+            this.Create_Date.FillWeight = 3.827282F;
             this.Create_Date.HeaderText = "Thời gian";
             this.Create_Date.Name = "Create_Date";
             this.Create_Date.ReadOnly = true;
-            this.Create_Date.Width = 130;
+            this.Create_Date.Width = 90;
             // 
             // Check_File
             // 
             this.Check_File.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Check_File.FillWeight = 71.26904F;
+            this.Check_File.FillWeight = 3.827282F;
             this.Check_File.HeaderText = "Kiểm tra động";
             this.Check_File.Image = global::Ladin.mtaAV.Properties.Resources.icons8_Telegram_App_32;
             this.Check_File.Name = "Check_File";
             this.Check_File.ReadOnly = true;
             this.Check_File.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Check_File.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Check_File.Width = 150;
+            this.Check_File.Width = 80;
             // 
             // btn_DeleteFile
             // 
             this.btn_DeleteFile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.btn_DeleteFile.FillWeight = 243.6548F;
+            this.btn_DeleteFile.FillWeight = 13.08472F;
             this.btn_DeleteFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_DeleteFile.HeaderText = "Xóa ";
             this.btn_DeleteFile.Name = "btn_DeleteFile";

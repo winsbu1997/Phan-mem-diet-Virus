@@ -145,6 +145,7 @@
     <Compile Include="UsbManager\UsbStateChangedEventArgs.cs" />
     <Compile Include="UsbManager\WmiExtensions.cs" />
     <Compile Include="Utilities\CallPython_RestfulApi.cs" />
+    <Compile Include="Utilities\Capture.cs" />
     <Compile Include="Utilities\ConnectApi.cs" />
     <Compile Include="Utilities\ConsoleSetups.cs" />
     <Compile Include="Views\frmAlert.cs">

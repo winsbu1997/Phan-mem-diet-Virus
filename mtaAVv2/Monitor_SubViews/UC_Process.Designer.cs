@@ -267,11 +267,13 @@
             // 
             // Virus
             // 
+            this.Virus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Virus.HeaderText = "Loại mã độc";
             this.Virus.Name = "Virus";
             this.Virus.ReadOnly = true;
             this.Virus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Virus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Virus.Width = 150;
             // 
             // Type_Scan
             // 
@@ -279,12 +281,15 @@
             this.Type_Scan.HeaderText = "Kiểu quét";
             this.Type_Scan.Name = "Type_Scan";
             this.Type_Scan.ReadOnly = true;
+            this.Type_Scan.Width = 80;
             // 
             // Create_Date
             // 
+            this.Create_Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Create_Date.HeaderText = "Thời gian";
             this.Create_Date.Name = "Create_Date";
             this.Create_Date.ReadOnly = true;
+            this.Create_Date.Width = 90;
             // 
             // Check_File
             // 
@@ -293,7 +298,7 @@
             this.Check_File.Image = global::Ladin.mtaAV.Properties.Resources.icons8_Telegram_App_32;
             this.Check_File.Name = "Check_File";
             this.Check_File.ReadOnly = true;
-            this.Check_File.Width = 130;
+            this.Check_File.Width = 80;
             // 
             // btn_DeleteFile
             // 

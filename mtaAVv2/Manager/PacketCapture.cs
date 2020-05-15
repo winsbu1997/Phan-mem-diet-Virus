@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Ladin.mtaAV.Utilities;
 namespace Ladin.mtaAV.Manager
 {
     public class Temp
@@ -60,6 +60,7 @@ namespace Ladin.mtaAV.Manager
     {
         private string filename;
         private int source;
+        private Capture captureNetwork;
         public string FileName
         {
             get { return filename; }
@@ -69,6 +70,10 @@ namespace Ladin.mtaAV.Manager
         {
             get { return source; }
             set { source = value; }
+        }
+        public Capture CaptureNetwork{
+            get { return captureNetwork; }
+            set { captureNetwork = value; }
         }
     }
 }

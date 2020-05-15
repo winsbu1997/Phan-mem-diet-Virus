@@ -22,7 +22,7 @@ namespace Ladin.mtaAV
         public static OpenFileDialog openFile = new OpenFileDialog();
         public static FolderBrowserDialog openFolder = new FolderBrowserDialog();
         public static Thread search = null;
-        public static Thread scanUSB = null;
+        public static Task scanUSB = null;
         public static bool scanning = false;
         //public static bool scanningUSB = false;
         public static bool suspended = false;
@@ -82,6 +82,7 @@ namespace Ladin.mtaAV
         public static string[] GetFiles(string SourceFolder, string Filter, System.IO.SearchOption searchOption)
         {
             ArrayList alFiles = new ArrayList();
+            if (!Directory.Exists(SourceFolder)) return (string[])alFiles.ToArray(typeof(string));
             string[] MultipleFilters = Filter.Split('|');
 
             if (IsLogicalDrive(SourceFolder))
