@@ -24,6 +24,8 @@ namespace Ladin.mtaAV.Utilities
         public string collection_type { get; set; }
         public string source_ip { get; set; }
         public string destination_ip { get; set; }
+        private string source_mac { get; set; }
+        private string destination_mac { get; set; }
         public string source_url { get; set; }
         public string destination_url { get; set; }
         public string hostname { get; set; }
@@ -42,7 +44,7 @@ namespace Ladin.mtaAV.Utilities
 
         public Capture() { }
 
-        public Capture(string filename = null, string file_size = null, string source_ip = null, string destination_ip = null, string file_extension = null, string file_path= null, string hash= null, string md5= null, string date_created= null, string date_modified= null, string date_sent= null, string time_sent= null, string date_received= null, string time_received= null, string collection_date= null, string collection_type= null, string source_url= null, string destination_url= null, string hostname= null, string protocol= null, string source_email= null, string destination_email= null, string source_country= null, string destination_country= null, string malware_type= null, string source_dns= null, string destination_dns= null, string entropy= null, string description= null, int detected_by = 0, double warning_level = 0)
+        public Capture(string filename = null, string file_size = null, string source_ip = null, string destination_ip = null, string source_mac = null, string destination_mac = null, string file_extension = null, string file_path= null, string hash= null, string md5= null, string date_created= null, string date_modified= null, string date_sent= null, string time_sent= null, string date_received= null, string time_received= null, string collection_date= null, string collection_type= null, string source_url= null, string destination_url= null, string hostname= null, string protocol= null, string source_email= null, string destination_email= null, string source_country= null, string destination_country= null, string malware_type= null, string source_dns= null, string destination_dns= null, string entropy= null, string description= null, int detected_by = 0, double warning_level = 0)
         {
             this.filename = filename;
             this.file_size = file_size;
@@ -62,6 +64,8 @@ namespace Ladin.mtaAV.Utilities
             this.destination_ip = destination_ip;
             this.source_url = source_url;
             this.destination_url = destination_url;
+            this.source_mac = source_mac;
+            this.destination_mac = destination_mac;
             this.hostname = hostname;
             this.protocol = protocol;
             this.source_email = source_email;

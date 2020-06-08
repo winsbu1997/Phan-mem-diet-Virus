@@ -57,13 +57,15 @@ namespace Ladin.mtaAV.Monitor_SubViews
         private string pathfile = "";
         private string ip_src = "";
         private string ip_dst = "";
+        private string mac_src = "";
+        private string mac_dst = "";
         private int _source, _destination;
         int no = 0; //stt
         long limitSizeFile = 1024*1024;
         Queue queue = new Queue();
         Queue qfile = new Queue();
-        //private string runningPath = AppDomain.CurrentDomain.BaseDirectory;
-        private string saveFile_Download = @"D:\FileDownload\";
+        static string runningPath = AppDomain.CurrentDomain.BaseDirectory;
+        string saveFile_Download = string.Format("{0}\\Downloads\\", Path.GetFullPath(runningPath));
 
         #endregion
         public UC_Network()
@@ -145,12 +147,14 @@ namespace Ladin.mtaAV.Monitor_SubViews
             try
             {
                 this.count = ""; this.time = ""; this.source = ""; this.destination = ""; this.protocol = ""; this.length = ""; this.uri = ""; this.ip_src = ""; this.ip_dst = "";
-
+                this.mac_src = ""; this.mac_dst = ""; this.uri = "";
                 IpV4Datagram ip = packet.Ethernet.IpV4;
                 if (packet.Count != 0 && ip.Protocol.ToString().Equals("Tcp") /*&& (save.Checked)*/)
                 {
                     ip_src = ip.Source.ToString();
                     ip_dst = ip.Destination.ToString();
+                    mac_src = packet.Ethernet.Source.ToString();
+                    mac_dst = packet.Ethernet.Destination.ToString();
                     TcpDatagram tcp = ip.Tcp;
                     //UdpDatagram udp = ip.Udp;
                     HttpDatagram httpPacket = null;
@@ -171,9 +175,11 @@ namespace Ladin.mtaAV.Monitor_SubViews
                                 HttpRequestDatagram re = (HttpRequestDatagram)httpPacket;
                                 packet1.Name = re.Uri;
                                 string pattern = ".dll$|.pdf$|.exe$|.zip$|.doc$|.docx$|.ppt$";
+                                //string pat = ".html$|.css$|.js$|.ico$";
                                 string pattern1 = "=";
                                 Regex filterfile = new Regex(pattern);
                                 Regex dllfile = new Regex(pattern1);
+                                //if (filterfile.IsMatch(re.Uri)) return;
                                 if (re.Uri != null && dllfile.IsMatch(re.Uri) == false && filterfile.IsMatch(re.Uri)) 
                                 {
                                     packets.Add(_source, packet1);
@@ -227,13 +233,14 @@ namespace Ladin.mtaAV.Monitor_SubViews
                                         FileDownload f = new FileDownload();
                                         f.FileName = saveFile_Download + Path.GetFileName(packet1.Name);
                                         f.Source = _destination;
-                                        Utilities.Capture cap = new Utilities.Capture(f.FileName, packet1.Data_Length.ToString(), ip_src, ip_dst);
+                                        Utilities.Capture cap = new Utilities.Capture(f.FileName, packet1.Data_Length.ToString(), ip_src, ip_dst, mac_src, mac_dst);
                                         f.CaptureNetwork = cap;
                                         lock (qfile)
                                         {
                                             qfile.Enqueue(f);
                                         }
                                         packets.Remove(_destination);
+                                        return;
                                     }
                                     if (packet1.Data_Length > packet1.Data.Length)
                                     {
@@ -284,8 +291,8 @@ namespace Ladin.mtaAV.Monitor_SubViews
 
         private void ScanFile(FileDownload file)
         {
-            ConnectApi api = new ConnectApi();
-            api.Upload_InfoCapture("api/v1/capture", file.CaptureNetwork);
+            //ConnectApi api = new ConnectApi();
+            //api.Upload_InfoCapture("api/v1/capture", file.CaptureNetwork);
             string path = file.FileName;
             if (File.Exists(path))
             {
@@ -302,6 +309,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
                 {
                     int index = dgv_NetworkFile.Rows.Add();
                     DataGridViewRow row = dgv_NetworkFile.Rows[index];
+                    row.Tag = file.CaptureNetwork;
                     //if (scanResult.IsEmpty) dgv_NetworkFile.Rows[index].DefaultCellStyle.BackColor = Color.LimeGreen;
                     //else dgv_NetworkFile.Rows[index].DefaultCellStyle.BackColor = Color.OrangeRed;
                     row.Cells["FileName"].Value = Path.GetFileName(path);
@@ -480,31 +488,41 @@ namespace Ladin.mtaAV.Monitor_SubViews
                 string path = saveFile_Download + dgv_NetworkFile.Rows[e.RowIndex].Cells["FileName"].Value.ToString();
                 string[] file = { path };
                 ConnectApi api = new ConnectApi();
+                //api.Upload_InfoCapture("api/v1/capture", (Utilities.Capture)dgv_NetworkFile.Rows[e.RowIndex].Tag);
                 Provider.Alert("Bắt đầu phân tích động... !", frmAlert.alertTypeEnum.Info);
                 dgv_NetworkFile.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Properties.Resources.icons8_Loader_32;
                 try
                 {
                     Task.Run(new Action(() => {
-                        var task = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", file);
-                        QUARANTINES kq = task.First();
-                        kq.FILENAME = path;
+                        //var task = api.Upload_MultiFiles<QUARANTINES>("api/v1/capture/check", file, (Utilities.Capture)dgv_NetworkFile.Rows[e.RowIndex].Tag);
+                        //QUARANTINES kq = task.First();
+                        //kq.FILENAME = path;
                         dgv_NetworkFile.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Properties.Resources.Checked_48px;
-                        if (kq.VIRUS == "1")
+                        //Provider.list_NewQuarantines.Add(kq);
+                        dgv_NetworkFile.Rows[e.RowIndex].Cells["Virus"].Value = "Có";
+                        dgv_NetworkFile.Rows[e.RowIndex].Cells["Type_Scan"].Value = "Động";
+                        dgv_NetworkFile.Refresh();
+                        //Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
+                        BeginInvoke(new Action(() =>
                         {
-                            Provider.list_NewQuarantines.Add(kq);
-                            dgv_NetworkFile.Rows[e.RowIndex].Cells["Virus"].Value = "Có";
-                            dgv_NetworkFile.Rows[e.RowIndex].Cells["Type_Scan"].Value = "Động";
-                            dgv_NetworkFile.Refresh();
-                            //Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
-                            BeginInvoke(new Action(() =>
-                            {
-                                Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
-                            }));
-                        }
-                        else
-                        {
-                            dgv_NetworkFile.Rows[e.RowIndex].Cells["Virus"].Value = "Không";
-                        }
+                            Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
+                        }));
+                        //if (kq.VIRUS == "1")
+                        //{
+                        //    Provider.list_NewQuarantines.Add(kq);
+                        //    dgv_NetworkFile.Rows[e.RowIndex].Cells["Virus"].Value = "Có";
+                        //    dgv_NetworkFile.Rows[e.RowIndex].Cells["Type_Scan"].Value = "Động";
+                        //    dgv_NetworkFile.Refresh();
+                        //    //Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
+                        //    BeginInvoke(new Action(() =>
+                        //    {
+                        //        Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
+                        //    }));
+                        //}
+                        //else
+                        //{
+                        //    dgv_NetworkFile.Rows[e.RowIndex].Cells["Virus"].Value = "Không";
+                        //}
                     }));
                 }
                 catch {
@@ -515,9 +533,6 @@ namespace Ladin.mtaAV.Monitor_SubViews
 
         private void btnDeleteFile_Click(object sender, EventArgs e)
         {
-            ConnectApi api = new ConnectApi();
-            Utilities.Capture cap = new Utilities.Capture("ss","ss","ss","sdwe");
-            api.Upload_InfoCapture("api/v1/capture", cap);
             for (int i = dgv_NetworkFile.Rows.Count - 1; i >= 0; i--)
             {
                 string path = "";
@@ -525,6 +540,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
                 {
                     path = saveFile_Download + dgv_NetworkFile.Rows[i].Cells["FILENAME"].Value.ToString();
                     File.Delete(path);
+                    Directory.Delete(runningPath + dgv_NetworkFile.Rows[i].Cells["FILENAME"].Value.ToString());
                 }
                 catch { }
                 dgv_NetworkFile.Rows.RemoveAt(i);

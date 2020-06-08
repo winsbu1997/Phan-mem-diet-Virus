@@ -65,6 +65,10 @@ namespace Ladin.mtaAV
             {
                 Directory.CreateDirectory("Update");
             }
+            if (!Directory.Exists("Downloads"))
+            {
+                Directory.CreateDirectory("Downloads");
+            }
         }
         #region Load_UC
         private void Nav_status_Click(object sender, EventArgs e)

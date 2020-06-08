@@ -17,8 +17,8 @@ namespace Ladin.mtaAV.Views
     public partial class UC_Quarantine : System.Windows.Forms.UserControl
     {
 #pragma warning disable 0618 // removes the obsolete warning
-        [DllImport("process-killer.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern int KillProcess(IntPtr handle, string proc_name);
+        //[DllImport("process-killer.dll", CallingConvention = CallingConvention.Cdecl)]
+        //private static extern int KillProcess(IntPtr handle, string proc_name);
         private Database db = Provider.db;
         private QuarantineManager qr = new QuarantineManager();
         public void Reload()
@@ -50,7 +50,7 @@ namespace Ladin.mtaAV.Views
                     QUARANTINES quarantine = new QUARANTINES(filePath, virus, typeScan, date);
                     db.QUARANTINE.Add(quarantine);
                     Provider.list_NewQuarantines.Remove(quarantine);
-                    KillProcess(this.Handle, filePath); // try to kill the process before deleting it
+                    //KillProcess(this.Handle, filePath); // try to kill the process before deleting it
                     qr.AddQuarantine(filePath);
                 }
             }
@@ -70,7 +70,7 @@ namespace Ladin.mtaAV.Views
                     Provider.list_NewQuarantines.Remove(quarantine);
                     if (File.Exists(filePath))
                     {
-                        KillProcess(this.Handle, filePath); // try to kill the process before deleting it
+                        //KillProcess(this.Handle, filePath); // try to kill the process before deleting it
                         File.Delete(filePath);
                     }
                 }

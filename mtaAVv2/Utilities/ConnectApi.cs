@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Ladin.mtaAV.Model;
 using System.Globalization;
 using Ladin.mtaAV.Views;
+using System.Windows.Forms;
 
 namespace Ladin.mtaAV.Utilities
 {
@@ -40,7 +41,7 @@ namespace Ladin.mtaAV.Utilities
             tmp.Engine = engineer;
             return tmp;
         }
-        public List<QUARANTINES> Upload_MultiFiles<T>(string endpointUrl, string[] files)
+        public List<QUARANTINES> Upload_MultiFiles<T>(string endpointUrl, string[] files, Capture cap = null)
         {
             using (var client = new HttpClient())
             {
@@ -51,6 +52,7 @@ namespace Ladin.mtaAV.Utilities
                     foreach (string filePath in files)
                     {
                         formData.Add(new ByteArrayContent(File.ReadAllBytes(filePath)), "files[]", Path.GetFileName(filePath));
+                        if(cap != null) formData.Add(new StringContent(JsonConvert.SerializeObject(cap), Encoding.UTF8, "application/json"));
                     }
                     try
                     {
@@ -130,7 +132,7 @@ namespace Ladin.mtaAV.Utilities
                 response.Wait();
                 if (!response.Result.IsSuccessStatusCode)
                 {
-                    Provider.Alert("Lỗi kết nối ! Kiểm tra lại Url !", frmAlert.alertTypeEnum.Error);
+                    MessageBox.Show(" Kiểm tra lại Url !", "Lỗi kết nối", MessageBoxButtons.OK ,MessageBoxIcon.Error);
                 }
             }
         }
