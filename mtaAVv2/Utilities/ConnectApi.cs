@@ -112,6 +112,7 @@ namespace Ladin.mtaAV.Utilities
                     response.Wait();
                     if (response.Result.IsSuccessStatusCode)
                     {
+                        Provider.Alert("Đang Update...", frmAlert.alertTypeEnum.Info);
                         var contentStream = response.Result.Content.ReadAsByteArrayAsync().Result;
                         File.WriteAllBytes(path, contentStream);
                         return path;

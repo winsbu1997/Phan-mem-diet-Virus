@@ -210,7 +210,7 @@ namespace Ladin.mtaAV.Monitor_SubViews
                 try
                 {
                     Task.Run(new Action(() => {
-                        var task = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", file);
+                        var task = api.Upload_MultiFiles<QUARANTINES>("/api/v1/capture/check", file);
                         QUARANTINES kq = task.First();
                         kq.FILENAME = path;
                         dgv_MonitorProcess.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Properties.Resources.Checked_48px;

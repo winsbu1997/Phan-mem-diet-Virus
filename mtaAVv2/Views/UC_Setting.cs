@@ -227,7 +227,7 @@ namespace Ladin.mtaAV.Views
             ConnectApi api = new ConnectApi();
             Task.Run(new Action(() =>
            {
-               string path = api.Download_File("download-file");
+               string path = api.Download_File("/api/v1/capture/download-file");
                if (path != null)
                {
                    Invoke(new Action(() =>
@@ -266,15 +266,23 @@ namespace Ladin.mtaAV.Views
                     {
                         progress_Update.Value = progress_Update.Value + 20;
                     }));
-                    Manage.UdpateDb_Md5(path);
-                    Invoke(new Action(() =>
+                    try
                     {
-                        progress_Update.Value = progress_Update.Value + 60;
-                        Task.Delay(1000);
-                        progress_Update.Value = progress_Update.Value + 20;
-                        Provider.Alert("Cập nhập dữ liệu thành công!", frmAlert.alertTypeEnum.Success);
+                        Manage.UdpateDb_Md5(path);
+                        Invoke(new Action(() =>
+                        {
+                            progress_Update.Value = progress_Update.Value + 60;
+                            Task.Delay(1000);
+                            progress_Update.Value = progress_Update.Value + 20;
+                            Provider.Alert("Cập nhập dữ liệu thành công!", frmAlert.alertTypeEnum.Success);
+                            InitProgress();
+                        }));
+                    }
+                    catch{
+                        Provider.Alert("Không đúng định dạng file cập nhập!", frmAlert.alertTypeEnum.Error);
                         InitProgress();
-                    }));
+                    }
+                    
                 }));
             }
         }

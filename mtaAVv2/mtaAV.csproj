@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>Dll\Bunifu_UI_v1.52.dll</HintPath>
@@ -309,6 +312,7 @@
   <ItemGroup>
     <Content Include="Dll\Guna.UI.dll" />
     <Content Include="Dll\process-killer.dll" />
+    <Content Include="logo.ico" />
     <Content Include="Model\mtaAV.db" />
     <Content Include="Resources\38127972-computer-virus-icon.jpg" />
     <None Include="Resources\Warning_28px.png" />
@@ -330,6 +334,7 @@
     <None Include="Resources\icons8_Telegram_App_16.png" />
     <None Include="Resources\icons8_Telegram_App_32.png" />
     <None Include="Resources\icons8_Loader_32.png" />
+    <None Include="Resources\logo.ico" />
     <Content Include="Resources\mta_logo.png" />
     <None Include="Resources\Play_48px.png" />
     <None Include="Resources\Play_32px.png" />

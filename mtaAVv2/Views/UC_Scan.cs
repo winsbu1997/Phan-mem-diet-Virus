@@ -136,7 +136,7 @@ namespace Ladin.mtaAV.Views
                 var scanResult = Manage.MD5Scan(loc);
                 if (scanResult.IsEmpty)
                 {
-                    Provider.Alert("File sạch", frmAlert.alertTypeEnum.Success);
+                    Provider.Alert("Quét tĩnh: File sạch", frmAlert.alertTypeEnum.Success);
                     ret = 1;
                 }
                 else
@@ -169,7 +169,7 @@ namespace Ladin.mtaAV.Views
                    ConnectApi api = new ConnectApi();
                    try
                    {
-                       QUARANTINES kq = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", s).First();
+                       QUARANTINES kq = api.Upload_MultiFiles<QUARANTINES>("/api/v1/capture/check", s).First();
                        kq.FILENAME = loc;
                        if (kq.VIRUS == "1")
                        {
@@ -265,7 +265,7 @@ namespace Ladin.mtaAV.Views
                 {
                     try
                     {
-                        List<QUARANTINES> kq = api.Upload_MultiFiles<QUARANTINES>("upload-multiple", lst_Dynamic);
+                        List<QUARANTINES> kq = api.Upload_MultiFiles<QUARANTINES>("/api/v1/capture/check", lst_Dynamic);
                         foreach (QUARANTINES item in kq)
                         {
                             item.FILENAME = lst_Dynamic.Where(x => x.Contains(item.FILENAME)).First();

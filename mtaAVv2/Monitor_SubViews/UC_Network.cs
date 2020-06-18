@@ -296,7 +296,6 @@ namespace Ladin.mtaAV.Monitor_SubViews
             string path = file.FileName;
             if (File.Exists(path))
             {
-
                 FileInfo info = new FileInfo(path);
                 long FileLength = info.Length;
                 if (FileLength > (Convert.ToInt32(cbx_LimitSize.Text) * limitSizeFile))
@@ -488,17 +487,15 @@ namespace Ladin.mtaAV.Monitor_SubViews
                 string path = saveFile_Download + dgv_NetworkFile.Rows[e.RowIndex].Cells["FileName"].Value.ToString();
                 string[] file = { path };
                 ConnectApi api = new ConnectApi();
-                //api.Upload_InfoCapture("api/v1/capture", (Utilities.Capture)dgv_NetworkFile.Rows[e.RowIndex].Tag);
                 Provider.Alert("Bắt đầu phân tích động... !", frmAlert.alertTypeEnum.Info);
                 dgv_NetworkFile.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Properties.Resources.icons8_Loader_32;
                 try
                 {
                     Task.Run(new Action(() => {
-                        //var task = api.Upload_MultiFiles<QUARANTINES>("api/v1/capture/check", file, (Utilities.Capture)dgv_NetworkFile.Rows[e.RowIndex].Tag);
-                        //QUARANTINES kq = task.First();
-                        //kq.FILENAME = path;
+                        var task = api.Upload_MultiFiles<QUARANTINES>("api/v1/capture/check", file, (Utilities.Capture)dgv_NetworkFile.Rows[e.RowIndex].Tag);
+                        QUARANTINES kq = task.First();
+                        kq.FILENAME = path;
                         dgv_NetworkFile.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Properties.Resources.Checked_48px;
-                        //Provider.list_NewQuarantines.Add(kq);
                         dgv_NetworkFile.Rows[e.RowIndex].Cells["Virus"].Value = "Có";
                         dgv_NetworkFile.Rows[e.RowIndex].Cells["Type_Scan"].Value = "Động";
                         dgv_NetworkFile.Refresh();
@@ -507,22 +504,23 @@ namespace Ladin.mtaAV.Monitor_SubViews
                         {
                             Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
                         }));
-                        //if (kq.VIRUS == "1")
-                        //{
-                        //    Provider.list_NewQuarantines.Add(kq);
-                        //    dgv_NetworkFile.Rows[e.RowIndex].Cells["Virus"].Value = "Có";
-                        //    dgv_NetworkFile.Rows[e.RowIndex].Cells["Type_Scan"].Value = "Động";
-                        //    dgv_NetworkFile.Refresh();
-                        //    //Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
-                        //    BeginInvoke(new Action(() =>
-                        //    {
-                        //        Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
-                        //    }));
-                        //}
-                        //else
-                        //{
-                        //    dgv_NetworkFile.Rows[e.RowIndex].Cells["Virus"].Value = "Không";
-                        //}
+                        if (kq.VIRUS == "1")
+                        {
+                            Provider.list_NewQuarantines.Add(kq);
+                            dgv_NetworkFile.Rows[e.RowIndex].Cells["Virus"].Value = "Có";
+                            dgv_NetworkFile.Rows[e.RowIndex].Cells["Type_Scan"].Value = "Động";
+                            dgv_NetworkFile.Refresh();
+                            //Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
+                            BeginInvoke(new Action(() =>
+                            {
+                                Provider.Alert(Path.GetFileName(path) + " nhiễm mã độc! Kiểm tra file tải về", frmAlert.alertTypeEnum.Warning);
+                            }));
+                        }
+                        else
+                        {
+                            dgv_NetworkFile.Rows[e.RowIndex].Cells["Virus"].Value = "Không";
+                            dgv_NetworkFile.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Properties.Resources.icons8_Telegram_App_32;
+                        }
                     }));
                 }
                 catch {
