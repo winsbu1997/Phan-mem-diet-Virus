@@ -56,57 +56,57 @@ namespace Ladin.mtaAV.Manager
                 fbd.Description = "Chọn thư mục";
                 if(fbd.ShowDialog() == DialogResult.OK)
                 {
-                    using(var form = new VaultPassword())
-                    {
-                        form.Text = "Tạo mật khẩu";
-                        form.gunaButton1.Text = "Tạo Khóa";
-                        var result = form.ShowDialog();
-                        if(result == DialogResult.Cancel)
-                        {
-                            password = form.password;
-                            con.RunExternalExe("attrib.exe", "+s +h +r +a " + '"' + fbd.SelectedPath + '"');
-                            SetPermission(fbd.SelectedPath, AccessControlType.Deny);
-                            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\mtaAV Antivirus");
-                            if(key!=null)
-                            {
-                                key.SetValue("Update", Encrypt(password, hashKey));
-                                key.SetValue("UniqueID", Encrypt(fbd.SelectedPath, hashKey));
-                            }
-                            else
-                            {
-                                key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\mtaAV Antivirus");
-                                key.SetValue("Update", Encrypt(password, hashKey));
-                                key.SetValue("UniqueID", Encrypt(fbd.SelectedPath, hashKey));
-                            }
-                            no_valut = false;
-                            salted_pass = password;
-                            vault_loc = fbd.SelectedPath;
-                            MessageBox.Show(main,"Khóa được tạo thành công","Kết thúc",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                        }//end if
-                    }//end using
+                    //using(var form = new VaultPassword())
+                    //{
+                    //    form.Text = "Tạo mật khẩu";
+                    //    form.gunaButton1.Text = "Tạo Khóa";
+                    //    var result = form.ShowDialog();
+                    //    if(result == DialogResult.Cancel)
+                    //    {
+                    //        password = form.password;
+                    //        con.RunExternalExe("attrib.exe", "+s +h +r +a " + '"' + fbd.SelectedPath + '"');
+                    //        SetPermission(fbd.SelectedPath, AccessControlType.Deny);
+                    //        RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\mtaAV Antivirus");
+                    //        if(key!=null)
+                    //        {
+                    //            key.SetValue("Update", Encrypt(password, hashKey));
+                    //            key.SetValue("UniqueID", Encrypt(fbd.SelectedPath, hashKey));
+                    //        }
+                    //        else
+                    //        {
+                    //            key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\mtaAV Antivirus");
+                    //            key.SetValue("Update", Encrypt(password, hashKey));
+                    //            key.SetValue("UniqueID", Encrypt(fbd.SelectedPath, hashKey));
+                    //        }
+                    //        no_valut = false;
+                    //        salted_pass = password;
+                    //        vault_loc = fbd.SelectedPath;
+                    //        MessageBox.Show(main,"Khóa được tạo thành công","Kết thúc",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    //    }//end if
+                    //}//end using
                 }//end if
             }
             else
             {
                 //vault is there, get key and open it
-                using (var form = new VaultPassword())
-                {
-                    form.Text = "Nhập mật khẩu";
-                    form.gunaButton1.Text = "Mở";
-                    var result = form.ShowDialog();
-                    if(result == DialogResult.Cancel)
-                    {
-                        password = form.password;
-                        if (password == salted_pass)
-                        {
-                            SetPermission(vault_loc, AccessControlType.Allow);
-                            con.RunExternalExe("attrib.exe", "-s -h -r -a " + '"' + vault_loc + '"');
-                            Process.Start(vault_loc);
-                        }
-                        else
-                            MessageBox.Show(main, "Mật khẩu không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                //using (var form = new VaultPassword())
+                //{
+                //    form.Text = "Nhập mật khẩu";
+                //    form.gunaButton1.Text = "Mở";
+                //    var result = form.ShowDialog();
+                //    if(result == DialogResult.Cancel)
+                //    {
+                //        password = form.password;
+                //        if (password == salted_pass)
+                //        {
+                //            SetPermission(vault_loc, AccessControlType.Allow);
+                //            con.RunExternalExe("attrib.exe", "-s -h -r -a " + '"' + vault_loc + '"');
+                //            Process.Start(vault_loc);
+                //        }
+                //        else
+                //            MessageBox.Show(main, "Mật khẩu không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
             }
         }
 
@@ -127,29 +127,29 @@ namespace Ladin.mtaAV.Manager
             else
             {
                 //destroy the vault and reg settings
-                using (var form = new VaultPassword())
-                {
-                    form.Text = "Nhập mật khẩu";
-                    form.gunaButton1.Text = "Xóa Khóa";
-                    var result = form.ShowDialog();
-                    if (result == DialogResult.Cancel)
-                    {
-                        password = form.password;
-                        if (password == salted_pass)
-                        {
-                            SetPermission(vault_loc, AccessControlType.Allow);
-                            con.RunExternalExe("attrib.exe", "-s -h -r -a " + '"' + vault_loc+ '"');
-                            //EmptyFolder(new DirectoryInfo(vault_loc));
-                            //Directory.Delete(vault_loc);
-                            Registry.LocalMachine.DeleteSubKey(@"SOFTWARE\mtaAV Antivirus");
+                //using (var form = new VaultPassword())
+                //{
+                //    form.Text = "Nhập mật khẩu";
+                //    form.gunaButton1.Text = "Xóa Khóa";
+                //    var result = form.ShowDialog();
+                //    if (result == DialogResult.Cancel)
+                //    {
+                //        password = form.password;
+                //        if (password == salted_pass)
+                //        {
+                //            SetPermission(vault_loc, AccessControlType.Allow);
+                //            con.RunExternalExe("attrib.exe", "-s -h -r -a " + '"' + vault_loc+ '"');
+                //            //EmptyFolder(new DirectoryInfo(vault_loc));
+                //            //Directory.Delete(vault_loc);
+                //            Registry.LocalMachine.DeleteSubKey(@"SOFTWARE\mtaAV Antivirus");
                             
-                            MessageBox.Show(main, "Khóa đã được hủy", "Kết thúc", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            no_valut = true;
-                        }
-                        else
-                            MessageBox.Show(main, "Mật khẩu không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                //            MessageBox.Show(main, "Khóa đã được hủy", "Kết thúc", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //            no_valut = true;
+                //        }
+                //        else
+                //            MessageBox.Show(main, "Mật khẩu không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
                 return true;
             }
 

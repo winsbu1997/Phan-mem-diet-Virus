@@ -42,7 +42,7 @@
             this.GunaButton3 = new Guna.UI.WinForms.GunaButton();
             this.GunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
-            this.uC_Main1 = new Ladin.mtaAV.Views.UC_Main();
+            //this.uC_Main1 = new Ladin.mtaAV.Views.UC_Main();
             this.pnl_ConnectServer = new Guna.UI.WinForms.GunaShadowPanel();
             this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
@@ -51,11 +51,11 @@
             this.txtPort = new Guna.UI.WinForms.GunaTextBox();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
-            this.uC_ConnectApi1 = new Ladin.mtaAV.Views.UC_ConnectApi();
-            this.uC_Setting1 = new Ladin.mtaAV.Views.UC_Setting();
-            this.uC_Quarantine1 = new Ladin.mtaAV.Views.UC_Quarantine();
+            //this.uC_ConnectApi1 = new Ladin.mtaAV.Views.UC_ConnectApi();
+            //this.uC_Setting1 = new Ladin.mtaAV.Views.UC_Setting();
+            //this.uC_Quarantine1 = new Ladin.mtaAV.Views.UC_Quarantine();
             this.uC_Scan1 = new Ladin.mtaAV.Views.UC_Scan();
-            this.uC_Monitoring1 = new Ladin.mtaAV.Views.UC_Monitoring();
+            //this.uC_Monitoring1 = new Ladin.mtaAV.Views.UC_Monitoring();
             this.pnlHeader = new Guna.UI.WinForms.GunaLinePanel();
             this.nav_activity = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.nav_quarantine = new Guna.UI.WinForms.GunaAdvenceTileButton();
@@ -267,13 +267,13 @@
             // 
             // gunaPanel1
             // 
-            this.gunaPanel1.Controls.Add(this.uC_Main1);
+            //this.gunaPanel1.Controls.Add(this.uC_Main1);
             this.gunaPanel1.Controls.Add(this.pnl_ConnectServer);
-            this.gunaPanel1.Controls.Add(this.uC_ConnectApi1);
-            this.gunaPanel1.Controls.Add(this.uC_Setting1);
-            this.gunaPanel1.Controls.Add(this.uC_Quarantine1);
+            //this.gunaPanel1.Controls.Add(this.uC_ConnectApi1);
+            //this.gunaPanel1.Controls.Add(this.uC_Setting1);
+            //this.gunaPanel1.Controls.Add(this.uC_Quarantine1);
             this.gunaPanel1.Controls.Add(this.uC_Scan1);
-            this.gunaPanel1.Controls.Add(this.uC_Monitoring1);
+            //this.gunaPanel1.Controls.Add(this.uC_Monitoring1);
             this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gunaPanel1.Location = new System.Drawing.Point(161, 80);
             this.gunaPanel1.Name = "gunaPanel1";
@@ -282,11 +282,11 @@
             // 
             // uC_Main1
             // 
-            this.uC_Main1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Main1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Main1.Name = "uC_Main1";
-            this.uC_Main1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Main1.TabIndex = 8;
+            //this.uC_Main1.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.uC_Main1.Location = new System.Drawing.Point(0, 0);
+            //this.uC_Main1.Name = "uC_Main1";
+            //this.uC_Main1.Size = new System.Drawing.Size(935, 637);
+            //this.uC_Main1.TabIndex = 8;
             // 
             // pnl_ConnectServer
             // 
@@ -402,33 +402,33 @@
             // 
             // uC_ConnectApi1
             // 
-            this.uC_ConnectApi1.BackColor = System.Drawing.Color.White;
-            this.uC_ConnectApi1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_ConnectApi1.Location = new System.Drawing.Point(0, 0);
-            this.uC_ConnectApi1.Name = "uC_ConnectApi1";
-            this.uC_ConnectApi1.Size = new System.Drawing.Size(935, 637);
-            this.uC_ConnectApi1.TabIndex = 9;
+            //this.uC_ConnectApi1.BackColor = System.Drawing.Color.White;
+            //this.uC_ConnectApi1.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.uC_ConnectApi1.Location = new System.Drawing.Point(0, 0);
+            //this.uC_ConnectApi1.Name = "uC_ConnectApi1";
+            //this.uC_ConnectApi1.Size = new System.Drawing.Size(935, 637);
+            //this.uC_ConnectApi1.TabIndex = 9;
             // 
             // uC_Setting1
             // 
-            this.uC_Setting1.BackColor = System.Drawing.Color.White;
-            this.uC_Setting1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Setting1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.uC_Setting1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.uC_Setting1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Setting1.Name = "uC_Setting1";
-            this.uC_Setting1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Setting1.TabIndex = 4;
+            //this.uC_Setting1.BackColor = System.Drawing.Color.White;
+            //this.uC_Setting1.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.uC_Setting1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            //this.uC_Setting1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            //this.uC_Setting1.Location = new System.Drawing.Point(0, 0);
+            //this.uC_Setting1.Name = "uC_Setting1";
+            //this.uC_Setting1.Size = new System.Drawing.Size(935, 637);
+            //this.uC_Setting1.TabIndex = 4;
             // 
             // uC_Quarantine1
             // 
-            this.uC_Quarantine1.BackColor = System.Drawing.Color.White;
-            this.uC_Quarantine1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Quarantine1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.uC_Quarantine1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Quarantine1.Name = "uC_Quarantine1";
-            this.uC_Quarantine1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Quarantine1.TabIndex = 3;
+            //this.uC_Quarantine1.BackColor = System.Drawing.Color.White;
+            //this.uC_Quarantine1.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.uC_Quarantine1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            //this.uC_Quarantine1.Location = new System.Drawing.Point(0, 0);
+            //this.uC_Quarantine1.Name = "uC_Quarantine1";
+            //this.uC_Quarantine1.Size = new System.Drawing.Size(935, 637);
+            //this.uC_Quarantine1.TabIndex = 3;
             // 
             // uC_Scan1
             // 
@@ -443,12 +443,12 @@
             // 
             // uC_Monitoring1
             // 
-            this.uC_Monitoring1.BackColor = System.Drawing.Color.White;
-            this.uC_Monitoring1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Monitoring1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Monitoring1.Name = "uC_Monitoring1";
-            this.uC_Monitoring1.Size = new System.Drawing.Size(935, 637);
-            this.uC_Monitoring1.TabIndex = 0;
+            //this.uC_Monitoring1.BackColor = System.Drawing.Color.White;
+            //this.uC_Monitoring1.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.uC_Monitoring1.Location = new System.Drawing.Point(0, 0);
+            //this.uC_Monitoring1.Name = "uC_Monitoring1";
+            //this.uC_Monitoring1.Size = new System.Drawing.Size(935, 637);
+            //this.uC_Monitoring1.TabIndex = 0;
             // 
             // pnlHeader
             // 
@@ -715,12 +715,12 @@
         private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
         //internal Views.UC_Setting uC_Setting1;
         private Views.UC_Scan uC_Scan1;
-        private Views.UC_Monitoring uC_Monitoring1;
-        private Views.UC_Quarantine uC_Quarantine1;
-        private Views.UC_Main uC_Main1;
-        private Views.UC_Setting uC_Setting1;
+        //private Views.UC_Monitoring uC_Monitoring1;
+        //private Views.UC_Quarantine uC_Quarantine1;
+        //private Views.UC_Main uC_Main1;
+        //private Views.UC_Setting uC_Setting1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private Views.UC_ConnectApi uC_ConnectApi1;
+        //private Views.UC_ConnectApi uC_ConnectApi1;
         private Guna.UI.WinForms.GunaShadowPanel pnl_ConnectServer;
         private Guna.UI.WinForms.GunaButton gunaButton2;
         private Guna.UI.WinForms.GunaLabel gunaLabel7;
