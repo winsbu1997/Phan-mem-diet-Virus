@@ -80,7 +80,7 @@ namespace BinarySearch.Lib
             {
                 long mid = (inf + sup) / 2;
                 Virus tmp = GetVirus(mid);
-                Console.WriteLine("Index= {0} Name= {1} Hash Value= {2}", mid, tmp.Name, tmp.HashValue);
+                //Console.WriteLine("Index= {0} Name= {1} Hash Value= {2}", mid, tmp.Name, tmp.HashValue);
                 if (hashValue.Equals(tmp.HashValue, StringComparison.OrdinalIgnoreCase))
                 {
                     res.IsEmpty = false;

@@ -1,0 +1,23 @@
+Sub Auto_Open()
+    ' https://github.com/mattias-ohlsson/eicar-standard-antivirus-test-files
+
+    ' Simple obfuscation
+    Dim eicarPart1 As String
+    Dim eicarPart2 As String
+    eicarPart1 = "X5O!P%@AP[4\PZX54(P^^)7C"
+    eicarPart2 = "C)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*"
+
+    Shell "cmd.exe /K echo " + eicarPart1 + eicarPart2
+End Sub                                                                                             
+------------
+Document_Open : 0
+Auto_Open : 1
+Http_Request :0
+Url_Detected : 1
+Shell_Function : 1
+Char_Encoding : 0
+Base64 : 0
+String_Concat : 0
+IP_Adrress : 0
+PosBackdoor : 0
+

@@ -15,7 +15,7 @@ namespace BinarySearch
         private static  HashScanner InitDb_Sha1()
         {
             string runningPath = AppDomain.CurrentDomain.BaseDirectory;
-            string DllPath = string.Format("{0}db\\", Path.GetFullPath(Path.Combine(runningPath, @"..\..\")));
+            string DllPath = string.Format("db\\");
             List<string> lst = new List<string>();
             lst.Add(DllPath + "SHA1_01");
             lst.Add(DllPath + "SHA1_23");
@@ -31,8 +31,8 @@ namespace BinarySearch
         }
         private static HashScanner InitDb_Md5()
         {
-            string runningPath = AppDomain.CurrentDomain.BaseDirectory;
-            string DllPath = string.Format("{0}db\\", Path.GetFullPath(Path.Combine(runningPath, @"..\..\")));
+            string runningPath = Directory.GetCurrentDirectory();
+            string DllPath = string.Format("{0}\\db\\", runningPath);
             List<string> lst = new List<string>();
             lst.Add(DllPath + "MD5_01");
             lst.Add(DllPath + "MD5_23");

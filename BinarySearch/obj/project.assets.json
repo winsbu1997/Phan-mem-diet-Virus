@@ -1,19 +1,19 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v4.0": {
+    ".NETFramework,Version=v4.5": {
       "EntityFramework/6.4.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.ComponentModel.DataAnnotations"
         ],
         "compile": {
-          "lib/net40/EntityFramework.SqlServer.dll": {},
-          "lib/net40/EntityFramework.dll": {}
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "runtime": {
-          "lib/net40/EntityFramework.SqlServer.dll": {},
-          "lib/net40/EntityFramework.dll": {}
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "build": {
           "build/EntityFramework.props": {},
@@ -21,19 +21,19 @@
         }
       }
     },
-    ".NETFramework,Version=v4.0/win": {
+    ".NETFramework,Version=v4.5/win": {
       "EntityFramework/6.4.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.ComponentModel.DataAnnotations"
         ],
         "compile": {
-          "lib/net40/EntityFramework.SqlServer.dll": {},
-          "lib/net40/EntityFramework.dll": {}
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "runtime": {
-          "lib/net40/EntityFramework.SqlServer.dll": {},
-          "lib/net40/EntityFramework.dll": {}
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "build": {
           "build/EntityFramework.props": {},
@@ -41,19 +41,19 @@
         }
       }
     },
-    ".NETFramework,Version=v4.0/win-x64": {
+    ".NETFramework,Version=v4.5/win-x64": {
       "EntityFramework/6.4.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.ComponentModel.DataAnnotations"
         ],
         "compile": {
-          "lib/net40/EntityFramework.SqlServer.dll": {},
-          "lib/net40/EntityFramework.dll": {}
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "runtime": {
-          "lib/net40/EntityFramework.SqlServer.dll": {},
-          "lib/net40/EntityFramework.dll": {}
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "build": {
           "build/EntityFramework.props": {},
@@ -61,19 +61,19 @@
         }
       }
     },
-    ".NETFramework,Version=v4.0/win-x86": {
+    ".NETFramework,Version=v4.5/win-x86": {
       "EntityFramework/6.4.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.ComponentModel.DataAnnotations"
         ],
         "compile": {
-          "lib/net40/EntityFramework.SqlServer.dll": {},
-          "lib/net40/EntityFramework.dll": {}
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "runtime": {
-          "lib/net40/EntityFramework.SqlServer.dll": {},
-          "lib/net40/EntityFramework.dll": {}
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "build": {
           "build/EntityFramework.props": {},
@@ -141,7 +141,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v4.0": [
+    ".NETFramework,Version=v4.5": [
       "EntityFramework >= 6.4.0"
     ]
   },
@@ -163,20 +163,20 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net40"
+        "net45"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net40": {
+        "net45": {
           "projectReferences": {}
         }
       }
     },
     "frameworks": {
-      "net40": {
+      "net45": {
         "dependencies": {
           "EntityFramework": {
             "target": "Package",

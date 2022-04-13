@@ -2,7 +2,6 @@ D:\Project\TDuong\Phan-mem-diet-Virus\BinarySearch\bin\Debug\BinarySearch.dll
 D:\Project\TDuong\Phan-mem-diet-Virus\BinarySearch\bin\Debug\BinarySearch.pdb
 D:\Project\TDuong\Phan-mem-diet-Virus\BinarySearch\bin\Debug\EntityFramework.SqlServer.dll
 D:\Project\TDuong\Phan-mem-diet-Virus\BinarySearch\bin\Debug\EntityFramework.dll
-D:\Project\TDuong\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csprojAssemblyReference.cache
 D:\Project\TDuong\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csproj.CoreCompileInputs.cache
 D:\Project\TDuong\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csproj.CopyComplete
 D:\Project\TDuong\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.dll
