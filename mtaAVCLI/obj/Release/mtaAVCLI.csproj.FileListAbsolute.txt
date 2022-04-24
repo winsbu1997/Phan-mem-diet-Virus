@@ -9,3 +9,9 @@ D:\Project\TDuong\Phan-mem-diet-Virus\mtaAVCLI\obj\Release\mtaAVCLI.csproj.CoreC
 D:\Project\TDuong\Phan-mem-diet-Virus\mtaAVCLI\obj\Release\mtaAVCLI.csproj.CopyComplete
 D:\Project\TDuong\Phan-mem-diet-Virus\mtaAVCLI\obj\Release\mtaAVCLI.exe
 D:\Project\TDuong\Phan-mem-diet-Virus\mtaAVCLI\obj\Release\mtaAVCLI.pdb
+D:\Project\TDuong\Phan-mem-diet-Virus\mtaAVCLI\bin\Release\x64\7z.dll
+D:\Project\TDuong\Phan-mem-diet-Virus\mtaAVCLI\bin\Release\x86\7z.dll
+D:\Project\TDuong\Phan-mem-diet-Virus\mtaAVCLI\bin\Release\SevenZipExtractor.dll
+D:\Project\TDuong\Phan-mem-diet-Virus\mtaAVCLI\bin\Release\DotNetZip.dll
+D:\Project\TDuong\Phan-mem-diet-Virus\mtaAVCLI\bin\Release\DotNetZip.pdb
+D:\Project\TDuong\Phan-mem-diet-Virus\mtaAVCLI\bin\Release\DotNetZip.xml
