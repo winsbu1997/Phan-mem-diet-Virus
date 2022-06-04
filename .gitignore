@@ -1,0 +1,8 @@
+Lu1CLI\bin
+Lu1CLI\bin\*
+Lu1CLI\obj
+Lu1CLI\obj\*
+
+.vs
+.vs\*
+
