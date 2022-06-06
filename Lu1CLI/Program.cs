@@ -456,7 +456,7 @@ namespace mtaAVCLI
                         Manage.UdpateDb_Sha1(path);
                         break;
                     case "3":
-                        //Manage.UdpateDb_Md5(path);
+                        Manage.UdpateDb_Sha256(path);
                         break;
                 }
                 

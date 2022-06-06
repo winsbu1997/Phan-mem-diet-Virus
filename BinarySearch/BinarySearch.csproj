@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Lib\SHA256.cs" />
     <Compile Include="Manage.cs" />
     <Compile Include="Entity\Virus.cs" />
     <Compile Include="Interface\IHash.cs" />

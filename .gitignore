@@ -1,8 +1,16 @@
-Lu1CLI\bin
-Lu1CLI\bin\*
-Lu1CLI\obj
-Lu1CLI\obj\*
+Lu1CLI/bin/
+Lu1CLI/bin/Debug
+Lu1CLI/bin/Release
 
-.vs
-.vs\*
+Lu1CLI/bin/*
+Lu1CLI/obj/
+Lu1CLI/obj/Debug
+Lu1CLI/obj/Release
+Lu1CLI/obj/*
 
+.vs/
+.vs/*
+
+*.exe
+*.pdb
+Lu1CLI/obj/Debug/mtaAVCLI.pdb
