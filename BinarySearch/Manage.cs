@@ -15,7 +15,7 @@ namespace BinarySearch
         private static  HashScanner InitDb_Sha1()
         {
             string runningPath = AppDomain.CurrentDomain.BaseDirectory;
-            string DllPath = string.Format("db\\");
+            string DllPath = string.Format("{0}\\db\\", runningPath);
             List<string> lst = new List<string>();
             lst.Add(DllPath + "SHA1_01");
             lst.Add(DllPath + "SHA1_23");
@@ -29,6 +29,25 @@ namespace BinarySearch
             HashScanner SHA1Scanner = new HashScanner(sha1, lst);
             return SHA1Scanner;
         }
+
+        private static HashScanner InitDb_Sha256()
+        {
+            string runningPath = AppDomain.CurrentDomain.BaseDirectory;
+            string DllPath = string.Format("{0}\\db\\", runningPath);
+            List<string> lst = new List<string>();
+            lst.Add(DllPath + "SHA256_01");
+            lst.Add(DllPath + "SHA256_23");
+            lst.Add(DllPath + "SHA256_45");
+            lst.Add(DllPath + "SHA256_67");
+            lst.Add(DllPath + "SHA256_89");
+            lst.Add(DllPath + "SHA256_AB");
+            lst.Add(DllPath + "SHA256_CD");
+            lst.Add(DllPath + "SHA256_EF");
+            SHA256 sha256 = new SHA256();
+            HashScanner SHA256Scanner = new HashScanner(sha256, lst);
+            return SHA256Scanner;
+        }
+
         private static HashScanner InitDb_Md5()
         {
             string runningPath = Directory.GetCurrentDirectory();
@@ -46,6 +65,8 @@ namespace BinarySearch
             HashScanner MD5Scanner = new HashScanner(md5, lst);
             return MD5Scanner;
         }
+
+        #region Update
         public static void UdpateDb_Md5(string path)
         {
             HashScanner MD5Scanner = InitDb_Md5();
@@ -56,6 +77,14 @@ namespace BinarySearch
             HashScanner SHA1Scanner = InitDb_Sha1();
             SHA1Scanner.Update(path);
         }
+        public static void UdpateDb_Sha256(string path)
+        {
+            HashScanner SHA256Scanner = InitDb_Sha256();
+            SHA256Scanner.Update(path);
+        }
+        #endregion
+
+        #region Scan
         public static ResultScan MD5Scan(string path)
         {
             HashScanner MD5Scanner = InitDb_Md5();
@@ -67,5 +96,12 @@ namespace BinarySearch
             HashScanner SHA1Scanner = InitDb_Sha1();
             return SHA1Scanner.Scan(path);
         }
+
+        public static ResultScan SHA256Scan(string path)
+        {
+            HashScanner SHA256Scanner = InitDb_Sha256();
+            return SHA256Scanner.Scan(path);
+        }
+        #endregion
     }
 }
