@@ -51,7 +51,7 @@ namespace Ladin.mtaAV
             CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
             Guna.UI.Lib.GraphicsHelper.ShadowForm(this);
-            uC_Main1.BringToFront();
+            //uC_Main1.BringToFront();
             my_location = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             if (!CheckStartup())
             {
@@ -73,8 +73,8 @@ namespace Ladin.mtaAV
         #region Load_UC
         private void Nav_status_Click(object sender, EventArgs e)
         {
-            uC_Main1.Reload();
-            uC_Main1.BringToFront();
+            //uC_Main1.Reload();
+            //uC_Main1.BringToFront();
         }
 
         private void Nav_scan_Click(object sender, EventArgs e)
@@ -84,19 +84,19 @@ namespace Ladin.mtaAV
 
         private void Nav_modules_Click(object sender, EventArgs e)
         {
-            uC_Setting1.Reload();
-            uC_Setting1.BringToFront();
+            //uC_Setting1.Reload();
+            //uC_Setting1.BringToFront();
         }
 
         private void Nav_quarantine_Click(object sender, EventArgs e)
         {
-            uC_Quarantine1.Reload();
-            uC_Quarantine1.BringToFront();
+            //uC_Quarantine1.Reload();
+            //uC_Quarantine1.BringToFront();
         }
 
         private void Nav_activity_Click(object sender, EventArgs e)
         {
-            uC_Monitoring1.BringToFront();
+            //uC_Monitoring1.BringToFront();
         }
         #endregion
         #region Event Close, Open Form
@@ -159,7 +159,7 @@ namespace Ladin.mtaAV
 
         private void btnSetUp_Server_Click(object sender, EventArgs e)
         {
-            uC_ConnectApi1.BringToFront();
+            //uC_ConnectApi1.BringToFront();
         }
         #endregion
 

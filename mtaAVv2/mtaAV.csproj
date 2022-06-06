@@ -143,18 +143,6 @@
     <Compile Include="Monitor_SubViews\UC_DetectRansomware.Designer.cs">
       <DependentUpon>UC_DetectRansomware.cs</DependentUpon>
     </Compile>
-    <Compile Include="Monitor_SubViews\UC_MonitorFolder.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Monitor_SubViews\UC_MonitorFolder.Designer.cs">
-      <DependentUpon>UC_MonitorFolder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Monitor_SubViews\UC_Network.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Monitor_SubViews\UC_Network.Designer.cs">
-      <DependentUpon>UC_Network.cs</DependentUpon>
-    </Compile>
     <Compile Include="Monitor_SubViews\UC_Process.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,41 +173,11 @@
     <Compile Include="Views\frmAlert.Designer.cs">
       <DependentUpon>frmAlert.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Reprot_DynamicScan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Reprot_DynamicScan.Designer.cs">
-      <DependentUpon>Reprot_DynamicScan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UC_ConnectApi.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\UC_ConnectApi.Designer.cs">
-      <DependentUpon>UC_ConnectApi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UC_Monitoring.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\UC_Monitoring.Designer.cs">
-      <DependentUpon>UC_Monitoring.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UC_Quarantine.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\UC_Quarantine.Designer.cs">
-      <DependentUpon>UC_Quarantine.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\UC_Scan.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\UC_Scan.Designer.cs">
       <DependentUpon>UC_Scan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UC_Setting.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\UC_Setting.Designer.cs">
-      <DependentUpon>UC_Setting.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Unpack_Macro.cs">
       <SubType>Form</SubType>
@@ -227,29 +185,11 @@
     <Compile Include="Views\Unpack_Macro.Designer.cs">
       <DependentUpon>Unpack_Macro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UC_Main.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\UC_Main.Designer.cs">
-      <DependentUpon>UC_Main.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\VaultPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\VaultPassword.Designer.cs">
-      <DependentUpon>VaultPassword.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Monitor_SubViews\UC_DetectRansomware.resx">
       <DependentUpon>UC_DetectRansomware.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Monitor_SubViews\UC_MonitorFolder.resx">
-      <DependentUpon>UC_MonitorFolder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Monitor_SubViews\UC_Network.resx">
-      <DependentUpon>UC_Network.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Monitor_SubViews\UC_Process.resx">
       <DependentUpon>UC_Process.cs</DependentUpon>
@@ -262,32 +202,11 @@
     <EmbeddedResource Include="Views\frmAlert.resx">
       <DependentUpon>frmAlert.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Reprot_DynamicScan.resx">
-      <DependentUpon>Reprot_DynamicScan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\UC_ConnectApi.resx">
-      <DependentUpon>UC_ConnectApi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\UC_Monitoring.resx">
-      <DependentUpon>UC_Monitoring.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\UC_Quarantine.resx">
-      <DependentUpon>UC_Quarantine.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\UC_Scan.resx">
       <DependentUpon>UC_Scan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UC_Setting.resx">
-      <DependentUpon>UC_Setting.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Unpack_Macro.resx">
       <DependentUpon>Unpack_Macro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\UC_Main.resx">
-      <DependentUpon>UC_Main.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\VaultPassword.resx">
-      <DependentUpon>VaultPassword.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest">
       <SubType>Designer</SubType>
@@ -369,10 +288,6 @@
     <ProjectReference Include="..\BinarySearch\BinarySearch.csproj">
       <Project>{26876ed8-b63d-4f2a-b8ba-6d56d2cb5f18}</Project>
       <Name>BinarySearch</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FileWatcherEx\FileWatcherEx.csproj">
-      <Project>{97e6c206-cb3a-41f3-a088-57f19d4481c9}</Project>
-      <Name>FileWatcherEx</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -453,9 +453,9 @@ namespace Ladin.mtaAV.Views
 
         private void txtListVirus_Click(object sender, EventArgs e)
         {
-            Reprot_DynamicScan frm = new Reprot_DynamicScan();
-            frm.sender(lst_DynamicMalware);
-            frm.ShowDialog();
+            //Reprot_DynamicScan frm = new Reprot_DynamicScan();
+            //frm.sender(lst_DynamicMalware);
+            //frm.ShowDialog();
         }
         #endregion
     }
