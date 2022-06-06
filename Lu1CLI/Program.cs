@@ -25,7 +25,15 @@ namespace mtaAVCLI
             2. Quet folder
             3. Quet Marco
             4. Quet RaSoat
+            5. Update CSDL
             ";
+        static readonly string txtUpdate = @"
+            Chọn loại mã hash Update:
+            1. MD5
+            2. SHA1
+            3. SHA256
+            Lựa chọn: 
+        ";
         static readonly string txtBack = @"
             0. Quay lai
             ";
@@ -191,7 +199,27 @@ namespace mtaAVCLI
         
         static void UpdateDBState()
         {
-
+            ChangeConsole("", true, txtUpdate);
+            var strHash = Console.ReadLine();
+            APIConnect api = new APIConnect();
+            string path = "Không kết nối tới máy chủ!";
+            switch (strHash) {
+                case "1":
+                    path = api.Download_FileHash("MD5");
+                    Update_DB(path, strHash);
+                    break;
+                case "2":
+                    path = api.Download_FileHash("SHA1");
+                    Update_DB(path, strHash);
+                    break;
+                case "3":
+                    path = api .Download_FileHash("SHA256");
+                    Update_DB(path, strHash);
+                    break;
+                default:
+                    MainState();
+                    break;
+            }
         }
         #endregion
 
@@ -307,7 +335,7 @@ namespace mtaAVCLI
                 countMacro = ScanDoc(loc);
                 if(countMacro == 0)
                 {
-                    Console.WriteLine("Không tìm thấy Macro trong tài liệu!");
+                    Console.WriteLine("\t\t\t Không tìm thấy Macro trong tài liệu!");
                 }
                 GetKey();
                 ScanMarcoState();                
@@ -344,10 +372,6 @@ namespace mtaAVCLI
                                 {
                                     countMacro += ScanDoc(file);
                                 };
-                                if(countMacro == 0)
-                                {
-                                    Console.WriteLine("Không tìm thấy Macro trong tài liệu!");
-                                }
 
                             }
                             catch (Exception e)
@@ -355,6 +379,11 @@ namespace mtaAVCLI
                                 Console.WriteLine(e.Message);
                             }
                         }
+                    }
+                    if (countMacro == 0)
+                    {
+                        Console.WriteLine("\t\t\t Không tìm thấy Macro trong tài liệu!");
+                        //Console.ReadKey();
                     }
                     if (GetKey() == '0')
                         MainState();
@@ -413,9 +442,31 @@ namespace mtaAVCLI
                     RaSoatState();
             }
         }
-        static void Update_DB()
+        static void Update_DB(string path, string hash)
         {
-
+            Console.WriteLine("Đang Update");
+            if (path.Contains(".txt"))
+            {
+                switch (hash)
+                {
+                    case "1":
+                        Manage.UdpateDb_Md5(path);
+                        break;
+                    case "2":
+                        Manage.UdpateDb_Sha1(path);
+                        break;
+                    case "3":
+                        //Manage.UdpateDb_Md5(path);
+                        break;
+                }
+                
+                Console.WriteLine("Import Thanh cong!");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.Write(path);
+            }
         }
         #endregion
     }

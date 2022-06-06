@@ -7,16 +7,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace mtaAVCLI
 {
-    public static class APIConnect
+    public class DataRequest
     {
-        static readonly string configFile = "Config.txt";
-        static readonly string verFile = "version.txt";
-        public static StringContent AsJson(this object o)
-            => new StringContent(JsonConvert.SerializeObject(o), Encoding.UTF8, "application/json");
-        public static string Download_FileHash(string type)
+        public string typeHash { get; set; }
+        public string version { get; set; }
+        public DataRequest() { }
+        public DataRequest(string typeHash, string version)
+        {
+            this.typeHash = typeHash;
+            this.version = version;
+        }
+    }
+    public class APIConnect
+    {
+        string configFile = "Config.txt";
+        string verFile = "version.txt";
+        string error = "Không kết nối tới máy chủ! Kiểm tra lại kết nối!";
+        public string Download_FileHash(string type)
         {
             string uri = "";
             string ver = "";
@@ -39,15 +50,18 @@ namespace mtaAVCLI
             }
 
             string saveFile = string.Format("{0}\\Temp\\", AppDomain.CurrentDomain.BaseDirectory);
-            string path = type + "_" + DateTime.Now.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture) + ".txt";
+            string path = saveFile + type + "_" + DateTime.Now.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture) + ".txt";
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(uri);
                 try
                 {
-                    var data = new { typeHash = type, version = ver};
-                    var response = client.PostAsync("CheckUpdate", data.AsJson());
+                    var content = new DataRequest(type, ver);
+                    var json = JsonConvert.SerializeObject(content);
+                    var data = new StringContent(json, Encoding.UTF8, "application/json");
+                    var response = client.PostAsync("CheckUpdate", data);
                     response.Wait();
+                    Console.WriteLine(response.Result.IsSuccessStatusCode);
                     if (response.Result.IsSuccessStatusCode)
                     {
                         var contentStream = response.Result.Content.ReadAsByteArrayAsync().Result;
@@ -55,9 +69,12 @@ namespace mtaAVCLI
                         return path;
                     }
                 }
-                catch { }
-                return null;
+                catch 
+                {
+                    return error;
+                }
             }
+            return error;
         }
     } 
 }
