@@ -110,6 +110,12 @@ namespace BinarySearch.Lib
             return res;
         }
 
+        public string GetHash(string path = "")
+        {
+            string hashVaule = hashHelper.HashFile(path);
+            return hashVaule;
+        }
+
         public byte[] ConvertByte(Virus virus)
         {
             byte[] res = new byte[BufferSize];
@@ -135,7 +141,7 @@ namespace BinarySearch.Lib
             return res;
         }
 
-        public void Update(string path = "")
+        public void Update(string path = "", string virusName = "")
         {
             //List<Virus>[] lstVirus = new List<Virus>[8];
             List<List<Virus>> lstVirus = new List<List<Virus>>();
@@ -145,34 +151,49 @@ namespace BinarySearch.Lib
                 List<Virus> sub = new List<Virus>();
                 lstVirus.Add(sub);
             }
-            using (StreamReader sr = new StreamReader(path))
+            if(virusName != "")
             {
-                string line; //int i = 0;
-                //int Counter = 0;
-                while ((line = sr.ReadLine()) != null)
+                string hashValue = GetHash(path);
+                Virus item = new Virus(virusName, hashValue);
+                if (Search(item.HashValue).IsEmpty == true)
                 {
-                    line = line.Trim();
-                    Virus item = new Virus();
-                    List<string> lst = line.Split(':').ToList();
-                    if (lst.Count >= 2)
+                    int id = ConvertCharToNum(item.HashValue[0]);
+                    lstVirus[id].Add(item);
+                }
+            }
+
+            else
+            {
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    string line; //int i = 0;
+                                 //int Counter = 0;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        item.Name = lst[0];
-                        item.HashValue = lst[1];
-                        if (Search(item.HashValue).IsEmpty == true)
+                        line = line.Trim();
+                        Virus item = new Virus();
+                        List<string> lst = line.Split(':').ToList();
+                        if (lst.Count >= 2)
                         {
-                            //Counter++;
-                            //if (Counter <= 10)
-                            //Console.WriteLine(item.Name + " " + item.HashValue);
-                            int id = ConvertCharToNum(item.HashValue[0]);
-                            lstVirus[id].Add(item);
+                            item.Name = lst[0];
+                            item.HashValue = lst[1];
+                            if (Search(item.HashValue).IsEmpty == true)
+                            {
+                                //Counter++;
+                                //if (Counter <= 10)
+                                //Console.WriteLine(item.Name + " " + item.HashValue);
+                                int id = ConvertCharToNum(item.HashValue[0]);
+                                lstVirus[id].Add(item);
+                            }
+                            //i++;
+                            //if (i < 10) 
+                            //Console.WriteLine(item.Name + "-------" + item.HashValue + ">>>>");
+                            //Update(item);
                         }
-                        //i++;
-                        //if (i < 10) 
-                        //Console.WriteLine(item.Name + "-------" + item.HashValue + ">>>>");
-                        //Update(item);
                     }
                 }
             }
+            
             /*foreach (List<Virus> item in lstVirus)
             {
                 foreach (Virus tmp in item)
@@ -223,7 +244,7 @@ namespace BinarySearch.Lib
                 Virus z = GetVirus(i);
                 string tmp = z.HashValue + ":" + z.Name;
                 sw.WriteLine(tmp);
-                //Console.WriteLine("I= {0} Hash= {1} Name={2}", i, z.HashValue, z.Name);
+                Console.WriteLine("I= {0} Hash= {1} Name={2}", i, z.HashValue, z.Name);
             }
             fs.Close(); bs.Close();
         }

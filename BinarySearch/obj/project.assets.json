@@ -16,8 +16,8 @@
           "lib/net45/EntityFramework.dll": {}
         },
         "build": {
-          "build/EntityFramework.props": {},
-          "build/EntityFramework.targets": {}
+          "buildTransitive/EntityFramework.props": {},
+          "buildTransitive/EntityFramework.targets": {}
         }
       }
     },
@@ -36,8 +36,8 @@
           "lib/net45/EntityFramework.dll": {}
         },
         "build": {
-          "build/EntityFramework.props": {},
-          "build/EntityFramework.targets": {}
+          "buildTransitive/EntityFramework.props": {},
+          "buildTransitive/EntityFramework.targets": {}
         }
       }
     },
@@ -56,8 +56,8 @@
           "lib/net45/EntityFramework.dll": {}
         },
         "build": {
-          "build/EntityFramework.props": {},
-          "build/EntityFramework.targets": {}
+          "buildTransitive/EntityFramework.props": {},
+          "buildTransitive/EntityFramework.targets": {}
         }
       }
     },
@@ -76,8 +76,8 @@
           "lib/net45/EntityFramework.dll": {}
         },
         "build": {
-          "build/EntityFramework.props": {},
-          "build/EntityFramework.targets": {}
+          "buildTransitive/EntityFramework.props": {},
+          "buildTransitive/EntityFramework.targets": {}
         }
       }
     }
@@ -146,26 +146,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\m4tbi3c\\.nuget\\packages\\": {}
+    "C:\\Users\\FUJITSU\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\TDuong\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj",
+      "projectUniqueName": "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj",
       "projectName": "BinarySearch",
-      "projectPath": "D:\\Project\\TDuong\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj",
-      "packagesPath": "C:\\Users\\m4tbi3c\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\TDuong\\Phan-mem-diet-Virus\\BinarySearch\\obj\\",
+      "projectPath": "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj",
+      "packagesPath": "C:\\Users\\FUJITSU\\.nuget\\packages\\",
+      "outputPath": "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\m4tbi3c\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\FUJITSU\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net45"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },

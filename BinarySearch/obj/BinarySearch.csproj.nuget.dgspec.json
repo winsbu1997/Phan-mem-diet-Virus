@@ -1,0 +1,59 @@
+{
+  "format": 1,
+  "restore": {
+    "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj": {}
+  },
+  "projects": {
+    "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj",
+        "projectName": "BinarySearch",
+        "projectPath": "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj",
+        "packagesPath": "C:\\Users\\FUJITSU\\.nuget\\packages\\",
+        "outputPath": "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\FUJITSU\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net45"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net45": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net45": {
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

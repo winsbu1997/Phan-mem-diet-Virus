@@ -67,20 +67,20 @@ namespace BinarySearch
         }
 
         #region Update
-        public static void UdpateDb_Md5(string path)
+        public static void UdpateDb_Md5(string path, string virusName = "")
         {
             HashScanner MD5Scanner = InitDb_Md5();
-            MD5Scanner.Update(path);
+            MD5Scanner.Update(path, virusName);
         }
-        public static void UdpateDb_Sha1(string path)
+        public static void UdpateDb_Sha1(string path, string virusName = "")
         {
             HashScanner SHA1Scanner = InitDb_Sha1();
-            SHA1Scanner.Update(path);
+            SHA1Scanner.Update(path, virusName);
         }
-        public static void UdpateDb_Sha256(string path)
+        public static void UdpateDb_Sha256(string path, string virusName = "")
         {
             HashScanner SHA256Scanner = InitDb_Sha256();
-            SHA256Scanner.Update(path);
+            SHA256Scanner.Update(path, virusName);
         }
         #endregion
 
@@ -102,6 +102,7 @@ namespace BinarySearch
             HashScanner SHA256Scanner = InitDb_Sha256();
             return SHA256Scanner.Scan(path);
         }
+
         #endregion
     }
 }

@@ -11,8 +11,15 @@ namespace BinarySearch.Entity
     {
         public string Name { get; set; }
         public string HashValue { get; set; }
+        public Virus() { }
+        public Virus(string Name, string HashValue)
+        {
+            this.Name = Name;
+            this.HashValue = HashValue;
+        }
     }
 
+    
     public class ResultScan
     {
         public bool IsEmpty { get; set; }

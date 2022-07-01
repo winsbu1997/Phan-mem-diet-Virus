@@ -1,6 +1,0 @@
-13/04/2022 22:35:27 | D:\Desktop\ignore_Virus\Test\Virus.Win32.Wit.a | Win32.Wit.a
-13/04/2022 22:35:39 | D:\Desktop\ignore_Virus\Test\Virus.Win32.Winnie.1405 | Win32.Winnie.1405
-13/04/2022 22:35:41 | D:\Desktop\ignore_Virus\Test\Virus.Win32.Winnie.1520 | Win32.Winnie.1520
-13/04/2022 22:35:42 | D:\Desktop\ignore_Virus\Test\Virus.Win32.Wit.b | Win32.Wit.b
-13/04/2022 22:35:42 | D:\Desktop\ignore_Virus\Test\Virus.Win32.Wolf.c | Win32.Wolf.c
-13/04/2022 22:35:43 | D:\Desktop\ignore_Virus\Test\Virus.Win32.Wuke.a | Win32.Wuke.a
