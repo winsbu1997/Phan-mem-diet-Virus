@@ -74,6 +74,23 @@ namespace mtaAVCLI
         #endregion
 
         #region SupportFunctions
+        public static bool AllowScan(string file)
+        {
+            bool isAllowScan = false;
+            string ext = Path.GetExtension(file);
+            if (smart_ext.Contains(ext.ToLower()))
+            {
+                File.AppendAllText(logFileSuspicious, file + Environment.NewLine);
+            }
+            if (File.Exists(file) && file.Length <= 52428800)
+            {
+                if (FileTypeVerifier.What(file).Name.ToString() == "Exe" || FileTypeVerifier.What(file).Name.ToString() == "Rar" || FileTypeVerifier.What(file).Name.ToString() == "Zip") 
+                {
+                    isAllowScan = true; 
+                }
+            }
+            return isAllowScan;
+        }
         public static bool IsLogicalDrive(string path)
         {
             bool IsRoot = false;
@@ -404,21 +421,9 @@ namespace mtaAVCLI
         #region Functions
         static void ScanFile(string loc)
         {
-            if (File.Exists(loc) && loc.Length <= 52428800)
+            if (AllowScan(loc))
             {
-                string ext = Path.GetExtension(loc);
-                if (smart_ext.Contains(ext.ToLower()))
-                {
-                    File.AppendAllText(logFileSuspicious, loc + Environment.NewLine);
-                }
-                if (FileTypeVerifier.What(loc).Name.ToString() != "Exe")
-                {
-                    Console.Write("File sach! Ấn phím bất kỳ để tiếp tục.");
-                    if (GetKey() == '0')
-                        MainState();
-                    else
-                        ScanFileState();
-                }
+               
                 var scanResult = Manage.MD5Scan(loc);
                 if (scanResult.IsEmpty)
                 {
@@ -460,7 +465,7 @@ namespace mtaAVCLI
             else
             {
                 Console.WriteLine(
-                        @"Sai đường dẫn hoặc file không tồn tại!! ");
+                        @"Sai đường dẫn hoặc không phải file thực thi!! ");
                 Console.Write(
                         @"Ấn phím bất kỳ để nhập lại ");
                 if (GetKey() == '0')
@@ -489,7 +494,7 @@ namespace mtaAVCLI
             { 
                 foreach (string file in files)
                 {
-                    if (File.Exists(file) && file.Length <= 52428800)
+                    if (AllowScan(file))
                     {
                         string checkFileType = FileTypeVerifier.What(file).Name;
                         if(checkFileType == "Rar" || checkFileType == "Zip")
@@ -509,15 +514,6 @@ namespace mtaAVCLI
                             FileInfo fi = new FileInfo(file);
                             try
                             {
-                                string ext = Path.GetExtension(file);
-                                if (smart_ext.Contains(ext.ToLower())) 
-                                {
-                                    File.AppendAllText(logFileSuspicious, file + Environment.NewLine);
-                                }
-                                if (FileTypeVerifier.What(file).Name.ToString() != "Exe")
-                                {
-                                    continue;
-                                }
                                 var scanResult = Manage.MD5Scan(file);
                                 if (scanResult.IsEmpty)
                                 {
