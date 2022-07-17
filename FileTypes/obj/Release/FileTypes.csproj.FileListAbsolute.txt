@@ -1,0 +1,7 @@
+J:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\bin\Release\FileTypes.pdb
+J:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\obj\Release\FileTypes.csprojAssemblyReference.cache
+J:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\obj\Release\FileTypes.csproj.CoreCompileInputs.cache
+J:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\obj\Release\FileTypes.pdb
+J:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\bin\Release\FileTypes.dll.config
+J:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\bin\Release\FileTypes.dll
+J:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\obj\Release\FileTypes.dll

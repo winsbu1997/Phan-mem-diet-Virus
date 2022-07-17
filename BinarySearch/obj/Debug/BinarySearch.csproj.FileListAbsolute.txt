@@ -8,10 +8,10 @@ D:\Project\TDuong\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.dll
 D:\Project\TDuong\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.pdb
 J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\bin\Debug\BinarySearch.dll
 J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\bin\Debug\BinarySearch.pdb
-J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csprojAssemblyReference.cache
-J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csproj.CoreCompileInputs.cache
-J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.dll
-J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.pdb
 J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\bin\Debug\EntityFramework.SqlServer.dll
 J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\bin\Debug\EntityFramework.dll
+J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csprojAssemblyReference.cache
+J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csproj.CoreCompileInputs.cache
 J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csproj.CopyComplete
+J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.dll
+J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.pdb

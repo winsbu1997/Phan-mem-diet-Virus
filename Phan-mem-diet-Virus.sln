@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearch", "BinarySearc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lu1CLI", "Lu1CLI\Lu1CLI.csproj", "{058B46CC-7988-42AE-A61C-279816102656}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileTypes", "FileTypes\FileTypes.csproj", "{FD23F823-0377-4498-B241-804193235C1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{058B46CC-7988-42AE-A61C-279816102656}.Release|x64.Build.0 = Debug|Any CPU
 		{058B46CC-7988-42AE-A61C-279816102656}.Release|x86.ActiveCfg = Debug|Any CPU
 		{058B46CC-7988-42AE-A61C-279816102656}.Release|x86.Build.0 = Debug|Any CPU
+		{FD23F823-0377-4498-B241-804193235C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD23F823-0377-4498-B241-804193235C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD23F823-0377-4498-B241-804193235C1B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FD23F823-0377-4498-B241-804193235C1B}.Debug|x64.Build.0 = Debug|Any CPU
+		{FD23F823-0377-4498-B241-804193235C1B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FD23F823-0377-4498-B241-804193235C1B}.Debug|x86.Build.0 = Debug|Any CPU
+		{FD23F823-0377-4498-B241-804193235C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD23F823-0377-4498-B241-804193235C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD23F823-0377-4498-B241-804193235C1B}.Release|x64.ActiveCfg = Release|Any CPU
+		{FD23F823-0377-4498-B241-804193235C1B}.Release|x64.Build.0 = Release|Any CPU
+		{FD23F823-0377-4498-B241-804193235C1B}.Release|x86.ActiveCfg = Release|Any CPU
+		{FD23F823-0377-4498-B241-804193235C1B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

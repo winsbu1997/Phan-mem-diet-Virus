@@ -5,20 +5,42 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Runtime.InteropServices;
 using Aspose.Zip;
+using Aspose.Zip.Rar;
+using VerifyingFiles;
 using BinarySearch;
+using Ionic.Zip;
+
 namespace mtaAVCLI
 {
     class Program
     {
         #region Init
+        [DllImport("Kernel32")]
+        private static extern bool SetConsoleCtrlHandler(SetConsoleCtrlEventHandler handler, bool add);
+
+        // https://docs.microsoft.com/en-us/windows/console/handlerroutine?WT.mc_id=DT-MVP-5003978
+        private delegate bool SetConsoleCtrlEventHandler(CtrlType sig);
+
+        private enum CtrlType
+        {
+            CTRL_C_EVENT = 0,
+            CTRL_BREAK_EVENT = 1,
+            CTRL_CLOSE_EVENT = 2,
+            CTRL_LOGOFF_EVENT = 5,
+            CTRL_SHUTDOWN_EVENT = 6
+        }
+        private static string[] locationScan = { "","",""};
         public static string tempPath = "Temp";
         public static string resultFolderPath = "";
+        public static string virusScanFolderPath = "Collection_virus";
         public static int countDoc = 0;
         private static bool check = false;
         static List<string> arrTypeHash = new List<string> {"tt", "MD5", "SHA1", "SHA256" };
-        //private static string smart_ext = "*.exe|*.cpl|*.reg|*.ini|*.bat|*.com|*.dll|*.pif|*.lnk|*.scr|*.vbs|*.ocx|*.drv|*.sys";
+        private static string[] smart_ext = {"exe" , "cpl", "reg", "ini", "bat", "com", "dll", "pif", "lnk", "scr", "vbs", "ocx", "drv", "sys"};
         public static string logFilePath = "resultScan.txt";
+        public static string logFileSuspicious = "Suspicious.txt";
         static private string[] doc_ext = { ".docm", ".doc", ".xls", ".xlsm", ".ppt", ".pptm" };
         static readonly string txtHeader= @"
             ------------------------Chuong trinh quet virus-------------------------            
@@ -116,7 +138,38 @@ namespace mtaAVCLI
             var key = Console.ReadKey();
             return key.KeyChar;
         }
+        private static void ZipFolder(string path, string saveZipPath, string pass = "infected")
+        {
+            
+            using (ZipFile zip = new ZipFile())
+            {
+                zip.Password = pass;
+                string[] fileEntries = Directory.GetFiles(path);
+                foreach (var file in fileEntries)
+                {
+                    zip.AddFile(file, virusScanFolderPath);
+                }
+                zip.Save(saveZipPath);
+            }
+        }
+        private static bool Handler(CtrlType signal)
+        {
+            switch (signal)
+            {
+                case CtrlType.CTRL_BREAK_EVENT:
+                case CtrlType.CTRL_C_EVENT:
+                case CtrlType.CTRL_LOGOFF_EVENT:
+                case CtrlType.CTRL_SHUTDOWN_EVENT:
+                case CtrlType.CTRL_CLOSE_EVENT:
+                    ZipFolder(virusScanFolderPath, resultFolderPath + "\\" + "VirusDetected.zip");
+                    Directory.Delete(virusScanFolderPath, true);
+                    Environment.Exit(0);
+                    return false;
 
+                default:
+                    return false;
+            }
+        }
         static string unZip(string path)
         {
             string folder = "Unzipped";
@@ -155,10 +208,15 @@ namespace mtaAVCLI
 
         static void Main(string[] args)
         {
+            // Register the handler
+            SetConsoleCtrlHandler(Handler, true);
             Console.OutputEncoding = Encoding.UTF8;
             resultFolderPath = "Result " + DateTime.Now.ToString("ddMMyyyy_HHmmss", CultureInfo.InvariantCulture);
             Directory.CreateDirectory(resultFolderPath);
-            logFilePath = resultFolderPath + "\\" + logFilePath;
+            logFilePath = Path.Combine(resultFolderPath, logFilePath);
+            logFileSuspicious = Path.Combine(resultFolderPath, logFileSuspicious);
+            virusScanFolderPath = Path.Combine(resultFolderPath, virusScanFolderPath);
+            Directory.CreateDirectory(virusScanFolderPath);
             bool stop = false;
             while (!stop)
             {
@@ -191,6 +249,8 @@ namespace mtaAVCLI
                     //UpdateDBStateInternet();
                 }
             }
+            ZipFolder(virusScanFolderPath, resultFolderPath + "\\" + "VirusDetected.zip");
+            Directory.Delete(virusScanFolderPath, true);
         }
 
         #region State
@@ -344,8 +404,21 @@ namespace mtaAVCLI
         #region Functions
         static void ScanFile(string loc)
         {
-            if (File.Exists(loc))
+            if (File.Exists(loc) && loc.Length <= 52428800)
             {
+                string ext = Path.GetExtension(loc);
+                if (smart_ext.Contains(ext.ToLower()))
+                {
+                    File.AppendAllText(logFileSuspicious, loc + Environment.NewLine);
+                }
+                if (FileTypeVerifier.What(loc).Name.ToString() != "Exe")
+                {
+                    Console.Write("File sach! Ấn phím bất kỳ để tiếp tục.");
+                    if (GetKey() == '0')
+                        MainState();
+                    else
+                        ScanFileState();
+                }
                 var scanResult = Manage.MD5Scan(loc);
                 if (scanResult.IsEmpty)
                 {
@@ -372,6 +445,7 @@ namespace mtaAVCLI
                     var time = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                     var resultTxt = time + " | " + virusPath + " | " + scanResult.VirusName;
                     File.AppendAllText(logFilePath, resultTxt + Environment.NewLine);
+                    File.Copy(virusPath, virusScanFolderPath + "\\" + scanResult.VirusName, true);
                     if (GetKey()!= 'n')
                     {
                         File.Delete(virusPath);
@@ -402,7 +476,7 @@ namespace mtaAVCLI
             if (files.Length==0 && note == "")
             {
                 Console.WriteLine(
-                        @"Sai duong dan hoac folder khong ton tai! ");
+                        @"Sai đường dẫn file hoặc folder không tồn tại!! ");
                 Console.Write(
                         @"Ấn phím bất kỳ để nhập lại ");
                 var key = Console.ReadKey();
@@ -413,14 +487,12 @@ namespace mtaAVCLI
             }
             else
             { 
-                int total = files.Length;
-                string[] lst_Dynamic = new string[total];
-
                 foreach (string file in files)
                 {
-                    if (File.Exists(file))
+                    if (File.Exists(file) && file.Length <= 52428800)
                     {
-                        if(Path.GetExtension(file).Contains("zip") || Path.GetExtension(file).Contains("rar"))
+                        string checkFileType = FileTypeVerifier.What(file).Name;
+                        if(checkFileType == "Rar" || checkFileType == "Zip")
                         {
                             try
                             {
@@ -437,7 +509,15 @@ namespace mtaAVCLI
                             FileInfo fi = new FileInfo(file);
                             try
                             {
-                                string find = Path.GetExtension(file);
+                                string ext = Path.GetExtension(file);
+                                if (smart_ext.Contains(ext.ToLower())) 
+                                {
+                                    File.AppendAllText(logFileSuspicious, file + Environment.NewLine);
+                                }
+                                if (FileTypeVerifier.What(file).Name.ToString() != "Exe")
+                                {
+                                    continue;
+                                }
                                 var scanResult = Manage.MD5Scan(file);
                                 if (scanResult.IsEmpty)
                                 {
@@ -454,6 +534,7 @@ namespace mtaAVCLI
                                     var time = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                                     var resultTxt = time + " | " + virusPath + " | " + scanResult.VirusName + " | File Zip: " + note;
                                     File.AppendAllText(logFilePath, resultTxt + Environment.NewLine);
+                                    File.Copy(virusPath, virusScanFolderPath + "\\" + scanResult.VirusName, true);
                                     if (note != "")
                                     {
                                         Console.Write(
@@ -502,7 +583,7 @@ namespace mtaAVCLI
                 if (files.Length == 0)
                 {
                     Console.WriteLine(
-                            @"Sai duong dan file hoac folder khong ton tai! ");
+                            @"Sai đường dẫn file hoặc folder không tồn tại!! ");
                     Console.Write(
                             @"Ấn phím bất kỳ để nhập lại ");
                     var key = Console.ReadKey();
@@ -609,7 +690,7 @@ namespace mtaAVCLI
             {
                 string file = lstDllUnverify[i];
                 Console.WriteLine("Quét file " + file);
-                if(file != "" && File.Exists(file))
+                if(file != "" && File.Exists(file) && file.Length <= 52428800)
                 {
                     var scanResult = Manage.MD5Scan(file);
                     if (scanResult.IsEmpty)
