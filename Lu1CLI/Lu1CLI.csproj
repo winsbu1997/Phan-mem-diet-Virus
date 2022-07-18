@@ -38,6 +38,9 @@
     <Reference Include="Aspose.Zip, Version=22.5.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
       <HintPath>..\packages\Aspose.Zip.22.5.0\lib\net40\Aspose.Zip.dll</HintPath>
     </Reference>
+    <Reference Include="FileTypes">
+      <HintPath>..\FileTypes\bin\Release\FileTypes.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <HintPath>..\packages\Ionic.Zip.1.9.1.8\lib\Ionic.Zip.dll</HintPath>
     </Reference>
