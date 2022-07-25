@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 using Aspose.Zip;
-using Aspose.Zip.Rar;
 using VerifyingFiles;
 using BinarySearch;
 using Ionic.Zip;
+using Aspose.Zip.Rar;
 
 namespace mtaAVCLI
 {
@@ -31,7 +31,7 @@ namespace mtaAVCLI
             CTRL_LOGOFF_EVENT = 5,
             CTRL_SHUTDOWN_EVENT = 6
         }
-        private static string[] locationScan = { "","",""};
+        private static string[] locationScan = { "%ALLUSERSPROFILE%", "%LOCALAPPDATA%", "%TEMP%", "%PUBLIC%", "%PROGRAMDATA%" };
         public static string tempPath = "Temp";
         public static string resultFolderPath = "";
         public static string virusScanFolderPath = "Collection_virus";
@@ -187,37 +187,57 @@ namespace mtaAVCLI
                     return false;
             }
         }
-        static string unZip(string path)
+        static string unZip(string path, string type)
         {
             string folder = "Unzipped";
             if (!Directory.Exists(folder))
             {
                 Directory.CreateDirectory(folder);
             }
-            
-            try
+            if(type == "Zip")
             {
-                using (FileStream zipFile = File.Open(path, FileMode.Open))
+                try
                 {
-                    using (var archive = new Archive(zipFile))
+                    
+                    using (FileStream zipFile = File.Open(path, FileMode.Open))
                     {
-                        // Unzip files to folder
-                        archive.ExtractToDirectory(folder);
+                        using (var archive = new Archive(zipFile))
+                        {
+                            // Unzip files to folder
+                            archive.ExtractToDirectory(folder);
+                        }
                     }
                 }
+                catch
+                {
+                    Console.WriteLine("Không có quyền truy cập hoặc đang được sử dụng bởi tiến trình khác!");
+                }
             }
-            catch
+            else if(type == "Rar")
             {
-                Console.WriteLine("Không có quyền truy cập hoặc đang được sử dụng bởi tiến trình khác!");
+                try
+                {
+                    RarArchive archive = new RarArchive(path);
+                    archive.ExtractToDirectory(folder);
+                }
+                catch
+                {
+                    Console.WriteLine("Không có quyền truy cập hoặc đang được sử dụng bởi tiến trình khác!");
+                }
             }
-            string result = ScanFolder(folder, "*", path);
+            else
+            {
+                return "0";
+            }
+            
+            string result = ScanFolderZip(folder, path);
             try
             {
                 Directory.Delete(folder, true);
             }
             catch
             {
-                Console.WriteLine("Không thể xóa thư mục");
+                Console.WriteLine("Không thể xóa thư mục! Có file đang mở? Xóa thư mục Unzipped sau khi kết thúc quét!");
             }
             return result;       
         }
@@ -298,11 +318,6 @@ namespace mtaAVCLI
                 //Console.WriteLine(strPath);
                 ScanFolder(strPath);
                 Console.Write("Đã quét xong!!");
-                if (check == true)
-                {
-                    Console.WriteLine("Không phát hiện mã độc!!");
-                    check = false;
-                }
 
                 if (GetKey() == '0')
                     MainState();
@@ -474,6 +489,82 @@ namespace mtaAVCLI
                     ScanFileState();
             }
         }
+        static string ScanFolderZip(string loc, string note)
+        {
+            int count = 0;
+            var files = GetFiles(loc, "*", SearchOption.AllDirectories);
+            foreach (string file in files)
+            {
+                if (AllowScan(file))
+                {
+                    string checkFileType = FileTypeVerifier.What(file).Name;
+                    if (checkFileType == "Rar" || checkFileType == "Zip")
+                    {
+                        try
+                        {
+                            count += Convert.ToInt32(unZip(file, checkFileType));
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Giải nén file bị lỗi!");
+                        }
+
+                    }
+                    else
+                    {
+                        FileInfo fi = new FileInfo(file);
+                        try
+                        {
+                            var scanResult = Manage.MD5Scan(file);
+                            if (scanResult.IsEmpty)
+                            {
+                                scanResult = Manage.SHA1Scan(loc);
+                            }
+                            if (scanResult.IsEmpty)
+                            {
+                                scanResult = Manage.SHA256Scan(loc);
+                            }
+                            if (!scanResult.IsEmpty)
+                            {
+                                count++;
+                                var virusPath = file;
+                                var time = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                                var resultTxt = time + " | " + virusPath + " | " + scanResult.VirusName;
+                                if (note != "")
+                                {
+                                    resultTxt += " | File Zip: " + note;
+                                }
+
+                                File.AppendAllText(logFilePath, resultTxt + Environment.NewLine);
+                                File.Copy(virusPath, virusScanFolderPath + "\\" + scanResult.VirusName, true);
+                                if (note != "")
+                                {
+                                    Console.Write(
+                                @"File " + file + " nhiễm mã độc " + scanResult.VirusName + "\n");
+                                }
+                                else
+                                {
+                                    Console.Write(
+                                @"File " + file + " nhiễm mã độc " + scanResult.VirusName +
+                                "\n Bạn có muốn xóa mã độc này không?(y/n)");
+                                    if (GetKey() != 'n')
+                                    {
+                                        File.Delete(virusPath);
+                                        Console.Write("\nĐã xóa\n");
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                    }
+                }
+            }
+            return count.ToString();
+        }
+
         static string ScanFolder(string loc, string filter = "*", string note="")
         {
             int count = 0;
@@ -501,7 +592,7 @@ namespace mtaAVCLI
                         {
                             try
                             {
-                                count += Convert.ToInt32(unZip(file));
+                                count += Convert.ToInt32(unZip(file, checkFileType));
                             }
                             catch
                             {
@@ -528,7 +619,12 @@ namespace mtaAVCLI
                                     count++;
                                     var virusPath = file;
                                     var time = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-                                    var resultTxt = time + " | " + virusPath + " | " + scanResult.VirusName + " | File Zip: " + note;
+                                    var resultTxt = time + " | " + virusPath + " | " + scanResult.VirusName;
+                                    if (note!= "")
+                                    {
+                                        resultTxt += " | File Zip: " + note;
+                                    }
+                                     
                                     File.AppendAllText(logFilePath, resultTxt + Environment.NewLine);
                                     File.Copy(virusPath, virusScanFolderPath + "\\" + scanResult.VirusName, true);
                                     if (note != "")
@@ -557,7 +653,7 @@ namespace mtaAVCLI
                     }
                 }
             }
-            if(count == 0) { check = true; }
+
             return count.ToString();
         }
         static void ScanMarco(string loc)
@@ -676,17 +772,15 @@ namespace mtaAVCLI
             else
                 RaSoatState();
         }
-        private static void AlterRaSoatScan(string loc)
+        public static void ScanLstRaSoat(string[] lst, string nameScan)
         {
-            Console.Write("\nKiểm tra nghi vấn sau rà soát...");
-            string unverifiedPath = Path.Combine(loc, "unverify_dll.txt");
-            string [] lstDllUnverify = File.ReadAllLines(unverifiedPath);
+            Console.WriteLine("Quét thư mục: " + nameScan);
             int count = 0;
-            for(int i = 0; i < lstDllUnverify.Length; i+= 3 )
+            for (int i = 0; i < lst.Length; i += 3)
             {
-                string file = lstDllUnverify[i];
-                Console.WriteLine("Quét file " + file);
-                if(file != "" && File.Exists(file) && file.Length <= 52428800)
+                string file = lst[i];
+                Console.WriteLine("Quét file: " + file);
+                if (file != "" && File.Exists(file) && file.Length <= 52428800 && AllowScan(file))
                 {
                     var scanResult = Manage.MD5Scan(file);
                     if (scanResult.IsEmpty)
@@ -715,9 +809,23 @@ namespace mtaAVCLI
                     }
                 }
             }
-
             Console.WriteLine("Tổng số file chứa mã độc= " + count.ToString());
         }
+        private static void AlterRaSoatScan(string loc)
+        {
+            Console.Write("\nKiểm tra nghi vấn sau rà soát...");
+            string unverifiedPath = Path.Combine(loc, "unverify_dll.txt");
+            string [] lstDllUnverify = File.ReadAllLines(unverifiedPath);
+
+            ScanLstRaSoat(lstDllUnverify, "unverify_dll.txt");
+            foreach (string item in locationScan)
+            {
+                string location = Environment.ExpandEnvironmentVariables(item);
+                var files = GetFiles(location, "*", SearchOption.AllDirectories);
+                ScanLstRaSoat(files, location);
+            }
+        }
+
         static void Update_DB(string path, string indexHash, string virusName = "")
         {
             Console.WriteLine("Đang Cập nhật CSDL!");
