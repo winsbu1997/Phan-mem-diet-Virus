@@ -29,16 +29,21 @@ namespace VerifyingFiles
 
         public static FileTypeVerifyResult What(string path)
         {
-            var file = File.OpenRead(path);
             FileTypeVerifyResult result = null;
-
-            foreach (var fileType in Types)
+            try
             {
-                result = fileType.Verify(file);
-                if (result.IsVerified)
-                    break;
+                var file = File.OpenRead(path);
+                foreach (var fileType in Types)
+                {
+                    result = fileType.Verify(file);
+                    if (result.IsVerified)
+                        break;
+                }
             }
+            catch
+            {
 
+            }
             return result?.IsVerified == true
                    ? result
                    : Unknown;
