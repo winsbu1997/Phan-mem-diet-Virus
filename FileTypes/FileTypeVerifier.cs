@@ -33,12 +33,14 @@ namespace VerifyingFiles
             try
             {
                 var file = File.OpenRead(path);
+                
                 foreach (var fileType in Types)
                 {
                     result = fileType.Verify(file);
                     if (result.IsVerified)
                         break;
                 }
+                file.Dispose();
             }
             catch
             {

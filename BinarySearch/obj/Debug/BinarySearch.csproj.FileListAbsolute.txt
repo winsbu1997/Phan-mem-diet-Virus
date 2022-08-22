@@ -14,3 +14,4 @@ J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csproj.CoreC
 J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csproj.CopyComplete
 J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.dll
 J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.pdb
+J:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csprojAssemblyReference.cache

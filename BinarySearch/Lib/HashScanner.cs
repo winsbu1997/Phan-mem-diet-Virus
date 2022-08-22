@@ -105,9 +105,11 @@ namespace BinarySearch.Lib
 
         public ResultScan Scan(string path = "")
         {
+
             string hashValue = hashHelper.HashFile(path);
             ResultScan res = Search(hashValue);
-            return res;
+            return res; 
+            
         }
 
         public string GetHash(string path = "")
