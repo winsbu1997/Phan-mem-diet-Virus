@@ -52,6 +52,7 @@ namespace mtaAVCLI
             3. Quét Marco
             4. Quét RaSoat
             5. Cập nhật CSDL
+            6. Giải mã CSDL
             ";
         static readonly string txtUpdate = @"
             Chọn loại mã hash Update:
@@ -295,7 +296,13 @@ namespace mtaAVCLI
                     UpdateDBState();
                     //UpdateDBStateInternet();
                 }
-                else{
+                else if (key == '6')
+                {
+                    PrintDBState();
+                    //UpdateDBStateInternet();
+                }
+                else
+                {
                     MainState();
                 }
 
@@ -379,6 +386,34 @@ namespace mtaAVCLI
             if(res == 0) Console.WriteLine("Đã cập nhật thành công! Nhấn phím bất kì để thoát!");
            
             UpdateDBState();
+        }
+
+        static void PrintDBState() 
+        {
+            ChangeConsole("", true, txtUpdate);
+            var hash = Console.ReadLine().ToString();
+            if (hash != "1" && hash != "2" && hash != "3")
+            {
+                return;
+            }
+            Console.WriteLine("Đang tạo file giải mã!");
+            switch (hash)
+            {
+                case "1":
+                    Manage.MD5Print();
+                    break;
+                case "2":
+                    Manage.SHA1Print();
+                    break;
+                case "3":
+                    Manage.SHA256Print();
+                    break;
+                default:
+                    MainState();
+                    break;
+            }
+            Console.WriteLine("Giải mã thành công!");
+            return;
         }
 
         static int OptionUpdate(string strOption)

@@ -234,21 +234,25 @@ namespace BinarySearch.Lib
         }
 
 
-        public void PrintDB()
+        public void PrintDB(string hash)
         {
-            int id = 0;
-            fs = new FileStream(pathz[id], FileMode.Open, FileAccess.Read);
-            StreamWriter sw = new StreamWriter("Output.txt");
-            bs = new BufferedStream(fs, BufferSize);
-            long n = fs.Length / BufferSize;
-            for (int i = 1; i <= n; i++)
+            StreamWriter sw = new StreamWriter(string.Format("{0}.txt", hash));
+            for (int iz=0; iz<8; iz++)
             {
-                Virus z = GetVirus(i);
-                string tmp = z.HashValue + ":" + z.Name;
-                sw.WriteLine(tmp);
-                Console.WriteLine("I= {0} Hash= {1} Name={2}", i, z.HashValue, z.Name);
+                fs = new FileStream(pathz[iz], FileMode.Open, FileAccess.Read);     
+                bs = new BufferedStream(fs, BufferSize);
+                long n = fs.Length / BufferSize;
+                for (int i = 1; i <= n; i++)
+                {
+                    Virus z = GetVirus(i);
+                    string tmp = z.HashValue + ":" + z.Name;
+                    sw.WriteLine(tmp);
+                    //Console.WriteLine("I= {0} Hash= {1} Name={2}", i, z.HashValue, z.Name);
+                }
+                fs.Close(); bs.Close();
             }
-            fs.Close(); bs.Close();
+            sw.Close();
+            
         }
     }
 }

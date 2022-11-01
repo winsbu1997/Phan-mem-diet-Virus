@@ -16,37 +16,48 @@ namespace mtaAVCLI
         public string typeHash { get; set; }
         public string TimeVersion { get; set; }
         public DataRequest() { }
-        public DataRequest(string typeHash)
+        public DataRequest(string typeHash, string TimeVersion)
         {
-            DateTime date = DateTime.UtcNow.Date;
             this.typeHash = typeHash;
-            this.TimeVersion = date.ToString("dd-MM-yyyy");
+            this.TimeVersion = TimeVersion;
         }
     }
     public class APIConnect
     {
         string configFile = "Config.txt";
+        string version = "version.txt";
         string error = "Không kết nối tới máy chủ! Kiểm tra lại kết nối!";
         public string Download_FileHash(string type)
         {
             string uri = "";
+            string verDate = "";
             if (File.Exists(configFile))
             {
                 uri = File.ReadAllLines(configFile)[0];
             }
             else
             {
-                return "Không có File Config API?";
+                return @"Không có File Config API? Nhập địa chỉ dạng http://127.0.0.0.:9090/";
+            }
+
+            if (File.Exists(version))
+            {
+                verDate = File.ReadAllLines(version)[0];
+            }
+            else
+            {
+                return "Không có File Version! Cần tạo file version dạng dd-MM-yyyy";
             }
 
             string saveFile = string.Format("{0}\\Temp\\", AppDomain.CurrentDomain.BaseDirectory);
-            string path = saveFile + type + "_" + DateTime.Now.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture) + ".txt";
+            string dateNow = DateTime.Now.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
+            string path = saveFile + type + "_" + dateNow + ".txt";
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(uri);
                 try
                 {
-                    var content = new DataRequest(type);
+                    var content = new DataRequest(type, verDate);
                     var json = JsonConvert.SerializeObject(content);
                     Console.WriteLine(json.ToString());
                     var data = new StringContent(json, Encoding.UTF8, "application/json");
@@ -57,6 +68,10 @@ namespace mtaAVCLI
                     {
                         var contentStream = response.Result.Content.ReadAsByteArrayAsync().Result;
                         File.WriteAllBytes(path, contentStream);
+
+                        // làm sạch file và ghi date mới nhất
+                        File.WriteAllText(version, string.Empty);
+                        File.WriteAllText(version, dateNow);
                         return path;
                     }
                 }

@@ -104,5 +104,26 @@ namespace BinarySearch
         }
 
         #endregion
+
+        #region Decrypt
+        public static void MD5Print()
+        {
+            HashScanner MD5Scanner = InitDb_Md5();
+            MD5Scanner.PrintDB("MD5");
+        }
+
+        public static void SHA1Print()
+        {
+            HashScanner SHA1Scanner = InitDb_Sha1();
+            SHA1Scanner.PrintDB("SHA1");
+        }
+
+        public static void SHA256Print()
+        {
+            HashScanner SHA256Scanner = InitDb_Sha256();
+            SHA256Scanner.PrintDB("SHA256");
+        }
+
+        #endregion
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj": {}
+    "G:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj": {}
   },
   "projects": {
-    "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj": {
+    "G:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj",
+        "projectUniqueName": "G:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj",
         "projectName": "BinarySearch",
-        "projectPath": "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj",
+        "projectPath": "G:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\BinarySearch.csproj",
         "packagesPath": "C:\\Users\\FUJITSU\\.nuget\\packages\\",
-        "outputPath": "J:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\obj\\",
+        "outputPath": "G:\\Lu1\\Code\\Phan-mem-diet-Virus\\BinarySearch\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
