@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using Aspose.Zip;
 using VerifyingFiles;
 using BinarySearch;
+using System.Diagnostics;
 using Ionic.Zip;
 using Aspose.Zip.Rar;
 
@@ -106,6 +107,11 @@ namespace mtaAVCLI
                 IsRoot = true;
             }
             return IsRoot;
+        }
+        public static void Empty(System.IO.DirectoryInfo directory)
+        {
+            foreach (System.IO.FileInfo file in directory.GetFiles()) file.Delete();
+            foreach (System.IO.DirectoryInfo subDirectory in directory.GetDirectories()) subDirectory.Delete(true);
         }
         public static string[] GetFiles(string SourceFolder, string Filter = "*.*", System.IO.SearchOption searchOption = SearchOption.AllDirectories)
         {
@@ -242,13 +248,14 @@ namespace mtaAVCLI
             string result = ScanFolderZip(folder, path);
             try
             {
-                Directory.Delete(folder, true);
+                System.IO.DirectoryInfo tmpDirectory = new System.IO.DirectoryInfo(folder);
+                Empty(tmpDirectory);
             }
             catch (Exception e)
             {
                 //Console.WriteLine(e.Message);
                 //{
-                //Console.WriteLine("\nKhông thể xóa thư mục! Có file đang mở? Xóa thư mục Unzipped sau khi kết thúc quét!");
+                Console.WriteLine(e.Message);
             }
             return result;       
         }
@@ -499,9 +506,9 @@ namespace mtaAVCLI
         #region Functions
         static void ScanFile(string loc)
         {
-            if (AllowScan(loc))
+            if (File.Exists(loc) && AllowScan(loc))
             {
-               
+                Console.Write("\n Nhập đường dẫn đúng để tiếp tục!");
                 var scanResult = Manage.MD5Scan(loc);
                 if (scanResult.IsEmpty)
                 {
