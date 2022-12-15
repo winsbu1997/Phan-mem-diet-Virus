@@ -32,19 +32,20 @@ namespace mtaAVCLI
             CTRL_LOGOFF_EVENT = 5,
             CTRL_SHUTDOWN_EVENT = 6
         }
-        private static string[] locationScan = { "%ALLUSERSPROFILE%", "%LOCALAPPDATA%", "%TEMP%", "%PUBLIC%", "C:\\ProgramData", System.IO.Path.GetTempPath() };
+        //private static string[] locationScan = { "%ALLUSERSPROFILE%", "%LOCALAPPDATA%", "%TEMP%", "%PUBLIC%", "C:\\ProgramData", System.IO.Path.GetTempPath() };
         public static string tempPath = "Temp";
+        public static string folderScanRaSoat = "autorasoat.txt";
         public static string resultFolderPath = "";
         public static string virusScanFolderPath = "Collection_virus";
         public static int countDoc = 0;
         private static bool check = false;
         static List<string> arrTypeHash = new List<string> {"tt", "MD5", "SHA1", "SHA256" };
-        private static string[] smart_ext = {"exe" , "cpl", "reg", "ini", "bat", "com", "dll", "pif", "lnk", "scr", "vbs", "ocx", "drv", "sys"};
+        private static string[] smart_ext = {"exe" , "cpl", "reg", "ini", "bat", "com", "dll", "pif", "lnk", "scr", "vbs", "ocx", "drv", "sys", "dat"};
         public static string logFilePath = "resultScan.txt";
         public static string logFileSuspicious = "Suspicious.txt";
         static private string[] doc_ext = { ".docm", ".doc", ".xls", ".xlsm", ".ppt", ".pptm" };
         static readonly string txtHeader= @"
-            ------------------------Chương trình diệt virus-------------------------            
+            ------------------------chương trình hỗ trợ rà soát mã độc-------------------------            
             ";
         static readonly string txtMain= @"
             0. Thoát
@@ -827,11 +828,18 @@ namespace mtaAVCLI
             }
             else
             {
-                Console.WriteLine(
-                        "\nSai đường dẫn hoặc file không tồn tại!! ");
-            }
-            Console.Write(
-                        @"Ấn phím bất kỳ để thoát! ");
+              
+                 Console.WriteLine(
+                        "\nSai đường dẫn hoặc không tồn tại!! ");
+                Console.Write(
+                        @"Ấn phím 0 để thoát! ");
+                if (GetKey() == '0')
+                    MainState();
+                else
+                {
+                    RaSoatState();
+                }
+            }    
             
         }
         public static void ScanLstRaSoat(string[] lst, string nameScan)
@@ -903,7 +911,7 @@ namespace mtaAVCLI
             Console.Write("\nKiểm tra nghi vấn sau rà soát...");
             string unverifiedPath = Path.Combine(loc, "unverify_dll.txt");
             string [] lstDllUnverify = File.ReadAllLines(unverifiedPath);
-
+            string[] locationScan = File.ReadAllLines(folderScanRaSoat);
             ScanLstRaSoat(lstDllUnverify, "unverify_dll.txt");
 
             foreach (string item in locationScan)
