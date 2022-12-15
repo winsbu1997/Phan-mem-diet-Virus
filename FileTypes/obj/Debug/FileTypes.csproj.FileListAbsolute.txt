@@ -5,3 +5,10 @@ J:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\obj\Debug\FileTypes.csprojAssemblyRefe
 J:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\obj\Debug\FileTypes.csproj.CoreCompileInputs.cache
 J:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\obj\Debug\FileTypes.dll
 J:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\obj\Debug\FileTypes.pdb
+G:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\bin\Debug\FileTypes.dll.config
+G:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\bin\Debug\FileTypes.dll
+G:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\bin\Debug\FileTypes.pdb
+G:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\obj\Debug\FileTypes.csproj.AssemblyReference.cache
+G:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\obj\Debug\FileTypes.csproj.CoreCompileInputs.cache
+G:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\obj\Debug\FileTypes.dll
+G:\Lu1\Code\Phan-mem-diet-Virus\FileTypes\obj\Debug\FileTypes.pdb

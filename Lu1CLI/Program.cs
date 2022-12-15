@@ -32,7 +32,7 @@ namespace mtaAVCLI
             CTRL_LOGOFF_EVENT = 5,
             CTRL_SHUTDOWN_EVENT = 6
         }
-        private static string[] locationScan = { "%ALLUSERSPROFILE%", "%LOCALAPPDATA%", "%TEMP%", "%PUBLIC%"};
+        private static string[] locationScan = { "%ALLUSERSPROFILE%", "%LOCALAPPDATA%", "%TEMP%", "%PUBLIC%", "C:\\ProgramData", System.IO.Path.GetTempPath() };
         public static string tempPath = "Temp";
         public static string resultFolderPath = "";
         public static string virusScanFolderPath = "Collection_virus";
@@ -905,6 +905,7 @@ namespace mtaAVCLI
             string [] lstDllUnverify = File.ReadAllLines(unverifiedPath);
 
             ScanLstRaSoat(lstDllUnverify, "unverify_dll.txt");
+
             foreach (string item in locationScan)
             {
                 string location = Environment.ExpandEnvironmentVariables(item);

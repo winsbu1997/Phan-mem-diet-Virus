@@ -19,8 +19,8 @@ G:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\bin\Debug\BinarySearch.dll
 G:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\bin\Debug\BinarySearch.pdb
 G:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\bin\Debug\EntityFramework.SqlServer.dll
 G:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\bin\Debug\EntityFramework.dll
-G:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csprojAssemblyReference.cache
 G:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csproj.CoreCompileInputs.cache
 G:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csproj.CopyComplete
 G:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.dll
 G:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.pdb
+G:\Lu1\Code\Phan-mem-diet-Virus\BinarySearch\obj\Debug\BinarySearch.csproj.AssemblyReference.cache
